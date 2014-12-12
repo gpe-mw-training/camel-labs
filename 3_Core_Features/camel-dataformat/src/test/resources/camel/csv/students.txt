@@ -1,0 +1,5 @@
+jeff,fuse-camel-training,1,5-10-2012
+chad,fuse-camel-training,2,6-12-2011
+samuel,fuse-camel-training,3,30-8-2010
+bernard,fuse-camel-training,4,10-6-2009
+satya,fuse-camel-training,5,1-1-2008

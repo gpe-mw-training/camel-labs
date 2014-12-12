@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+  		   http://www.springframework.org/schema/beans/spring-beans.xsd
+  		 http://camel.apache.org/schema/spring
+		     http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
+        <route id="fetch-records">
+            <from uri="sql:select * from projects order by id?dataSource=#h2-datasource&amp;consumer.delay=5000"/>
+            <split>
+                <simple>body</simple>
+                <log message=">> ID : ${body[ID]}, PROJECT : ${body[PROJECT]}, LICENSE : ${body[LICENSE]}"/>
+            </split>
+        </route>
+        <route id="insert-record">
+            <from uri="file://src/main/data?noop=true"/>
+            <convertBodyTo type="String"/>
+            <split>
+                <tokenize token="\n"/>
+                <log message=">> Record : ${body}"/>
+                <to uri="sql:insert into projects (id, project, license) values (#, #, #)?separator=;"/>
+            </split>
+        </route>
+    </camelContext>
+</beans>

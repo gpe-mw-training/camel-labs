@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>camel</artifactId>
+        <groupId>com.redhat.gpe.training</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>camel-lab-7-project</artifactId>
+    <name>RedHat GPE Training :: Camel :: Lab :: 7 :: Project</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>camel-jdbc-jms-transaction</module>
+        <module>camel-jms-transaction</module>
+        <module>camel-mycomponent</module>
+        <module>camel-routepolicy</module>
+        <module>camel-security</module>
+    </modules>
+</project>

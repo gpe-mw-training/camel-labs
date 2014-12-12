@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cxf="http://camel.apache.org/schema/cxf"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+  		   http://www.springframework.org/schema/beans/spring-beans.xsd
+  		 http://camel.apache.org/schema/spring
+		     http://camel.apache.org/schema/spring/camel-spring.xsd
+		   http://camel.apache.org/schema/cxf
+		     http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+
+    <cxf:cxfEndpoint id="WS"
+                     address="http://0.0.0.0:9090/training/WebService"
+                     serviceClass="com.redhat.gpe.training.CustomerService">
+    </cxf:cxfEndpoint>
+
+    <bean id="beanService" class="com.redhat.gpe.training.camel.BeanService" init-method="generateCustomer"/>
+
+    <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
+
+        <dataFormats>
+            <soapjaxb contextPath="com.redhat.gpe.training" id="soapFormat"/>
+        </dataFormats>
+
+        <route id="cxf-to-queue">
+            <from uri="cxf:bean:WS?dataFormat=MESSAGE&amp;loggingFeatureEnabled=true"/>
+            <setExchangePattern pattern="InOut"/>
+            <convertBodyTo type="String"/>
+            <log message="SOAP message received : ${body} and operation type : ${in.header.SOAPAction}"/>
+            <unmarshal ref="soapFormat"/>
+            <choice>
+                <when>
+                    <simple>${in.header.SOAPAction} contains 'saveCustomer'</simple>
+                    <bean method="saveCustomer" ref="beanService"/>
+                    <marshal ref="soapFormat"/>
+                </when>
+                <when>
+                    <simple>${in.header.SOAPAction} contains 'getCustomerByName'</simple>
+                    <bean method="getCustomerByName" ref="beanService"/>
+                    <marshal ref="soapFormat"/>
+                </when>
+                <when>
+                    <simple>${in.header.SOAPAction} contains 'getAllCustomers'</simple>
+                    <bean method="getCustomers" ref="beanService"/>
+                    <marshal ref="soapFormat"/>
+                </when>
+            </choice>
+            <log message="SOAP message returned : ${body}"/>
+        </route>
+
+    </camelContext>
+
+</beans>

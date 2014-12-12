@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+  		  http://www.springframework.org/schema/beans/spring-beans.xsd
+  	   http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd
+  		 http://camel.apache.org/schema/spring
+		     http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <context:property-placeholder location="classpath:marvel.properties"/>
+
+    <bean id="marvelUtil" class="com.redhat.gpe.training.camel.MarvelUtil">
+        <property name="apiKey" value="${apiKey}"/>
+        <property name="privateKey" value="${privateKey}"/>
+    </bean>
+
+    <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
+        <propertyPlaceholder id="marvel" location="classpath:marvel.properties"/>
+
+        <dataFormats>
+            <json id="json-marvel" library="Jackson" unmarshalTypeName="com.redhat.gpe.training.camel.model.Record"/>
+        </dataFormats>
+
+        <route id="call-marvel">
+            <from uri="file://src/main/data?noop=true"/>
+            <split>
+                <tokenize token=","/>
+                <!-- Define TimeStamp & Hash required by Marvel API -->
+                <setHeader headerName="hash">
+                    <method ref="marvelUtil" method="hash"/>
+                </setHeader>
+                <setHeader headerName="ts">
+                    <method ref="marvelUtil" method="getTs"/>
+                </setHeader>
+                <setHeader headerName="marvelID">
+                    <simple>${body}</simple>
+                </setHeader>
+                <!-- Set HTTP Query with Parameters -->
+                <setHeader headerName="CamelHttpQuery">
+                    <simple>hash=${header.hash}&amp;apikey=${properties:apiKey}&amp;ts=${header.ts}</simple>
+                </setHeader>
+                <!-- Set HTTP URI -->
+                <setHeader headerName="CamelHttpUri">
+                    <simple>http://gateway.marvel.com/v1/public/characters/${body}</simple>
+                </setHeader>
+                <!-- Set HTTP Method -->
+                <setHeader headerName="CamelHttpMethod">
+                    <constant>GET</constant>
+                </setHeader>
+<!--                <log message=">> HTTP Query : ${header.CamelHttpQuery}"/>
+                <log message=">> HTTP Query : ${header.CamelHttpUri}"/>-->
+                <to uri="direct:call-marvel"/>
+            </split>
+        </route>
+
+        <route streamCache="true">
+            <from uri="direct:call-marvel"/>
+            <to uri="http://gateway.marvel.com/"/>
+            <unmarshal ref="json-marvel"/>
+            <log message="*** RECORD - ${header.CamelSplitIndex} ***"/>
+            <log message="ID : ${header.marvelID}"/>
+            <log message="Name : ${body.data.results[0].name}"/>
+            <log message="Description : ${body.data.results[0].description}"/>
+            <log message="Thumbnail : ${body.data.results[0].thumbnail.path}"/>
+            <log message="Comics available : ${body.data.results[0].comics.available}"/>
+        </route>
+
+    </camelContext>
+</beans>
