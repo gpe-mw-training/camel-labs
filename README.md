@@ -9,7 +9,7 @@ The labs are available here for download :
 
 * Skeletons of the exercices :
 - V0.1 : [tar.gz](https://github.com/gpe-mw-training/camel-labs/archive/v0.1-exercise.tar.gz) and [zip](https://github.com/gpe-mw-training/camel-labs/archive/v0.1-exercise.zip)
-- 
+
 * Solutions :
 - v0.1 : [tar.gz](https://github.com/gpe-mw-training/camel-labs/archive/v0.1-solution.tar.gz) and [zip](https://github.com/gpe-mw-training/camel-labs/archive/v0.1-solution.zip)
 
