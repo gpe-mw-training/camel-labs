@@ -1,3 +1,0 @@
-curl -X POST --header "content-type: text/xml" --header "SOAPAction:http://training.gpe.redhat.com/getAllCustomers" --data @soap-getAllCustomers.xml http://0.0.0.0:9090/training/WebService
-curl -X POST --header "content-type: text/xml" --header "SOAPAction:http://training.gpe.redhat.com/getCustomerByName" --data @soap-getCustomerByName.xml http://0.0.0.0:9090/training/WebService
-curl -X POST --header "content-type: text/xml" --header "SOAPAction:http://training.gpe.redhat.com/saveCustomer" --data @soap-saveCustomer.xml http://0.0.0.0:9090/training/WebService

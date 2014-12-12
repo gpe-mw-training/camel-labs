@@ -1,5 +1,0 @@
-jeff,fuse-camel-traning,1
-chad,fuse-camel-traning,2
-samuel,fuse-camel-traning,3
-bernard,fuse-camel-traning,4
-satya,fuse-camel-traning,5

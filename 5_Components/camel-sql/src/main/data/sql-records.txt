@@ -1,6 +1,0 @@
-5;'Apache CXF';'ASF'
-6;'JBoss Hibernate';'LGPL'
-7;'JBoss WildFly';'GPL'
-8;'Apache Deltaspike';'ASF'
-9;'JBoss Drools';'ASF'
-10;'JBoss Arquillian';'ASF'
