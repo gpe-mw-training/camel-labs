@@ -1,4 +1,4 @@
-# GitHub repository of the JBoss Fuse Camel Labs
+# JBoss Fuse Camel Labs
 
 This repository contains 2 branches :
 
