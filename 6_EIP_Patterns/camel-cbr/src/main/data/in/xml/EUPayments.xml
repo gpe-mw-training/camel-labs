@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Payments xmlns:tns="http://training.gpe.redhat.com/payment"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="training.gpe.redhat.com/payment">
+
+    <tns:Currency>EUR</tns:Currency>
+
+    <tns:Payment>
+        <tns:from>ade</tns:from>
+        <tns:to>jack</tns:to>
+        <tns:amount>1000000.0</tns:amount>
+    </tns:Payment>
+    <tns:Payment>
+        <tns:from>jack</tns:from>
+        <tns:to>jill</tns:to>
+        <tns:amount>20.0</tns:amount>
+    </tns:Payment>
+    <tns:Payment>
+        <tns:from>ade</tns:from>
+        <tns:to>jill</tns:to>
+        <tns:amount>42.0</tns:amount>
+    </tns:Payment>
+
+</tns:Payments>
