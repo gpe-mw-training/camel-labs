@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0
+http://karaf.apache.org/xmlns/features/v1.0.0 "
+          name="redhat-gpe-jboss-fuse-camel-training">
+
+    <!-- import other features files -->
+    <!--    <repository>mvn:org.apache.servicemix/apache-servicemix/${servicemix.version}/xml/features</repository>-->
+
+    <feature name="camel-exercise-cbr">
+        <feature version="${camel-version}">camel</feature>
+        <bundle>mvn:${pom.groupId}/camel-exercise-cbr/${pom.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-exception">
+        <feature version="${camel-version}">camel</feature>
+        <bundle>mvn:${pom.groupId}/camel-exercise-exception/${pom.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-expressions">
+        <feature version="${camel-version}">camel</feature>
+        <bundle>mvn:${pom.groupId}/camel-exercise-expressions/${pom.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-threads">
+        <feature version="${camel-version}">camel</feature>
+        <bundle>mvn:${pom.groupId}/camel-exercise-threads/${pom.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-typeconverter">
+        <feature version="${camel-version}">camel</feature>
+        <bundle>mvn:${pom.groupId}/camel-exercise-typeconverter/${pom.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-typeconverter">
+        <feature version="${camel-version}">camel</feature>
+        <bundle>mvn:${pom.groupId}/camel-exercise-typeconverter/${pom.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-dataformat">
+        <feature version="${camel-version}">camel</feature>
+        <feature version="${camel-version}">camel-bindy</feature>
+        <bundle>mvn:${pom.groupId}/camel-exercise-dataformat/${pom.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-splitter">
+        <feature version="${camel-version}">camel</feature>
+        <feature version="${camel-version}">camel-jms</feature>
+        <bundle>mvn:${project.groupId}/camel-exercise-splitter/${project.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-aggregator">
+        <feature version="${camel-version}">camel</feature>
+        <feature version="${camel-version}">camel-jms</feature>
+        <bundle>mvn:${project.groupId}/camel-exercise-aggregator/${project.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-jms-transaction">
+        <feature version="${camel-version}">camel</feature>
+        <feature version="${camel-version}">camel-jms</feature>
+        <feature version="${camel-version}">camel-jaxb</feature>
+        <bundle>mvn:${project.groupId}/camel-exercise-jms-transaction/${project.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-jdbc-jms-transaction">
+        <feature version="${camel-version}">camel</feature>
+        <feature version="${camel-version}">camel-jms</feature>
+        <feature version="${camel-version}">camel-jaxb</feature>
+        <bundle>mvn:org.springframework/spring-jdbc/${spring.version}</bundle>
+        <bundle>mvn:${project.groupId}/camel-exercise-jdbc-jms-transaction/${project.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-mycomponent">
+        <feature version="${camel-version}">camel</feature>
+        <bundle>mvn:${project.groupId}/camel-exercise-mycomponent/${project.version}</bundle>
+    </feature>
+
+    <feature name="camel-exercise-webservice">
+        <feature version="${camel-version}">camel</feature>
+        <feature version="${camel-version}">camel-soap</feature>
+        <feature version="${camel-version}">camel-http</feature>
+        <feature version="${camel-version}">camel-cxf</feature>
+        <bundle>mvn:${pom.groupId}/camel-exercise-webservice/${pom.version}</bundle>
+    </feature>
+
+</features>
