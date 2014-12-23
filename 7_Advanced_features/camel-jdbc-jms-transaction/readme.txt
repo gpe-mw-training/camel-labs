@@ -76,11 +76,11 @@ Deployment:
 a) Start the ActiveMQ broker using (Note: you can skip this step if JBoss Fuse is running locally because JBoss Fuse
 has an embedded broker that can be used)
 
-    mvn -P a-run
+    mvn -P amq-run
 
 b) In another command line console start Camel using:
 
-    mvn -P c-run OR mvn -P c-run-mysql (to use MySQL Database) or mvn -P c-run-h2 (to use H2 Database)
+    mvn -P camel-postgresql-run (PostgreSQL Database) OR mvn -P camel-mysql-run (to use MySQL Database) or mvn -P camel-h2-run (to use H2 Database)
 
 You will find the output of the routes inside:
 
