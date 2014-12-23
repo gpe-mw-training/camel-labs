@@ -21,10 +21,10 @@ public class MyComponentProducer extends DefaultProducer {
 
     @Override
     public void process(Exchange exchange) throws Exception {
-        LOG.info(">> Body :" + exchange.getIn().getBody());
-        exchange.getIn().setHeader("MyHeader","123");
-        String body = (String) exchange.getIn().getBody();
-        exchange.getIn().setBody(body + " and the Teacher is crazy !");
+     /*
+      Enrich the exchange with the header ("MyHeader = foo")
+      and append to the body the message " What a crazy exercise !"
+     */
     }
 
 }

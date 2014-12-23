@@ -10,8 +10,7 @@ import org.apache.camel.impl.DefaultEndpoint;
  */
 public class MyComponentEndpoint extends DefaultEndpoint {
 
-    public MyComponentEndpoint() {
-    }
+    public MyComponentEndpoint() {}
 
     public MyComponentEndpoint(String uri, MyComponent component) {
         super(uri, component);

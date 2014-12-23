@@ -20,8 +20,7 @@ public class MyComponentConsumer extends ScheduledPollConsumer {
     protected int poll() throws Exception {
         Exchange exchange = endpoint.createExchange();
 
-        // create a message body
-        exchange.getIn().setBody("Hello World!");
+        /* Add exchange containing a body message */
 
         try {
             // send message to next processor in the route

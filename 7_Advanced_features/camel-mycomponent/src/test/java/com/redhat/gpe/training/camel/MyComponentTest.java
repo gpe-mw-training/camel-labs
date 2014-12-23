@@ -20,10 +20,10 @@ public class MyComponentTest extends CamelTestSupport {
         List<Exchange> exchanges = mock.getReceivedExchanges();
         Exchange exchange = exchanges.get(0);
         String myHeader = (String) exchange.getIn().getHeader("MyHeader");
-        assertEquals("123", myHeader);
+        assertEquals("foo", myHeader);
 
         String result = (String) exchange.getIn().getBody();
-        assertEquals("Hello World! and the Teacher is crazy !", result);
+        assertEquals("Hello World! What a crazy exercise !", result);
 
     }
 
