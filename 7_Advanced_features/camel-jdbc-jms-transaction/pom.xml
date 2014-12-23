@@ -82,7 +82,7 @@
 
     <profiles>
         <profile>
-            <id>a-run</id>
+            <id>amq-run</id>
             <build>
                 <defaultGoal>package</defaultGoal>
                 <plugins>
@@ -121,7 +121,7 @@
             </build>
         </profile>
         <profile>
-            <id>c-run-postgresql</id>
+            <id>camel-postgresql-run</id>
             <build>
                 <defaultGoal>package</defaultGoal>
                 <plugins>
@@ -146,7 +146,7 @@
             </build>
         </profile>
         <profile>
-            <id>c-run-mysql</id>
+            <id>camel-mysql-run</id>
             <build>
                 <defaultGoal>package</defaultGoal>
                 <plugins>
@@ -171,7 +171,7 @@
             </build>
         </profile>
         <profile>
-            <id>c-run-h2</id>
+            <id>camel-h2-run</id>
             <build>
                 <defaultGoal>package</defaultGoal>
                 <plugins>
@@ -198,7 +198,7 @@
         </profile>
 
         <profile>
-            <id>h2-run</id>
+            <id>start-h2</id>
             <build>
                 <defaultGoal>package</defaultGoal>
                 <plugins>
