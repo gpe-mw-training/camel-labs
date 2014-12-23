@@ -82,5 +82,17 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <!-- enable maven command 'mvn camel:run' -->
+            <plugin>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.redhat.gpe.training.camel.JettySecuredRoute</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
