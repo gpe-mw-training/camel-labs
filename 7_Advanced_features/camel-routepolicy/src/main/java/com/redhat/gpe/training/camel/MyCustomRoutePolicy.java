@@ -8,14 +8,6 @@ public class MyCustomRoutePolicy extends RoutePolicySupport {
 
     @Override
     public void onExchangeBegin(Route route, Exchange exchange) {
-        String body = exchange.getIn().getBody(String.class);
-        if ("STOP".equals(body)) {
-            try {
-                stopConsumer(route.getConsumer());
-            } catch (Exception e) {
-                handleException(e);
-            }
-        }
     }
 
 }

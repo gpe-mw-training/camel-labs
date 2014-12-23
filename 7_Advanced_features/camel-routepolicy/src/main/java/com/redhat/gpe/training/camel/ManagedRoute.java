@@ -36,7 +36,6 @@ public class ManagedRoute extends RouteBuilder {
                 .to("direct:foo") ;
 
         from("direct:foo")
-           .routePolicy(policy)
            .log("Route direct:foo has been called with the Body : ${body}");
     }
 }
