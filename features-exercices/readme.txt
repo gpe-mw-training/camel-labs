@@ -7,7 +7,7 @@ In order to deploy it please go to the parent directory 'camel-exercise' and bui
 
     mvn clean install
 
-The start up Servicemix 4 and load the features list into Servicemix:
+The start up JBoss Fuse and loads the features file into the Karaf engine:
 
     features:addurl mvn:com.redhat.gpe.training/camel-exercise-features/1.0/xml/features
 
