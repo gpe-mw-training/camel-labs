@@ -73,7 +73,7 @@ Deployment:
 ===========
 1) Running route from command-line. 
 
-a) Start the ActiveMQ broker using (Note: you can skip this step if Servicemix is running locally because Servicemix
+a) Start the ActiveMQ broker using (Note: you can skip this step if JBoss Fuse is running locally because JBoss Fuse
 has an embedded broker that can be used)
 
     mvn -P a-run

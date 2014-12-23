@@ -40,7 +40,7 @@
                     <manifestLocation>./target/META-INF</manifestLocation>
                     <instructions>
                         <Export-Package>com.redhat.gpe.training.camel</Export-Package>
-                        <!-- we must set the version for org.slf4j explicitly, to match that used in ServiceMix -->
+                        <!-- we must set the version for org.slf4j explicitly, to match that used in JBoss Fuse -->
                         <Import-Package>
                             org.slf4j;version=${slf4j.version},
                             *
