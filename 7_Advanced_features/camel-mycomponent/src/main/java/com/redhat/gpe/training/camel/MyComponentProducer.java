@@ -22,9 +22,9 @@ public class MyComponentProducer extends DefaultProducer {
     @Override
     public void process(Exchange exchange) throws Exception {
         LOG.info(">> Body :" + exchange.getIn().getBody());
-        exchange.getIn().setHeader("MyHeader","123");
+        exchange.getIn().setHeader("MyHeader","foo");
         String body = (String) exchange.getIn().getBody();
-        exchange.getIn().setBody(body + " and the Teacher is crazy !");
+        exchange.getIn().setBody(body + " What a crazy exercise !");
     }
 
 }
