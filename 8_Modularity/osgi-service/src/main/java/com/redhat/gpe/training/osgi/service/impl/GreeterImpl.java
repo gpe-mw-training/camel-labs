@@ -1,16 +1,17 @@
 package com.redhat.gpe.training.osgi.service.impl;
 
 import com.redhat.gpe.training.osgi.service.Greeter;
+import org.apache.felix.scr.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
 
 /**
  * Greeter service implementation
  */
-public class GreeterImpl
-        implements Greeter, InitializingBean, DisposableBean {
+@Component
+@Service(Greeter.class)
+public class GreeterImpl implements Greeter {
+
     // logger
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -21,22 +22,11 @@ public class GreeterImpl
     private static final String howResponse = "I'm in great form, thanks for asking!";
 
     // default response message
+    @Property(name = "DEFAULT_RESPONSE", label="Default Response message", value = "Hi there from the OSGi greeter service...")
     private String defaultResponse;
 
-    /**
-     * Used by Spring to inject the default response message.
-     */
-    public void setDefaultResponse(String response) {
-        logger.info("Setting the response to '" + response + "'");
-        this.defaultResponse = response;
-    }
-
-    /**
-     * Used by Spring to initialise the bean, and by us to configure any needed resources.
-     *
-     * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
-     */
-    public void afterPropertiesSet() throws Exception {
+    @Activate
+    public void init() throws Exception {
         logger.info("GreeterImpl initialized.");
         logger.info("Will return response '" + defaultResponse + "'");
     }
@@ -44,8 +34,7 @@ public class GreeterImpl
     /**
      * Checks the incoming request message and returns an appropriate response message.
      *
-     * @see com.redhat.gpe.training.osgi.service.Greeter#sayHello(String message)
-     */
+     **/
     public String sayHello(String message) {
         logger.info("Received message '" + message + "'");
         String response;
@@ -60,11 +49,7 @@ public class GreeterImpl
         return response;
     }
 
-    /**
-     * Used by Spring to shut down the bean, and by us to clean up any open resources.
-     *
-     * @see org.springframework.beans.factory.DisposableBean()
-     */
+    @Deactivate
     public void destroy() throws Exception {
         logger.info("Shutting down...");
     }
