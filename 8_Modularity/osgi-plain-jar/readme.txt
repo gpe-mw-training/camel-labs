@@ -1,14 +1,14 @@
-This Exercises shows how a OSGi bundle is created using Maven 2 as well as using Servicemix Properties to configure
+This Exercises shows how a OSGi bundle is created using Maven 2 as well as using JBoss Fuse Properties to configure
 settings through the Admin OSGi interface rather than through Spring or Application Properties.
 
 Deployment:
 
-After building the project using "mvn install" please copy the line below into the Karaf Console of Servicemix when
+After building the project using "mvn install" please copy the line below into the Karaf Console of JBoss Fuse when
 started up in order to to deploy it:
 
-    osgi:install -s wrap:mvn:com.fusesource.training/servicemix-exercises-plain-jar/2010.07.12
+    osgi:install -s wrap:mvn:com.redhat.gpe.training/osgi-plain-jar/1.0
 
-Now you need to copy the "deploy/plainAndSimple-context.xml" inside the "<servicemix installation directory>/deploy"
+Now you need to copy the "deploy/plainAndSimple-context.xml" inside the "<JBoss Fuse installation directory>/deploy"
 directory.
 
 Then look into the log file and check out if you find this message "Initializing Service bean with message" indicating
