@@ -14,10 +14,14 @@
     <packaging>bundle</packaging>
 
     <dependencies>
-        <!-- Spring -->
+        <!-- OSGI -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr.annotations</artifactId>
         </dependency>
 
         <!-- Logging -->
@@ -40,12 +44,27 @@
                             com.redhat.gpe.training.osgi.service
                         </Export-Package>
                         <Private-Package>
-                            com.redhat.training.service.impl
+                            com.redhat.gpe.training.osgi.service.impl
                         </Private-Package>
                         <Import-Package>*</Import-Package>
- <!--                       <Include-Resource>src/main/resources</Include-Resource>-->
                     </instructions>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-scr-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>scr</goal>
+                        </goals>
+                        <configuration>
+                            <specVersion>1.2</specVersion>
+                            <strictMode>false</strictMode>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
