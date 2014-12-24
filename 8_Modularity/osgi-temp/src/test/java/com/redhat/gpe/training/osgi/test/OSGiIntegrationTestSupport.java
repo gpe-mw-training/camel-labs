@@ -56,6 +56,7 @@ public class OSGiIntegrationTestSupport extends CamelTestSupport {
         }
     }
 
+    @Override
     protected CamelContext createCamelContext() throws Exception {
         LOG.info("Get the bundleContext is " + bundleContext);
         LOG.info("Application installed as bundle id: " + bundleContext.getBundle().getBundleId());
@@ -88,24 +89,6 @@ public class OSGiIntegrationTestSupport extends CamelTestSupport {
         }
     }
 
-/*    public static UrlReference getKarafFeatureUrl() {
-        String karafVersion = System.getProperty("karafVersion");
-        LOG.info("*** The karaf version is " + karafVersion + " ***");
-
-        String type = "xml/features";
-        return mavenBundle().groupId("org.apache.karaf.assemblies.features").
-                artifactId("standard").version(karafVersion).type(type);
-    }
-
-    public static UrlReference getKarafEnterpriseFeatureUrl() {
-        String karafVersion = System.getProperty("karafVersion");
-        LOG.info("*** The karaf version is " + karafVersion + " ***");
-
-        String type = "xml/features";
-        return mavenBundle().groupId("org.apache.karaf.assemblies.features").
-                artifactId("enterprise").version(karafVersion).type(type);
-    }*/
-
     public static Option loadCamelFeatures(String... features) {
         List<String> result = new ArrayList<String>();
         result.add("cxf-jaxb");
@@ -121,10 +104,6 @@ public class OSGiIntegrationTestSupport extends CamelTestSupport {
     public static Option scanFeatures(UrlReference ref, String... features) {
         return KarafDistributionOption.features(ref, features);
     }
-
-/*    public static Option scanFeatures(String ref, String... features) {
-        return KarafDistributionOption.features(ref, features);
-    }*/
 
     private static String getKarafVersion() {
         InputStream ins = OSGiIntegrationTestSupport.class.getResourceAsStream("/META-INF/maven/dependencies.properties");
