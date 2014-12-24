@@ -1,6 +1,6 @@
 package com.redhat.gpe.training.osgi.test;
 
-import com.redhat.gpe.training.osgi.model.Employee;
+import org.apache.camel.EndpointInject;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,11 +46,14 @@ public class BindyDataFormatCsvTest extends OSGiIntegrationTestSupport {
             public void configure() throws Exception {
                 DataFormat format = new BindyCsvDataFormat(Employee.class);
 
-                from("direct:unmarshal").unmarshal(format)
-                        .split(simple("body")).to("mock:bindy-unmarshal");
+                from("direct:unmarshal")
+                    .unmarshal(format)
+                    .split(simple("body"))
+                        .to("mock:bindy-unmarshal");
 
-                from("direct:marshal").marshal(format)
-                        .to("mock:bindy-marshal");
+                from("direct:marshal")
+                    .marshal(format)
+                    .to("mock:bindy-marshal");
             }
         };
     }
@@ -89,8 +92,6 @@ public class BindyDataFormatCsvTest extends OSGiIntegrationTestSupport {
                 getDefaultCamelKarafOptions(),
                 // using the features to install the other camel components
                 loadCamelFeatures("camel-bindy"));
-                // Load the bundle of the project
-                bundle("mvn:com.redhat.gpe.training/osgi-testing/1.0");
 
         return options;
     }
