@@ -1,5 +1,6 @@
-package com.redhat.gpe.training.osgi.camel;
+package com.redhat.gpe.training.osgi.test;
 
+import com.redhat.gpe.training.osgi.model.Employee;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,21 +9,18 @@ import java.util.List;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.dataformat.bindy.csv.BindyCsvDataFormat;
 import org.apache.camel.spi.DataFormat;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.PaxExam;
 
+import static org.ops4j.pax.exam.CoreOptions.bundle;
 import static org.ops4j.pax.exam.OptionUtils.combine;
 
-@RunWith(PaxExam.class) // 1
+@RunWith(PaxExam.class)
 public class BindyDataFormatCsvTest extends OSGiIntegrationTestSupport {
 
     private static final String FIXED_DATA = "Joe,Smith,Developer,75000,10012009" + "\n"
@@ -58,7 +56,7 @@ public class BindyDataFormatCsvTest extends OSGiIntegrationTestSupport {
     }
 
     private List<Employee> getEmployees() throws ParseException {
-        List<Employee> employees = new ArrayList<Employee>();
+        List<Employee> employees = new ArrayList<>();
         Employee one = new Employee();
         one.setFirstName("Joe");
         one.setLastName("Smith");
@@ -85,12 +83,14 @@ public class BindyDataFormatCsvTest extends OSGiIntegrationTestSupport {
         return employees;
     }
 
-    @Configuration // 1
+    @Configuration
     public static Option[] configure() {
         Option[] options = combine(
                 getDefaultCamelKarafOptions(),
                 // using the features to install the other camel components
                 loadCamelFeatures("camel-bindy"));
+                // Load the bundle of the project
+                bundle("mvn:com.redhat.gpe.training/osgi-testing/1.0");
 
         return options;
     }
