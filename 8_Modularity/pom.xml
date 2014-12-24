@@ -29,5 +29,6 @@
         <module>osgi-client</module>
         <module>osgi-camel</module>
         <module>osgi-camel-blueprint</module>
+        <module>osgi-testing</module>
     </modules>
 </project>
