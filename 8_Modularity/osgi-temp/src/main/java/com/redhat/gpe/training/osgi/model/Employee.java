@@ -1,13 +1,10 @@
-package com.redhat.gpe.training.osgi.camel;
+package com.redhat.gpe.training.osgi.model;
 
 import java.util.Date;
 
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
 
-/**
- *
- */
 @CsvRecord(name = "Employee", crlf = "UNIX", separator = ",")
 public class Employee {
 

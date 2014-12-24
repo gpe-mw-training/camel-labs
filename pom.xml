@@ -13,20 +13,24 @@
     <properties>
         <jboss.fuse.bom.version>6.1.0.redhat-379</jboss.fuse.bom.version>
 
-        <activemq-version>5.9.0.redhat-610379</activemq-version>
-        <camel-version>2.12.0.redhat-610379</camel-version>
-        <cxf-version>2.7.0.redhat-610379</cxf-version>
+        <activemq.version>5.9.0.redhat-610379</activemq.version>
+        <camel.version>2.12.0.redhat-610379</camel.version>
+        <cxf.version>2.7.0.redhat-610379</cxf.version>
         <h2.version>1.4.182</h2.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <mysql.version>5.1.34</mysql.version>
         <spring.version>3.2.8.RELEASE</spring.version>
         <slf4j.version>1.6.6</slf4j.version>
-        <geronimo-servlet-spec-version>1.0</geronimo-servlet-spec-version>
-        <jetty-version>8.1.9.v20130131</jetty-version>
+        <geronimo-servlet-spec.version>1.0</geronimo-servlet-spec.version>
+        <pax-exam.version>4.4.0</pax-exam.version>
+        <karaf.version>2.4.0</karaf.version>
+        <junit-bundle.version>4.11_2</junit-bundle.version>
+        <jetty.version>8.1.9.v20130131</jetty.version>
 
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
         <maven-fabric-plugin.version>1.1.0.CR5</maven-fabric-plugin.version>
         <maven-jetty-plugin.version>8.1.14.v20131031</maven-jetty-plugin.version>
+        <maven-surefire-plugin.version>2.18</maven-surefire-plugin.version>
     </properties>
 
     <modules>
@@ -65,10 +69,60 @@
                 <artifactId>spring-beans</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+
+            <!-- Camel -->
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-test-blueprint</artifactId>
-                <version>${camel-version}</version>
+                <version>${camel.version}</version>
+            </dependency>
+
+            <!-- OSGI, Pax EXAM & Karaf-->
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-spi</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-junit4</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-container-karaf</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- Karaf -->
+            <dependency>
+                <groupId>org.apache.karaf</groupId>
+                <artifactId>apache-karaf</artifactId>
+                <version>${karaf.version}</version>
+                <type>zip</type>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.servicemix.bundles</groupId>
+                <artifactId>org.apache.servicemix.bundles.junit</artifactId>
+                <version>${junit-bundle.version}</version>
+            </dependency>
+
+            <!-- Injection -->
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>1</version>
             </dependency>
 
             <!-- H2 -->
@@ -94,19 +148,19 @@
             <dependency>
                 <groupId>org.apache.geronimo.specs</groupId>
                 <artifactId>geronimo-servlet_3.0_spec</artifactId>
-                <version>${geronimo-servlet-spec-version}</version>
+                <version>${geronimo-servlet-spec.version}</version>
             </dependency>
 
             <!-- Jetty -->
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-servlets</artifactId>
-                <version>${jetty-version}</version>
+                <version>${jetty.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-client</artifactId>
-                <version>${jetty-version}</version>
+                <version>${jetty.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -126,7 +180,7 @@
                 <plugin>
                     <groupId>org.apache.camel</groupId>
                     <artifactId>camel-maven-plugin</artifactId>
-                    <version>${camel-version}</version>
+                    <version>${camel.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.felix</groupId>
@@ -141,7 +195,7 @@
                 <plugin>
                     <groupId>org.apache.activemq.tooling</groupId>
                     <artifactId>activemq-maven-plugin</artifactId>
-                    <version>${activemq-version}</version>
+                    <version>${activemq.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>io.fabric8</groupId>
@@ -151,7 +205,17 @@
                 <plugin>
                     <groupId>org.apache.cxf</groupId>
                     <artifactId>cxf-codegen-plugin</artifactId>
-                    <version>${cxf-version}</version>
+                    <version>${cxf.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.servicemix.tooling</groupId>
+                    <artifactId>depends-maven-plugin</artifactId>
+                    <version>1.2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -171,11 +235,11 @@
         <repository>
             <id>jboss-releases</id>
             <name>JBoss.org Fuse Releases</name>
-            <url>https://repository.jboss.org/nexus/content/repositories/fs-releases</url>
+            <url>https://repository.jboss.org/nexus/content/repositories/fs-releases/</url>
         </repository>
         <repository>
             <id>Maven Central</id>
-            <url>http://repo1.maven.org/maven2</url>
+            <url>http://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
 

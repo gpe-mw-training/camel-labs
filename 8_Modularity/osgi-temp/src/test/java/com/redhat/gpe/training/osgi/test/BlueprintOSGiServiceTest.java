@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.osgi.camel;
+package com.redhat.gpe.training.osgi.test;
 
 import com.redhat.gpe.training.osgi.HelloWorldSvc;
 import com.redhat.gpe.training.osgi.impl.HelloWorldSvcImpl;
@@ -16,7 +16,7 @@ public class BlueprintOSGiServiceTest extends CamelBlueprintTestSupport {
 
     @Override
     protected String getBlueprintDescriptor() {
-        return "blueprint-camel-test.xml"; // <1>
+        return "OSGI-INF/blueprint-camel-test.xml"; // <1>
     }
 
     @Override // <2>
@@ -36,7 +36,7 @@ public class BlueprintOSGiServiceTest extends CamelBlueprintTestSupport {
         // assert mock
         assertMockEndpointsSatisfied(); // <3>
 
-        ServiceReference<?> ref = getBundleContext().getServiceReference(HelloWorldSvcImpl.class);
+        ServiceReference ref = getBundleContext().getServiceReference(HelloWorldSvcImpl.class);
         Object service = getBundleContext().getService(ref);
         assertSame(helloSvc, service); // <4>
     }
