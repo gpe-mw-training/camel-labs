@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd
+            http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+  	   ">
+
+    <bean id="greeterClient" class="com.redhat.gpe.training.osgi.GreetClient">
+        <property name="greeterService">
+            <osgi:reference interface="com.redhat.gpe.training.osgi.GreetClient"/>
+        </property>
+    </bean>
+
+    <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
+
+        <route id="fileToBean">
+            <from uri="file:test"/>
+            <convertBodyTo type="String"/>
+            <log message="File received : ${body}"/>
+            <bean ref="greeterClient" method="sayHello2"/>
+            <log message="Response received : ${body}"/>
+        </route>
+
+    </camelContext>
+
+</beans>

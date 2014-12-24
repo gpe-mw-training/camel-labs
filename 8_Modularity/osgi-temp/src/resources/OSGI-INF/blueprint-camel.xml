@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <bean id="hello" class="com.redhat.gpe.training.osgi.impl.HelloWorldSvcImpl"/>
+
+    <!-- OSGI Service Declaration -->
+    <service ref="hello" interface="com.redhat.gpe.training.osgi.HelloWorldSvc"/>
+
+    <!-- OSGI Service Reference -->
+    <reference id="helloWorld"
+               interface="com.redhat.gpe.training.osgi.HelloWorldSvc"/>
+
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+        <route>
+            <from uri="timer:foo?period=5000"/>
+            <setBody>
+                <method ref="helloWorld" method="sayHello"/>
+            </setBody>
+            <log message="The message contains: ${body}"/>
+        </route>
+    </camelContext>
+
+</blueprint>
