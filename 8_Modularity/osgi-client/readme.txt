@@ -1,12 +1,12 @@
-This Exercises shows how a OSGi bundle is created using Maven 2 as well as using Servicemix Properties to configure
+This Exercises shows how a OSGi bundle is created using Maven 2 as well as using JBoss Fuse Properties to configure
 settings through the Admin OSGi interface rather than through Spring or Application Properties.
 
 Deployment:
 
-After building the project using "mvn install" please copy the line below into the Karaf Console of Servicemix when
+After building the project using "mvn install" please copy the line below into the Karaf Console of JBoss Fuse when
 started up in order to to deploy it:
 
-    osgi:install -s mvn:com.fusesource.training/servicemix-exercises-osgi-client/2010.07.12
+    osgi:install -s mvn:>com.redhat.gpe.training/osgi-client/1.0
 
 Then look into the log file and check out what values is used for the "Response" property:
 
@@ -14,7 +14,7 @@ Then look into the log file and check out what values is used for the "Response"
 
 The value should be: "Right back at ya"
 
-After that copy the "etc/greeter.cfg" file to the "<servicemix installation directory>/etc" directory, then use
+After that copy the "etc/greeter.cfg" file to the "<JBoss Fuse installation directory>/etc" directory, then use
 
     osgi:refresh <bundle number from the installation above>
 

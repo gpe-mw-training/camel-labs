@@ -1,4 +1,4 @@
-package com.redhat.training.jar;
+package com.redhat.gpe.training.jar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
