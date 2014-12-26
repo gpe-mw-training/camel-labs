@@ -1,0 +1,2 @@
+directURI=direct://training
+fileURI=file://exercise?moveFailed=failed&delete=false
