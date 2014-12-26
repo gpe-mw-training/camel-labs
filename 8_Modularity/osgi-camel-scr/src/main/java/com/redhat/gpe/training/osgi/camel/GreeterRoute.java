@@ -1,6 +1,7 @@
 package com.redhat.gpe.training.osgi.camel;
 
 import org.apache.camel.builder.RouteBuilder;
+
 public class GreeterRoute extends RouteBuilder {
 
     @Override

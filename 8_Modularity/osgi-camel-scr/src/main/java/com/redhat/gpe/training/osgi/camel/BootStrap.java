@@ -2,7 +2,6 @@ package com.redhat.gpe.training.osgi.camel;
 
 
 import com.redhat.gpe.training.osgi.service.Greeter;
-import org.apache.camel.CamelContext;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.scr.AbstractCamelRunner;
 import org.apache.camel.spi.ComponentResolver;
@@ -45,6 +44,7 @@ public class BootStrap extends AbstractCamelRunner {
         LOGGER.info("Load the Apache Camel Routes definition");
         List<RoutesBuilder> routesBuilders = new ArrayList<>();
         routesBuilders.add(new GreeterRoute());
+
         return routesBuilders;
     }
 }
