@@ -5,27 +5,24 @@
              http://www.osgi.org/xmlns/blueprint/v1.0.0
                http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-    <bean id="greeterClient" class="com.redhat.training.pojo.GreetClient">
-        <property name="greeterService">
-            <reference interface="com.redhat.training.service.greet.Greeter"/>
-        </property>
-    </bean>
+    <reference id="greeterService" interface="com.redhat.gpe.training.osgi.service.Greeter"/>
 
-    <camelContext id="training-1" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+    <camelContext id="exercise-camel-blueprint" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
 
-        <propertyPlaceholder location="com/fusesource/training/pojo/route-parameters.txt"/>
+        <propertyPlaceholder location="com/redhat/gpe/training/blueprint/route-parameters.txt"/>
 
         <route id="fileToBean">
             <from uri="{{fileURI}}"/>
             <convertBodyTo type="String"/>
-            <log message=">>> File received : ${body} in the thread ${threadName}" loggingLevel="INFO" logName="training"/>
+            <log message=">> File received : ${body}" loggingLevel="INFO" logName="training"/>
             <to uri="{{directURI}}"/>
         </route>
 
         <route id="direct-to-log">
             <from uri="{{directURI}}"/>
-            <bean ref="greeterClient"/>
-            <log message=">>> Response received : ${body} in the thread ${threadName}"/>
+            <log message=">> We will call the service using this message : ${body}"/>
+            <bean ref="greeterService"/>
+            <log message=">> Response received from the Greeter Service : ${body}"/>
         </route>
 
     </camelContext>

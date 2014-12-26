@@ -9,7 +9,7 @@ public class GreeterRoute extends RouteBuilder {
 
         from("file:exercise").id("fileToBean")
            .convertBodyTo(String.class)
-           .log(">> We call the service using this message : ${body}")
+           .log(">> We will call the service using this message : ${body}")
            .beanRef("greeterService", "sayHello(${body})")
            .log(">> Response received : ${body}");
     }
