@@ -49,7 +49,6 @@
                             com.redhat.gpe.training.osgi.service,
                             *
                         </Import-Package>
-<!--                        <Include-Resource>src/main/resources</Include-Resource>-->
                     </instructions>
                 </configuration>
             </plugin>
