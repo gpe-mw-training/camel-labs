@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>osgi-camel</artifactId>
-    <name>RedHat GPE Training :: Camel :: Lab :: 8 :: OSGi :: Camel Spring</name>
+    <artifactId>osgi-camel-scr</artifactId>
+    <name>RedHat GPE Training :: Camel :: Lab :: 8 :: OSGi :: Camel SCR</name>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -26,7 +26,17 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-spring</artifactId>
+            <artifactId>camel-scr</artifactId>
+        </dependency>
+
+        <!-- OSGI -->
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr.annotations</artifactId>
         </dependency>
 
         <!-- Logging -->
@@ -44,14 +54,31 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Private-Package>com.redhat.gpe.training.osgi</Private-Package>
+                        <Private-Package>
+                            com.redhat.gpe.training.osgi,
+                            com.redhat.gpe.training.osgi.camel
+                        </Private-Package>
                         <Import-Package>
-                            com.redhat.gpe.training.osgi.service,
                             *
                         </Import-Package>
-<!--                        <Include-Resource>src/main/resources</Include-Resource>-->
                     </instructions>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-scr-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>scr</goal>
+                        </goals>
+                        <configuration>
+                            <specVersion>1.2</specVersion>
+                            <strictMode>false</strictMode>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

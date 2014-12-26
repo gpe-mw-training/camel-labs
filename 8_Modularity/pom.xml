@@ -27,7 +27,7 @@
         <module>osgi-service</module>
         <module>osgi-plain-jar</module>
         <module>osgi-client</module>
-        <module>osgi-camel</module>
+        <module>osgi-camel-scr</module>
         <module>osgi-camel-blueprint</module>
         <module>osgi-testing</module>
     </modules>

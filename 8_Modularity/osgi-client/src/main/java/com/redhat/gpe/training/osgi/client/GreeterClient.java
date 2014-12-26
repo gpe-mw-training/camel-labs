@@ -27,10 +27,10 @@ public class GreeterClient {
     @Activate
     public void init(Map<String, ?> conf) throws Exception {
         defaultRequest = (String)conf.get("DEFAULT_REQUEST");
+        LOGGER.info("Greeter Client Initialized with a default request : \"" + defaultRequest + "\"");
 
-        LOGGER.info("Initialized with default request : \"" + defaultRequest + "\"");
         // invoke
-        LOGGER.info("Invoking...");
+        LOGGER.info("Invoking the service ...");
         invokeGreeterService("Who are you?");
         invokeGreeterService("How are you?");
         invokeGreeterService(defaultRequest);
@@ -40,9 +40,9 @@ public class GreeterClient {
      * Utility method for invoking the OSGi Greeter service, with small delays for easier demonstration.
      */
     private void invokeGreeterService(String message) throws Exception {
-        Thread.sleep(1000);
+        Thread.sleep(500);
         LOGGER.info("Calling Service : '" + message + "'");
-        Thread.sleep(1000);
+        Thread.sleep(500);
         try {
             String response = greeterService.sayHello(message);
             LOGGER.info("Received response : '" + response + "'");
@@ -53,8 +53,7 @@ public class GreeterClient {
 
     @Deactivate
     public void destroy() throws Exception {
-        LOGGER.info("Shutting down...");
-        LOGGER.info("Finished.");
+        LOGGER.info("Shutting down the GreeterClient...");
     }
 
 }
