@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Greeter service client
  */
-@Component(name=GreeterClient.SERVICE_PID)
+@Component(name = GreeterClient.SERVICE_PID,immediate = true)
 public class GreeterClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GreeterClient.class);
