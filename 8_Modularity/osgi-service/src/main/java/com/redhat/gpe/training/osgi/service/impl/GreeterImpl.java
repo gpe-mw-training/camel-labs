@@ -5,15 +5,18 @@ import org.apache.felix.scr.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
+
 /**
  * Greeter service implementation
  */
-@Component
+@Component(name = GreeterImpl.SERVICE_PID)
 @Service(Greeter.class)
 public class GreeterImpl implements Greeter {
 
-    // logger
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    // Logger
+    private static final Logger LOGGER = LoggerFactory.getLogger(GreeterImpl.class);
+    protected static final String SERVICE_PID = "greeterservice";
 
     // common messages
     private static final String whoRequest = "Who are you?";
@@ -26,9 +29,10 @@ public class GreeterImpl implements Greeter {
     private String defaultResponse;
 
     @Activate
-    public void init() throws Exception {
-        logger.info("GreeterImpl initialized.");
-        logger.info("Will return response '" + defaultResponse + "'");
+    public void init(Map<String, ?> conf) throws Exception {
+        defaultResponse = (String)conf.get("DEFAULT_RESPONSE");
+        LOGGER.info("GreeterImpl initialized with default response : \"" + defaultResponse + "\"");
+        LOGGER.info("Will return response '" + defaultResponse + "'");
     }
 
     /**
@@ -36,7 +40,7 @@ public class GreeterImpl implements Greeter {
      *
      **/
     public String sayHello(String message) {
-        logger.info("Received message '" + message + "'");
+        LOGGER.info("Received message '" + message + "'");
         String response;
         if (message.equalsIgnoreCase(whoRequest)) {
             response = whoResponse;
@@ -45,13 +49,13 @@ public class GreeterImpl implements Greeter {
         } else {
             response = defaultResponse;
         }
-        logger.info("Returning response '" + response + "'");
+        LOGGER.info("Returning response '" + response + "'");
         return response;
     }
 
     @Deactivate
     public void destroy() throws Exception {
-        logger.info("Shutting down...");
+        LOGGER.info("Shutting down...");
     }
 
 }

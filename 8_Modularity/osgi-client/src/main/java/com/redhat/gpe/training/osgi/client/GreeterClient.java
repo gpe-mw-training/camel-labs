@@ -1,16 +1,20 @@
-package com.redhat.gpe.training.greet;
+package com.redhat.gpe.training.osgi.client;
 
 import com.redhat.gpe.training.osgi.service.Greeter;
 import org.apache.felix.scr.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
+
 /**
  * Greeter service client
  */
-@Component
+@Component(name=GreeterClient.SERVICE_PID)
 public class GreeterClient {
-    private static final Logger LOG = LoggerFactory.getLogger(GreeterClient.class);
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GreeterClient.class);
+    protected static final String SERVICE_PID = "greeterclient";
 
     // OSGi Greeter service reference
     @Reference
@@ -21,10 +25,12 @@ public class GreeterClient {
     private String defaultRequest;
 
     @Activate
-    public void init() throws Exception {
-        LOG.info("Initialized.");
+    public void init(Map<String, ?> conf) throws Exception {
+        defaultRequest = (String)conf.get("DEFAULT_REQUEST");
+
+        LOGGER.info("Initialized with default request : \"" + defaultRequest + "\"");
         // invoke
-        LOG.info("Invoking...");
+        LOGGER.info("Invoking...");
         invokeGreeterService("Who are you?");
         invokeGreeterService("How are you?");
         invokeGreeterService(defaultRequest);
@@ -35,20 +41,20 @@ public class GreeterClient {
      */
     private void invokeGreeterService(String message) throws Exception {
         Thread.sleep(1000);
-        LOG.info("Sending message : '" + message + "'");
+        LOGGER.info("Calling Service : '" + message + "'");
         Thread.sleep(1000);
         try {
             String response = greeterService.sayHello(message);
-            LOG.info("Received response : '" + response + "'");
+            LOGGER.info("Received response : '" + response + "'");
         } catch (Exception ex) {
-            LOG.error("Error : " + ex.getMessage());
+            LOGGER.error("Error : " + ex.getMessage());
         }
     }
 
     @Deactivate
     public void destroy() throws Exception {
-        LOG.info("Shutting down...");
-        LOG.info("Finished.");
+        LOGGER.info("Shutting down...");
+        LOGGER.info("Finished.");
     }
 
 }
