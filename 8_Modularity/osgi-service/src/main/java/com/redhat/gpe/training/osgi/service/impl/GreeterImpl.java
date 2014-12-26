@@ -31,8 +31,7 @@ public class GreeterImpl implements Greeter {
     @Activate
     public void init(Map<String, ?> conf) throws Exception {
         defaultResponse = (String)conf.get("DEFAULT_RESPONSE");
-        LOGGER.info("GreeterImpl initialized with default response : \"" + defaultResponse + "\"");
-        LOGGER.info("Will return response '" + defaultResponse + "'");
+        LOGGER.info("Greeter Service initialized with default response : \"" + defaultResponse + "\"");
     }
 
     /**
@@ -55,7 +54,7 @@ public class GreeterImpl implements Greeter {
 
     @Deactivate
     public void destroy() throws Exception {
-        LOGGER.info("Shutting down...");
+        LOGGER.info("Shutting down yhe Greeter Service ...");
     }
 
 }
