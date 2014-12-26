@@ -77,11 +77,11 @@
                 <artifactId>camel-test-blueprint</artifactId>
                 <version>${camel.version}</version>
             </dependency>
-            <dependency>
+<!--            <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-scr</artifactId>
                 <version>2.15-SNAPSHOT</version>
-            </dependency>
+            </dependency>-->
 
             <!-- OSGI, Pax EXAM & Karaf-->
             <dependency>
@@ -236,6 +236,10 @@
             <id>jboss-public-repository</id>
             <name>JBoss.org Public Maven Repository Group</name>
             <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+        </repository>
+        <repository>
+            <id>jboss-fuse-ea</id>
+            <url>https://repository.jboss.org/nexus/content/groups/ea</url>
         </repository>
         <repository>
             <id>jboss-releases</id>
