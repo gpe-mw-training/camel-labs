@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="helloBean" class="com.redhat.gpe.training.jar.HelloBean">
+    <bean id="helloBean" class="com.redhat.gpe.training.bean.HelloBean">
         <property name="message" value="Hello Students and welcome to OSGI World"/>
     </bean>
 
