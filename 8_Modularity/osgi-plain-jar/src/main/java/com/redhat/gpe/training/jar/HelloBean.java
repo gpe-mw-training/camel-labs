@@ -6,21 +6,21 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * A simple Spring bean with a string property.
+ * A HelloBean with managed by Spring containing a string property.
  */
-public class PlainAndSimple
-        implements InitializingBean, DisposableBean {
+public class HelloBean implements InitializingBean, DisposableBean {
+
     // LOG
-    private static final Logger LOG = LoggerFactory.getLogger(PlainAndSimple.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HelloBean.class);
 
     // Spring bean property
-    private String simpleMessage;
+    private String message;
 
     /**
      * Spring method for setting the above property
      */
-    public void setSimpleMessage(String message) {
-        this.simpleMessage = message;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     /**
@@ -28,7 +28,7 @@ public class PlainAndSimple
      */
     @Override
     public void afterPropertiesSet() throws Exception {
-        LOG.info("Initializing simple bean with message = '" + simpleMessage + "'");
+        LOG.info("Initializing hello bean with message = '" + message + "'");
     }
 
     /**
@@ -36,7 +36,7 @@ public class PlainAndSimple
      */
     @Override
     public void destroy() throws Exception {
-        LOG.info("Destroying simple bean with message = '" + simpleMessage + "'");
+        LOG.info("Destroying hello bean with message = '" + message + "'");
     }
 
 }
