@@ -6,9 +6,9 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * A HelloBean with managed by Spring containing a string property.
+ * A HelloBean containing a string property.
  */
-public class HelloBean implements InitializingBean, DisposableBean {
+public class HelloBean {
 
     // LOG
     private static final Logger LOG = LoggerFactory.getLogger(HelloBean.class);
@@ -24,17 +24,15 @@ public class HelloBean implements InitializingBean, DisposableBean {
     }
 
     /**
-     * Spring method for initializing the bean and its required resources.
+     * Method for initializing the bean and its required resources.
      */
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    public void init() throws Exception {
         LOG.info("Initializing hello bean with message = '" + message + "'");
     }
 
     /**
-     * Spring method for shutting down the bean and its open resources.
+     * Method for shutting down the bean and its open resources.
      */
-    @Override
     public void destroy() throws Exception {
         LOG.info("Destroying hello bean with message = '" + message + "'");
     }
