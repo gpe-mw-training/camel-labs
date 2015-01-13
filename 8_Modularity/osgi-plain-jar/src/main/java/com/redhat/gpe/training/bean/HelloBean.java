@@ -11,11 +11,11 @@ public class HelloBean {
     // LOG
     private static final Logger LOG = LoggerFactory.getLogger(HelloBean.class);
 
-    // Spring bean property
+    // Property
     private String message;
 
     /**
-     * Spring method for setting the above property
+     * Method for setting the above property
      */
     public void setMessage(String message) {
         this.message = message;
