@@ -5,10 +5,6 @@
              http://www.osgi.org/xmlns/blueprint/v1.0.0
                http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-    <bean id="helloBean" class="com.redhat.gpe.training.bean.HelloBean"
-          init-method="init"
-          destroy-method="destroy">
-        <property name="message" value="Hello Students and welcome to OSGI World"/>
-    </bean>
+    <!-- HelloBean definition -->
 
 </blueprint>
