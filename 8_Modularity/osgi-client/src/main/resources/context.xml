@@ -12,12 +12,12 @@
        ">
 
     <!-- properties placeholder -->
-    <osgix:cm-properties id="greeter.cfg" persistent-id="greeterClient">
+    <osgix:cm-properties id="greeterclient" persistent-id="greeterclient">
         <prop key="myDefaultRequest">Hi there!</prop>
     </osgix:cm-properties>
 
     <!-- placeholder configurer -->
-    <ctx:property-placeholder properties-ref="greeter.cfg"/>
+    <ctx:property-placeholder properties-ref="greeterclient"/>
 
     <!-- osgi service reference -->
     <osgi:reference id="greeterService" interface="com.redhat.gpe.training.osgi.service.Greeter"/>

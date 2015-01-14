@@ -11,12 +11,12 @@
             http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
 
     <!-- properties placeholder -->
-    <osgix:cm-properties id="greeter.cfg" persistent-id="greeter">
+    <osgix:cm-properties id="greeterservice" persistent-id="greeterservice">
         <prop key="myDefaultResponse">Right back at ya!</prop>
     </osgix:cm-properties>
 
     <!-- placeholder configure -->
-    <ctx:property-placeholder properties-ref="greeter.cfg"/>
+    <ctx:property-placeholder properties-ref="greeterservice"/>
 
     <!-- osgi service -->
     <osgi:service ref="greeter" interface="com.redhat.gpe.training.osgi.service.Greeter"/>
