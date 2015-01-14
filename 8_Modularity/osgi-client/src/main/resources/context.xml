@@ -12,14 +12,26 @@
        ">
 
     <!-- properties placeholder -->
-    <osgix:cm-properties id="greeter.cfg.with.defaults" persistent-id="greeterClient">
+    <osgix:cm-properties id="greeter.cfg" persistent-id="greeterClient">
         <prop key="myDefaultRequest">Hi there!</prop>
     </osgix:cm-properties>
 
     <!-- placeholder configurer -->
-    <ctx:property-placeholder properties-ref="greeter.cfg.with.defaults"/>
+    <ctx:property-placeholder properties-ref="greeter.cfg"/>
 
     <!-- osgi service reference -->
-    <osgi:reference id="greeterService" interface="com.redhat.training.service.greet.Greeter"/>
+    <osgi:reference id="greeterService" interface="com.redhat.gpe.training.osgi.service.Greeter"/>
+
+
+    <!--
+         Regular spring configuration file defining the beans for this bundle.
+         The configuration of OSGi definitions is kept in a separate file so
+         that this file can easily be used for integration testing outside of
+         an OSGi environment.
+    -->
+    <bean id="client" class="com.redhat.gpe.training.osgi.client.GreeterClient">
+        <property name="service" ref="greeterService"/>
+        <property name="defaultRequest" value="${myDefaultRequest}"/>
+    </bean>
 
 </beans>
