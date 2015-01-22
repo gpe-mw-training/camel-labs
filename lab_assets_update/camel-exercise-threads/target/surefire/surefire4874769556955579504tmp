@@ -1,0 +1,27 @@
+#surefire
+#Fri Aug 08 17:16:36 CEST 2014
+testClassesDirectory=/Users/chmoulli/RedHat/GPE/content/camel/modules/source/camel-exercise-threads/target/test-classes
+classPathUrl.4=/Users/chmoulli/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar
+forkMode=once
+classPathUrl.3=/Users/chmoulli/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.6/jaxb-impl-2.2.6.jar
+classPathUrl.2=/Users/chmoulli/.m2/repository/org/apache/camel/camel-core/2.12.0.redhat-610379/camel-core-2.12.0.redhat-610379.jar
+useManifestOnlyJar=true
+classPathUrl.1=/Users/chmoulli/RedHat/GPE/content/camel/modules/source/camel-exercise-threads/target/classes
+reportsDirectory=/Users/chmoulli/RedHat/GPE/content/camel/modules/source/camel-exercise-threads/target/surefire-reports
+classPathUrl.0=/Users/chmoulli/RedHat/GPE/content/camel/modules/source/camel-exercise-threads/target/test-classes
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+testSuiteDefinitionTestSourceDirectory=/Users/chmoulli/RedHat/GPE/content/camel/modules/source/camel-exercise-threads/src/test/java
+surefireClassPathUrl.1=/Users/chmoulli/.m2/repository/org/apache/maven/surefire/surefire-api/2.10/surefire-api-2.10.jar
+surefireClassPathUrl.0=/Users/chmoulli/.m2/repository/org/apache/maven/surefire/surefire-junit3/2.10/surefire-junit3-2.10.jar
+runOrder=filesystem
+useSystemClassLoader=true
+excludes0=**/*$*
+isTrimStackTrace=true
+enableAssertions=true
+includes2=**/*TestCase.java
+failIfNoTests=false
+includes1=**/*Test.java
+includes0=**/Test*.java
+childDelegation=false
+classPathUrl.6=/Users/chmoulli/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar
+classPathUrl.5=/Users/chmoulli/.m2/repository/org/slf4j/slf4j-log4j12/1.6.6/slf4j-log4j12-1.6.6.jar

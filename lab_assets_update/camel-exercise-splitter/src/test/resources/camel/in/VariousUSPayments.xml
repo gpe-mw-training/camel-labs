@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Payments xmlns:tns="http://www.fusesource.com/training/payment"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.fusesource.com/training/payment ../xsd/Payment.xsd ">
+	<tns:Currency>USD</tns:Currency>
+	<tns:Payment>
+		<tns:from>paul</tns:from>
+		<tns:to>ade</tns:to>
+		<tns:amount>1000000.0</tns:amount>
+	</tns:Payment>
+	<tns:Payment>
+		<tns:from>daan</tns:from>
+		<tns:to>ade</tns:to>
+		<tns:amount>78.0</tns:amount>
+	</tns:Payment>
+	<tns:Payment>
+		<tns:from>pat</tns:from>
+		<tns:to>ade</tns:to>
+		<tns:amount>13.0</tns:amount>
+	</tns:Payment>
+</tns:Payments>

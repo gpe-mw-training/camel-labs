@@ -1,0 +1,7 @@
+<soapenv:Envelope
+   xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+   xmlns:tra="http://training.fusesource.com/">
+   <soapenv:Body>
+      <tra:getAllCustomers/>
+   </soapenv:Body>
+</soapenv:Envelope>
