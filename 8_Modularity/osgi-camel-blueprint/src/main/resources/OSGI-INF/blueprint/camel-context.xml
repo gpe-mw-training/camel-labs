@@ -7,29 +7,18 @@
                http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
     <!-- OSGI blueprint property placeholder -->
-    <cm:property-placeholder id="myblueprint.placeholder" persistent-id="camel.blueprint"/>
+    <cm:property-placeholder/>
 
-    <reference id="greeterService" interface="com.redhat.gpe.training.osgi.service.Greeter"/>
+    <!-- OSGI Greeter Service -->
+    <reference id="greeterService"/>
 
     <camelContext id="exercise-camel-blueprint" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
 
         <propertyPlaceholder location="blueprint:myblueprint.placeholder"/>
 
         <!-- Route One -->
-        <route id="fileToBean">
-            <from uri="{{fileURI}}"/>
-            <convertBodyTo type="String"/>
-            <log message=">> File received : ${body}" loggingLevel="INFO" logName="training"/>
-            <to uri="{{directURI}}"/>
-        </route>
 
         <!-- Route Two -->
-        <route id="direct-to-log">
-            <from uri="{{directURI}}"/>
-            <log message=">> We will call the service using this message : ${body}"/>
-            <bean ref="greeterService"/>
-            <log message=">> Response received from the Greeter Service : ${body}"/>
-        </route>
 
     </camelContext>
 </blueprint>
