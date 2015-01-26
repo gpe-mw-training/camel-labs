@@ -13,6 +13,14 @@
     <name>RedHat GPE Training :: Camel :: Lab :: 8 :: OSGi :: Camel Blueprint</name>
     <packaging>bundle</packaging>
 
+    <properties>
+        <!-- Fabric8 -->
+        <fabric8.profile>gpe-exercise-camel</fabric8.profile>
+        <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
+        <fabric8.features>camel</fabric8.features>
+        <fabric8.jolokiaUrl>http://demo-fuse.apps.ose.opentlc.com/</fabric8.jolokiaUrl>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.redhat.gpe.training</groupId>
@@ -51,6 +59,10 @@
                         </Import-Package>
                     </instructions>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

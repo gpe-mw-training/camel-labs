@@ -15,6 +15,7 @@
 
         <propertyPlaceholder location="blueprint:myblueprint.placeholder"/>
 
+        <!-- Route One -->
         <route id="fileToBean">
             <from uri="{{fileURI}}"/>
             <convertBodyTo type="String"/>
@@ -22,6 +23,7 @@
             <to uri="{{directURI}}"/>
         </route>
 
+        <!-- Route Two -->
         <route id="direct-to-log">
             <from uri="{{directURI}}"/>
             <log message=">> We will call the service using this message : ${body}"/>
