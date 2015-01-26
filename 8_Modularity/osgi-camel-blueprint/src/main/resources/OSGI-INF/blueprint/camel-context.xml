@@ -27,7 +27,7 @@
         <route id="direct-to-log">
             <from uri="{{directURI}}"/>
             <log message=">> We will call the service using this message : ${body}"/>
-            <bean ref="greeterService"/>
+            <bean ref="greeterService" method="sayHello(${body})"/>
             <log message=">> Response received from the Greeter Service : ${body}"/>
         </route>
 
