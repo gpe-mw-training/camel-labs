@@ -18,7 +18,10 @@
         <fabric8.profile>gpe-exercise-camel</fabric8.profile>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
         <fabric8.features>camel</fabric8.features>
-        <fabric8.jolokiaUrl>http://demo-fuse.apps.ose.opentlc.com/</fabric8.jolokiaUrl>
+        <!-- Openshift -->
+        <!-- <fabric8.jolokiaUrl>http://demo-fuse.apps.ose.opentlc.com/jolokia</fabric8.jolokiaUrl> -->
+        <!-- Local -->
+        <fabric8.jolokiaUrl>http://localhost:8181/jolokia</fabric8.jolokiaUrl>
     </properties>
 
     <dependencies>
