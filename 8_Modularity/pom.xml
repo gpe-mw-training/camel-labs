@@ -30,5 +30,6 @@
 <!--        <module>osgi-camel-scr</module>-->
         <module>osgi-camel-blueprint</module>
         <module>osgi-testing</module>
+        <module>osgi-camel-testing</module>
     </modules>
 </project>
