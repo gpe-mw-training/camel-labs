@@ -23,10 +23,6 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring</artifactId>
         </dependency>
-<!--        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-blueprint</artifactId>
-        </dependency>-->
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-bindy</artifactId>
@@ -102,6 +98,20 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+        </dependency>
+
+        <!-- Blueprint -->
+        <dependency>
+            <groupId>org.apache.aries.proxy</groupId>
+            <artifactId>org.apache.aries.proxy.impl</artifactId>
+            <version>1.0.1.redhat-610379</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-all</artifactId>
+            <version>4.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
