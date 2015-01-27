@@ -14,5 +14,6 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>fabric-camel-twitter</module>
     </modules>
 </project>
