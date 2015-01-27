@@ -25,7 +25,6 @@ import org.slf4j.LoggerFactory;
 import static org.ops4j.pax.exam.CoreOptions.maven;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.*;
-import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.features;
 
 public class OSGiIntegrationTestSupport extends CamelTestSupport {
     protected static final Logger LOG = LoggerFactory.getLogger(OSGiIntegrationTestSupport.class);
