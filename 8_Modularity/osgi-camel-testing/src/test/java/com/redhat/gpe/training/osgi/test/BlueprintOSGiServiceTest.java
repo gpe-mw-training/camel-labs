@@ -2,12 +2,14 @@ package com.redhat.gpe.training.osgi.test;
 
 import com.redhat.gpe.training.osgi.HelloWorldSvc;
 import com.redhat.gpe.training.osgi.impl.HelloWorldSvcImpl;
+import org.apache.camel.Exchange;
 import org.apache.camel.test.blueprint.CamelBlueprintTestSupport;
 import org.apache.camel.util.KeyValueHolder;
 import org.junit.Test;
 import org.osgi.framework.ServiceReference;
 
 import java.util.Dictionary;
+import java.util.List;
 import java.util.Map;
 
 public class BlueprintOSGiServiceTest extends CamelBlueprintTestSupport {
@@ -16,10 +18,10 @@ public class BlueprintOSGiServiceTest extends CamelBlueprintTestSupport {
 
     @Override
     protected String getBlueprintDescriptor() {
-        return "OSGI-INF/blueprint-camel-test.xml"; // <1>
+        return "OSGI-INF/blueprint-camel-test.xml";
     }
 
-    @Override // <2>
+    @Override
     protected void addServicesOnStartup(Map<String, KeyValueHolder<Object, Dictionary>> services) {
         services.put(HelloWorldSvcImpl.class.getName(), asService(helloSvc, null));
     }
@@ -28,17 +30,17 @@ public class BlueprintOSGiServiceTest extends CamelBlueprintTestSupport {
     public void testRoute() throws Exception {
 
         // set mock expectations
-        getMockEndpoint("mock:result").expectedMessageCount(1);
+        getMockEndpoint("mock:result").expectedBodiesReceived("Hello to GPE user");
 
         // send a message
-        template.sendBody("direct:start", "World");
+        template.sendBody("direct:start", "GPE");
 
         // assert mock
-        assertMockEndpointsSatisfied(); // <3>
+        assertMockEndpointsSatisfied();
 
         ServiceReference ref = getBundleContext().getServiceReference(HelloWorldSvcImpl.class);
         Object service = getBundleContext().getService(ref);
-        assertSame(helloSvc, service); // <4>
+        assertSame(helloSvc, service);
     }
 
 }
