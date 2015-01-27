@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0">
+
+    <cm:property-placeholder persistent-id="twitterconfig"
+                             placeholder-prefix="$[" placeholder-suffix="]"/>
+
+    <bean id="twitter" class="org.apache.camel.component.twitter.TwitterComponent">
+        <property name="consumerKey" value="$[consumer.key]"/>
+        <property name="consumerSecret" value="$[consumer.secret]"/>
+        <property name="accessToken" value="$[access.token]"/>
+        <property name="accessTokenSecret" value="$[access.token.secret]"/>
+    </bean>
+
+    <camelContext id="consumer-ctx" xmlns="http://camel.apache.org/schema/blueprint">
+        <route id="cool-route">
+            <from uri="timer:cool?period=5000"/>
+            <log message="Timer triggered"/>
+            <to uri="twitter://search?keywords=redhat"/>
+            <split>
+                <simple>${body}</simple>
+                <convertBodyTo type="String"/>
+                <!-- Query should be case insensitive. We could use a regex or groovy, ruby ...-->
+                <filter>
+                    <!-- <simple>${body} regex '/red/i'</simple> -->
+                    <groovy>request.body.toLowerCase().contains('redhat')</groovy>
+                    <log message="Tweet : ${body}"/>
+                </filter>
+            </split>
+        </route>
+    </camelContext>
+</blueprint>
