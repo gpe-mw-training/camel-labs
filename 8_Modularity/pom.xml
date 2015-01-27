@@ -24,12 +24,12 @@
     </dependencyManagement>
 
     <modules>
-        <module>osgi-service</module>
         <module>osgi-plain-jar</module>
+        <module>osgi-service</module>
         <module>osgi-client</module>
-<!--        <module>osgi-camel-scr</module>-->
         <module>osgi-camel-blueprint</module>
         <module>osgi-testing</module>
         <module>osgi-camel-testing</module>
+        <!-- <module>osgi-camel-scr</module> -->
     </modules>
 </project>
