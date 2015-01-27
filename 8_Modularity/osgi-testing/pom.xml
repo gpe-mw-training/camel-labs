@@ -113,6 +113,12 @@
             <version>4.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -150,7 +156,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <excludes>
-                        <exclude>**/BlueprintOSGiServiceTest.java</exclude>
+<!--                        <exclude>**/BlueprintOSGiServiceTest.java</exclude>-->
                     </excludes>
                 </configuration>
             </plugin>
