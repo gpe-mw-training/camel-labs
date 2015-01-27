@@ -136,18 +136,18 @@ public class OSGiIntegrationTestSupport extends CamelTestSupport {
 
     public static Option[] getDefaultCamelKarafOptions() {
         return new Option[]{
-                        getKarafDistributionOption(),
+                getKarafDistributionOption(),
 
-                        keepRuntimeFolder(),
-                        configureConsole().ignoreLocalConsole(),
-                        replaceConfigurationFile("etc/org.ops4j.pax.url.mvn.cfg", new File(basedir + "/src/test/resources/etc/org.ops4j.pax.url.mvn.cfg")),
-                        logLevel(LogLevelOption.LogLevel.INFO),
+                keepRuntimeFolder(),
+                configureConsole().ignoreLocalConsole(),
+                replaceConfigurationFile("etc/org.ops4j.pax.url.mvn.cfg", new File(basedir + "/src/test/resources/etc/org.ops4j.pax.url.mvn.cfg")),
+                logLevel(LogLevelOption.LogLevel.INFO),
 
-                        // Install Spring (required for Karaf 2.3)
-                        scanFeatures(getKarafFeatureUrl(null), "spring", "spring-dm"),
+                // Install Spring (required for Karaf 2.3)
+                scanFeatures(getKarafFeatureUrl(null), "spring", "spring-dm"),
 
-                        // install the camel & camel-test features
-                        scanFeatures(getCamelKarafFeatureUrl(), "camel", "camel-test")
+                // install the camel & camel-test features
+                scanFeatures(getCamelKarafFeatureUrl(), "camel", "camel-test")
         };
     }
 
