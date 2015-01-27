@@ -88,6 +88,17 @@ public class OSGiIntegrationTestSupport extends CamelTestSupport {
         }
     }
 
+    public static UrlReference getKarafFeatureUrl(String version) {
+
+        String type = "xml/features";
+        MavenArtifactProvisionOption mavenOption = mavenBundle().groupId("org.apache.karaf.assemblies.features").artifactId("spring");
+        if (version == null) {
+            return mavenOption.versionAsInProject().type(type);
+        } else {
+            return mavenOption.version(version).type(type);
+        }
+    }
+
     public static Option loadCamelFeatures(String... features) {
         List<String> result = new ArrayList<String>();
         result.add("cxf-jaxb");
@@ -131,6 +142,9 @@ public class OSGiIntegrationTestSupport extends CamelTestSupport {
                         configureConsole().ignoreLocalConsole(),
                         replaceConfigurationFile("etc/org.ops4j.pax.url.mvn.cfg", new File(basedir + "/src/test/resources/etc/org.ops4j.pax.url.mvn.cfg")),
                         logLevel(LogLevelOption.LogLevel.INFO),
+
+                        // Install Spring (required for Karaf 2.3)
+                        scanFeatures(getKarafFeatureUrl(null), "spring", "spring-dm"),
 
                         // install the camel & camel-test features
                         scanFeatures(getCamelKarafFeatureUrl(), "camel", "camel-test")
