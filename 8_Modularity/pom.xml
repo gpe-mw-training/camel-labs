@@ -28,8 +28,8 @@
         <module>osgi-service</module>
         <module>osgi-client</module>
         <module>osgi-camel-blueprint</module>
-        <module>osgi-testing</module>
-        <module>osgi-camel-testing</module>
+        <module>osgi-camel-pojosr-testing</module>
+        <module>osgi-camel-pax-testing</module>
         <!-- <module>osgi-camel-scr</module> -->
     </modules>
 </project>

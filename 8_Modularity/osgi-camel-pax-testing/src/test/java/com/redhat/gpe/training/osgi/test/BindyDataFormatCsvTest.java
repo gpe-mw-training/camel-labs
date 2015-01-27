@@ -45,13 +45,13 @@ public class BindyDataFormatCsvTest extends OSGiIntegrationTestSupport {
                 DataFormat format = new BindyCsvDataFormat(Employee.class);
 
                 from("direct:unmarshal")
-                    .unmarshal(format)
-                    .split(simple("body"))
+                        .unmarshal(format)
+                        .split(simple("body"))
                         .to("mock:bindy-unmarshal");
 
                 from("direct:marshal")
-                    .marshal(format)
-                    .to("mock:bindy-marshal");
+                        .marshal(format)
+                        .to("mock:bindy-marshal");
             }
         };
     }
@@ -89,7 +89,7 @@ public class BindyDataFormatCsvTest extends OSGiIntegrationTestSupport {
         Option[] options = combine(
                 // Setup a Karaf Container with default options required by Apache Camel
                 getDefaultCamelKarafOptions(),
-                // Install camel-bindy module 
+                // Install camel-bindy module
                 loadCamelFeatures("camel-bindy"));
 
         return options;
