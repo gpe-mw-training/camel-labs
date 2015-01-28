@@ -4,7 +4,7 @@
     <camelContext xmlns="http://camel.apache.org/schema/blueprint">
         <route>
             <from uri="direct:start"/>
-            <bean beanType="com.redhat.gpe.training.osgi.impl.HelloWorldSvcImpl" method="sayHello"/>
+            <bean beanType="com.redhat.gpe.training.osgi.impl.HelloWorldSvcImpl" method="sayHello(${body})"/>
             <to uri="mock:result"/>
         </route>
     </camelContext>
