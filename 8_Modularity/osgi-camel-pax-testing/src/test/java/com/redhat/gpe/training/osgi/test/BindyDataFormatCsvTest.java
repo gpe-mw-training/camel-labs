@@ -84,4 +84,14 @@ public class BindyDataFormatCsvTest extends OSGiIntegrationTestSupport {
         return employees;
     }
 
+    @Configuration
+    public static Option[] configure() {
+        Option[] options = combine(
+                // Setup a Karaf Container with default options required by Apache Camel
+                getDefaultCamelKarafOptions(),
+                // Install camel-bindy module
+                loadCamelFeatures("camel-bindy"));
+
+        return options;
+    }
 }
