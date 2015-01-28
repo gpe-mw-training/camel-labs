@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fabric-camel-demo</artifactId>
-    <name>RedHat GPE Training :: Camel :: Lab :: 9 :: Fabric Camel Twitter</name>
+    <artifactId>fabric-camel-weather</artifactId>
+    <name>RedHat GPE Training :: Camel :: Lab :: 9 :: Fabric Camel Weather</name>
     <packaging>bundle</packaging>
 
     <properties>
@@ -20,7 +20,7 @@
         <!-- Fabric8 Definition -->
         <fabric8.profile>training-demo-camel</fabric8.profile>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
-        <fabric8.features>camel camel-twitter camel-groovy</fabric8.features>
+        <fabric8.features>camel camel-weather camel-groovy</fabric8.features>
     </properties>
 
     <dependencies>
@@ -35,7 +35,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-twitter</artifactId>
+            <artifactId>camel-weather</artifactId>
         </dependency>
 
         <!-- Logging -->
