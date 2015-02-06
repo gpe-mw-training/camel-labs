@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.redhat.gpe</groupId>
-	<artifactId>forecasting-application</artifactId>
+	<artifactId>fabric-forecasting-application</artifactId>
 	<packaging>bundle</packaging>
 	<version>1.0</version>
 
