@@ -94,6 +94,33 @@
             <version>1.0.1.redhat-610379</version>
         </dependency>
 
+        <!-- Pax Web : Required as it exposes the OSGI HTTP Service used by CXF -->
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-jetty</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-api</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-spi</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-runtime</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <artifactId>jetty-all-server</artifactId>
+            <version>8.1.14.v20131031</version>
+        </dependency>
+
         <!-- logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -108,10 +135,6 @@
             <artifactId>log4j</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-test</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-blueprint</artifactId>

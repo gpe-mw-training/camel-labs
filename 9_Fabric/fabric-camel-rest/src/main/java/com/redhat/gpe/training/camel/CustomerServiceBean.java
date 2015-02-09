@@ -62,13 +62,14 @@ public class CustomerServiceBean {
         return response;
     }
 
-    public Response updateCustomer(Customer c) throws Exception {
+    public Response updateCustomer(Customer customer) throws Exception {
         Response response;
-        if (c == null) {
-            System.out.println("Customer is null: " + (c == null));
+        if (customer == null) {
+            System.out.println("Customer is null: " + (customer == null));
             response = Response.status(Response.Status.NOT_FOUND).entity("<error>Customer received is null</error>").build();
         } else {
-            response = Response.status(Response.Status.FOUND).entity(c).build();
+            customers.put(customer.getId(), customer);
+            response = Response.status(Response.Status.FOUND).entity(customer).build();
         }
         return response;
     }
