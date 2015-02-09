@@ -21,25 +21,16 @@ package com.redhat.gpe.training.camel;
 import com.redhat.gpe.training.camel.model.Customer;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 @Path("/customerservice/")
+@Produces({"text/xml","text/json"})
 public class CustomerServiceResource {
 
-    // NOTE: The instance member variables will not be available to the
-    // Camel Exchange. They must be used as method parameters for them to
-    // be made available
-    @Context
-    private UriInfo uriInfo;
-
-    public CustomerServiceResource() {
-    }
+    public CustomerServiceResource() { }
 
     @GET
     @Path("/customers/{id}/")
-    @Produces("text/xml")
     public Customer getCustomer(@PathParam("id") String id) {
         return null;
     }

@@ -35,39 +35,45 @@ public class CustomerServiceBean {
         orders.put(o.getId(), o);
     }
 
-    public void getCustomer(Exchange exchange) throws Exception {
-
+    public Response getCustomer(Exchange exchange) throws Exception {
         Response response;
         String content = "";
-        Message message = exchange.getIn();
 
-/*        String operationName = message.getHeader(CxfConstants.OPERATION_NAME, String.class);
+        MessageContentsList list = (MessageContentsList) exchange.getIn().getBody();
 
-        if ("getCustomer".equalsIgnoreCase(operationName)) {*/
-            MessageContentsList list = (MessageContentsList)message.getBody();
+        if (list != null && !list.isEmpty()) {
+            content = (String) list.get(0);
+        } else {
+            response = Response.status(Response.Status.BAD_REQUEST).entity("<error>Request is empty</error>").build();
+        }
 
-            if(list != null && !list.isEmpty()) {
-                content = (String) list.get(0);
-            } else {
-                response = Response.status(Response.Status.BAD_REQUEST).entity("<error>request is empty</error>").build();
-                exchange.getOut().setBody(response);
-            }
+        LOG.info("----invoking getCustomer, Customer id is: " + content);
 
-            LOG.info("----invoking getCustomer, Customer id is: " + content);
+        long idNumber = Long.parseLong(content);
+        Customer c = customers.get(idNumber);
 
-            long idNumber = Long.parseLong(content);
-            Customer c = customers.get(idNumber);
+        if (c == null) {
+            System.out.println("Customer is null: " + (c == null));
+            response = Response.status(Response.Status.NOT_FOUND).entity("<error>Could not find customer</error>").build();
+        } else {
+            response = Response.status(Response.Status.FOUND).entity(c).build();
+        }
 
-            if (c == null) {
-                System.out.println("Customer is null: " + (c == null) );
-                response = Response.status(Response.Status.BAD_REQUEST).entity("<error>could not find customer</error>").build();
-                exchange.getOut().setBody(response);
-            } else {
-                response = Response.status(Response.Status.FOUND).entity(c).build();
-                exchange.getOut().setBody(response);
-            }
-/*
-        }*/
+        return response;
+    }
 
+    public Response updateCustomer(Customer c) throws Exception {
+        Response response;
+        if (c == null) {
+            System.out.println("Customer is null: " + (c == null));
+            response = Response.status(Response.Status.NOT_FOUND).entity("<error>Customer received is null</error>").build();
+        } else {
+            response = Response.status(Response.Status.FOUND).entity(c).build();
+        }
+        return response;
+    }
+
+    public static Response operationNotFound() {
+        return Response.status(Response.Status.BAD_REQUEST).entity("Operation not found - ${header.operationName}").build();
     }
 }
