@@ -31,13 +31,21 @@ public class CustomerServiceResource {
 
     @GET
     @Path("/customers/{id}/")
-    public Customer getCustomer(@PathParam("id") String id) {
+    public Response getCustomer(@PathParam("id") String id) {
         return null;
     }
 
     @PUT
     @Path("/customers/")
+    @Consumes({"application/xml", "application/json" })
     public Response updateCustomer(Customer customer) {
+        return null;
+    }
+
+    @POST
+    @Path("/customers/")
+    @Consumes({"application/xml", "application/json"})
+    public Response addCustomer(Customer customer) {
         return null;
     }
 }

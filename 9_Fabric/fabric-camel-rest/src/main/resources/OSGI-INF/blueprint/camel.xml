@@ -10,7 +10,8 @@
 
     <cxf:rsServer id="rsServer"
                   address="http://localhost:9090/rest/"
-                  serviceClass="com.redhat.gpe.training.camel.CustomerServiceResource"/>
+                  serviceClass="com.redhat.gpe.training.camel.CustomerServiceResource"
+                  loggingFeatureEnabled="true"/>
 
     <bean id="customerServiceBean" class="com.redhat.gpe.training.camel.CustomerServiceBean"/>
 
@@ -27,6 +28,11 @@
                 <when>
                     <simple>${header.operationName} == 'updateCustomer'</simple>
                     <bean ref="customerServiceBean" method="updateCustomer"/>
+                    <log message="${body}"/>
+                </when>
+                <when>
+                    <simple>${header.operationName} == 'addCustomer'</simple>
+                    <bean ref="customerServiceBean" method="addCustomer"/>
                     <log message="${body}"/>
                 </when>
                 <otherwise>

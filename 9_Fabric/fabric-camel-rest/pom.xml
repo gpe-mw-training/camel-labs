@@ -121,6 +121,13 @@
             <version>8.1.14.v20131031</version>
         </dependency>
 
+        <!-- Client -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.6</version>
+        </dependency>
+
         <!-- logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
