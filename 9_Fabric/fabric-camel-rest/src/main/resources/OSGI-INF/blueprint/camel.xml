@@ -15,7 +15,7 @@
 
     <bean id="customerServiceBean" class="com.redhat.gpe.training.camel.CustomerServiceBean"/>
 
-    <camelContext trace="false" id="camel-rest" xmlns="http://camel.apache.org/schema/blueprint">
+    <camelContext trace="false" id="camel-rest-1" xmlns="http://camel.apache.org/schema/blueprint">
 
         <route>
             <from uri="cxfrs:bean:rsServer"/>

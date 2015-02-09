@@ -24,7 +24,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 @Path("/customerservice/")
-@Produces({"text/xml","text/json"})
 public class CustomerServiceResource {
 
     public CustomerServiceResource() { }

@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.camel;
+package com.redhat.gpe.training.internal;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
