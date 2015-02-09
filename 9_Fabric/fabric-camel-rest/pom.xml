@@ -41,6 +41,14 @@
         <!-- CXF -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
         </dependency>
         <dependency>
@@ -50,6 +58,11 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http-jetty</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-bindings-xml</artifactId>
         </dependency>
 
         <!-- ASM : used by Apache Aries Blueprint 1.0.1 & exclude asm 3.0 from camel-cxf -->
@@ -95,11 +108,13 @@
             <artifactId>log4j</artifactId>
         </dependency>
 
-        <!-- testing -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-blueprint</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -142,7 +157,10 @@
                     <instructions>
                         <Bundle-SymbolicName>fabric-camel-rest</Bundle-SymbolicName>
                         <Private-Package>com.redhat.gpe.training</Private-Package>
-                        <Import-Package>*</Import-Package>
+                        <Import-Package>
+                            javax.ws.rs.*;version="[1.1,3)",
+                            org.apache.cxf.*;version="[2,4)",
+                            *</Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
