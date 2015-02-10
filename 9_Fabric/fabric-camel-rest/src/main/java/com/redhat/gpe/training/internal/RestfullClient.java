@@ -21,8 +21,13 @@ public class RestfullClient {
     }
 
     /*
-      DOES NOT WORK HTTPie req : echo {"Customer":{"id":"222","name":"charles"}} | http POST http://localhost:9090/rest/customerservice/customers
-      curl -i -H "Content-Type: application/json" -X POST -d '{"Customer":{"id":"666","name":"Charles"}}' http://localhost:9090/rest/customerservice/customers
+      HTTPie request
+      echo '{"Customer":{"name":"charles"}}' | http POST http://localhost:9090/rest/customerservice/customers
+      echo '{"Customer":{"name":"jeff"}}' | http POST http://localhost:9090/rest/customerservice/customers
+      echo '{"Customer":{"name":"chad"}}' | http POST http://localhost:9090/rest/customerservice/customers
+
+      curl request
+      curl -i -H "Content-Type: application/json" -X POST -d '{"Customer":{"name":"Charles"}}' http://localhost:9090/rest/customerservice/customers
     */
     public static void postCustomer() throws Exception {
         HttpPost post = new HttpPost("http://localhost:9090/rest/customerservice/customers");
@@ -44,13 +49,20 @@ public class RestfullClient {
     }
 
     /*
-      HTTPie req : http GET http://localhost:9090/rest/customerservice/customers/123
-      curl req : curl http://localhost:9090/rest/customerservice/customers/123
+
+      HTTPie req
+      http GET http://localhost:9090/rest/customerservice/customers/123
+      http GET http://localhost:9090/rest/customerservice/customers/124
+      http GET http://localhost:9090/rest/customerservice/customers/125
+      http GET http://localhost:9090/rest/customerservice/customers/126
+
+      curl req
+      curl http://localhost:9090/rest/customerservice/customers/123
     */
     public static void getCustomer() throws Exception {
 
         HttpGet get = new HttpGet("http://localhost:9090/rest/customerservice/customers/123");
-        get.addHeader("Accept" , "application/json");
+        get.addHeader("Accept", "application/json");
         //get.addHeader("content-type" , "application/json");
         CloseableHttpClient httpclient = HttpClientBuilder.create().build();
 
