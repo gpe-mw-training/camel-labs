@@ -35,7 +35,15 @@
                     <artifactId>asm</artifactId>
                     <groupId>asm</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>org.apache.camel</artifactId>
+                    <groupId>camel-spring</groupId>
+                </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cxf-transport</artifactId>
         </dependency>
 
         <!-- CXF -->
@@ -63,6 +71,7 @@
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-bindings-xml</artifactId>
         </dependency>
+        <!-- JSON Provider -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-extension-providers</artifactId>
@@ -84,26 +93,42 @@
         <dependency>
             <groupId>org.apache.aries.blueprint</groupId>
             <artifactId>org.apache.aries.blueprint</artifactId>
-            <version>1.0.1.redhat-610379</version>
+            <version>1.1.0</version>
+        </dependency>
+        <!--        <dependency>
+                    <groupId>org.apache.aries.blueprint</groupId>
+                    <artifactId>org.apache.aries.blueprint.core</artifactId>
+                    <version>1.0.1.redhat-610379</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.aries.blueprint</groupId>
+                    <artifactId>org.apache.aries.blueprint.api</artifactId>
+                    <version>1.0.1.redhat-610379</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.aries.blueprint</groupId>
+                    <artifactId>org.apache.aries.blueprint.cm</artifactId>
+                    <version>1.0.1.redhat-610379</version>
+                </dependency>
+                -->
+        <dependency>
+            <groupId>org.apache.aries</groupId>
+            <artifactId>org.apache.aries.util</artifactId>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.aries.blueprint</groupId>
-            <artifactId>org.apache.aries.blueprint.core</artifactId>
-            <version>1.0.1.redhat-610379</version>
+            <groupId>org.apache.aries.proxy</groupId>
+            <artifactId>org.apache.aries.proxy.api</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.aries.blueprint</groupId>
-            <artifactId>org.apache.aries.blueprint.api</artifactId>
-            <version>1.0.1.redhat-610379</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.aries.blueprint</groupId>
-            <artifactId>org.apache.aries.blueprint.cm</artifactId>
-            <version>1.0.1.redhat-610379</version>
+            <groupId>org.apache.aries.proxy</groupId>
+            <artifactId>org.apache.aries.proxy.impl</artifactId>
+            <version>1.0.1</version>
         </dependency>
 
         <!-- Pax Web : Required as it exposes the OSGI HTTP Service used by CXF -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.ops4j.pax.web</groupId>
             <artifactId>pax-web-jetty</artifactId>
             <version>3.0.6</version>
@@ -122,11 +147,56 @@
             <groupId>org.ops4j.pax.web</groupId>
             <artifactId>pax-web-runtime</artifactId>
             <version>3.0.6</version>
+        </dependency>-->
+
+
+        <!-- Jetty -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>7.6.9.v20130131</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
-            <artifactId>jetty-all-server</artifactId>
-            <version>8.1.14.v20131031</version>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-continuation</artifactId>
+            <version>7.6.9.v20130131</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-io</artifactId>
+            <version>7.6.9.v20130131</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-security</artifactId>
+            <version>7.6.9.v20130131</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>7.6.9.v20130131</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
+            <version>7.6.9.v20130131</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>7.6.9.v20130131</version>
+        </dependency>
+
+        <!-- Geronimo -->
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-servlet_3.0_spec</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-servlet_2.5_spec</artifactId>
+            <version>1.1.1</version>
         </dependency>
 
         <!-- Client -->
@@ -148,6 +218,12 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
+        </dependency>
+
+        <!-- OSGI -->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
         </dependency>
 
         <dependency>
