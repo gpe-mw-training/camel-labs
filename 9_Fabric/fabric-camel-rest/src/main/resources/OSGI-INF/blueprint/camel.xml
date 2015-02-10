@@ -40,9 +40,6 @@
                     <simple>${header.operationName} == 'deleteCustomer'</simple>
                     <bean ref="customerServiceBean" method="deleteCustomer"/>
                 </when>
-                <otherwise>
-                    <bean ref="customerServiceBean" method="operationNotFound"/>
-                </otherwise>
             </choice>
         </route>
     </camelContext>

@@ -34,12 +34,7 @@ public class CustomerServiceBean {
         String content = "";
 
         MessageContentsList list = (MessageContentsList) exchange.getIn().getBody();
-
-        if (list != null && !list.isEmpty()) {
-            content = (String) list.get(0);
-        } else {
-            response = Response.status(Response.Status.BAD_REQUEST).entity("<error>Request is empty</error>").build();
-        }
+        content = (String) list.get(0);
 
         LOG.info("----invoking getCustomer, Customer id is: " + content);
 
@@ -83,12 +78,7 @@ public class CustomerServiceBean {
         String content = "";
 
         MessageContentsList list = (MessageContentsList) exchange.getIn().getBody();
-
-        if (list != null && !list.isEmpty()) {
-            content = (String) list.get(0);
-        } else {
-            response = Response.status(Response.Status.BAD_REQUEST).entity("<error>Request is empty</error>").build();
-        }
+        content = (String) list.get(0);
 
         LOG.info("----invoking deleteCustomer, Customer id is: " + content);
 
@@ -109,7 +99,4 @@ public class CustomerServiceBean {
         return response;
     }
 
-    public static Response operationNotFound() {
-        return Response.status(Response.Status.BAD_REQUEST).entity("Operation not found - ${header.operationName}").build();
-    }
 }
