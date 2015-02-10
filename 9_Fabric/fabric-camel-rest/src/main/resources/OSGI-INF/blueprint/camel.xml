@@ -27,26 +27,21 @@
                 <when>
                     <simple>${header.operationName} == 'getCustomer'</simple>
                     <bean ref="customerServiceBean" method="getCustomer"/>
-                    <log message="${body}"/>
                 </when>
                 <when>
                     <simple>${header.operationName} == 'updateCustomer'</simple>
                     <bean ref="customerServiceBean" method="updateCustomer"/>
-                    <log message="${body}"/>
                 </when>
                 <when>
                     <simple>${header.operationName} == 'addCustomer'</simple>
                     <bean ref="customerServiceBean" method="addCustomer"/>
-                    <log message="${body}"/>
                 </when>
                 <when>
                     <simple>${header.operationName} == 'deleteCustomer'</simple>
                     <bean ref="customerServiceBean" method="deleteCustomer"/>
-                    <log message="${body}"/>
                 </when>
                 <otherwise>
                     <bean ref="customerServiceBean" method="operationNotFound"/>
-                    <log message="Operation not found"/>
                 </otherwise>
             </choice>
         </route>

@@ -1,7 +1,6 @@
 package com.redhat.gpe.training.camel;
 
 import com.redhat.gpe.training.camel.model.Customer;
-import com.redhat.gpe.training.camel.model.Order;
 import org.apache.camel.Exchange;
 import org.apache.cxf.message.MessageContentsList;
 import org.slf4j.Logger;
@@ -100,6 +99,7 @@ public class CustomerServiceBean {
             System.out.println("Customer not found : " + (c == null));
             response = Response.notModified().build();
         } else {
+            System.out.println("Customer deleted");
             response = Response.ok().build();
         }
 
