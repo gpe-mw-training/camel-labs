@@ -7,9 +7,7 @@ import org.apache.cxf.message.MessageContentsList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +18,6 @@ public class CustomerServiceBean {
     private static final Logger LOG = LoggerFactory.getLogger(CustomerServiceBean.class);
     private final AtomicLong currentId = new AtomicLong(123L);
     private Map<Long, Customer> customers = new HashMap<Long, Customer>();
-    private Map<Long, Order> orders = new HashMap<Long, Order>();
 
     public CustomerServiceBean() {
         init();
@@ -28,14 +25,9 @@ public class CustomerServiceBean {
 
     final void init() {
         Customer c = new Customer();
-        c.setName("John");
+        c.setName("Charles");
         c.setId(123);
         customers.put(c.getId(), c);
-
-        Order o = new Order();
-        o.setDescription("order 223");
-        o.setId(223);
-        orders.put(o.getId(), o);
     }
 
     public Response getCustomer(Exchange exchange) throws Exception {
@@ -84,6 +76,37 @@ public class CustomerServiceBean {
         customers.put(customer.getId(), customer);
 
         return Response.ok(customer).build();
+    }
+
+    public Response deleteCustomer(Exchange exchange) {
+
+        Response response;
+        String content = "";
+
+        MessageContentsList list = (MessageContentsList) exchange.getIn().getBody();
+
+        if (list != null && !list.isEmpty()) {
+            content = (String) list.get(0);
+        } else {
+            response = Response.status(Response.Status.BAD_REQUEST).entity("<error>Request is empty</error>").build();
+        }
+
+        LOG.info("----invoking deleteCustomer, Customer id is: " + content);
+
+        long idNumber = Long.parseLong(content);
+        Customer c = customers.get(idNumber);
+
+        if (c == null) {
+            System.out.println("Customer not found : " + (c == null));
+            response = Response.notModified().build();
+        } else {
+            response = Response.ok().build();
+        }
+
+        if (idNumber == currentId.get()) {
+            currentId.decrementAndGet();
+        }
+        return response;
     }
 
     public static Response operationNotFound() {

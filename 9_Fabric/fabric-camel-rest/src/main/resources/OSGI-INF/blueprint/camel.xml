@@ -39,6 +39,11 @@
                     <bean ref="customerServiceBean" method="addCustomer"/>
                     <log message="${body}"/>
                 </when>
+                <when>
+                    <simple>${header.operationName} == 'deleteCustomer'</simple>
+                    <bean ref="customerServiceBean" method="deleteCustomer"/>
+                    <log message="${body}"/>
+                </when>
                 <otherwise>
                     <bean ref="customerServiceBean" method="operationNotFound"/>
                     <log message="Operation not found"/>
