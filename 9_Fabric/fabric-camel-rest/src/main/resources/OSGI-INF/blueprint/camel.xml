@@ -11,11 +11,15 @@
     <cxf:rsServer id="rsServer"
                   address="http://localhost:9090/rest/"
                   serviceClass="com.redhat.gpe.training.camel.CustomerServiceResource"
-                  loggingFeatureEnabled="true"/>
+                  loggingFeatureEnabled="true">
+        <cxf:providers>
+            <bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider"/>
+        </cxf:providers>
+    </cxf:rsServer>
 
     <bean id="customerServiceBean" class="com.redhat.gpe.training.camel.CustomerServiceBean"/>
 
-    <camelContext trace="false" id="camel-rest-1" xmlns="http://camel.apache.org/schema/blueprint">
+    <camelContext trace="false" id="camel-rest-3" xmlns="http://camel.apache.org/schema/blueprint">
 
         <route>
             <from uri="cxfrs:bean:rsServer"/>

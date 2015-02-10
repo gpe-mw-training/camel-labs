@@ -36,14 +36,14 @@ public class CustomerServiceResource {
 
     @PUT
     @Path("/customers/")
-    @Consumes({"application/xml", "application/json" })
+    @Consumes({"application/xml","application/json"})
     public Response updateCustomer(Customer customer) {
         return null;
     }
 
     @POST
     @Path("/customers/")
-    @Consumes({"application/xml", "application/json"})
+    @Consumes({"application/xml","application/json"})
     public Response addCustomer(Customer customer) {
         return null;
     }
