@@ -52,11 +52,11 @@ public class CustomerServiceBean {
     }
 
     public Response updateCustomer(Customer customer) {
-        Customer c = customers.get(customer.getId());
         Response r;
+        Customer c = customers.get(customer.getId());
         if (c != null) {
             customers.put(customer.getId(), customer);
-            r = Response.ok().build();
+            r = Response.ok(customer).build();
         } else {
             r = Response.status(406).entity("Cannot find the customer!").build();
         }
