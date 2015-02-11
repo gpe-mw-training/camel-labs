@@ -14,7 +14,12 @@ public class RestfullClient {
 
     private static final String CUSTOMER_REQUEST = "{\"Customer\":{\"name\":\"charles\"}}";
     private static final String CUSTOMER_RESPONSE = "{\"Customer\":{\"id\":124,\"name\":\"charles\"}}";
-    private static final String HOST_PORT = "http://localhost:9090/rest/;";
+    private static final String HOST = "http://localhost";
+
+    // Using the Gateway & CXF Servlet
+    private static final String PORT = "9000";
+    private static final String WEB_CONTEXT = "/cxf/rest";
+    private static final String HOST_PORT = HOST + ":" + PORT + WEB_CONTEXT;
 
     public static void main(String[] args) throws Exception {
         // Post a new customer

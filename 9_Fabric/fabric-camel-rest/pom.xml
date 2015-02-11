@@ -196,7 +196,7 @@
                     <profile>gpe-exercise-camelrest</profile>
                     <parentProfiles>feature-camel</parentProfiles>
                     <bundles>mvn:org.codehaus.jettison/jettison/1.3.5</bundles>
-                    <features>camel-cxf camel-http4</features>
+                    <features>camel-cxf camel-http4 swagger fabric-cxf fabric-cxf-registry</features>
                     <!--  <jolokiaUrl>http://demo-fuse.apps.ose.opentlc.com/jolokia</jolokiaUrl>  -->
                 </configuration>
             </plugin>
