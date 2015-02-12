@@ -26,8 +26,7 @@ import javax.ws.rs.core.Response;
 @Path("/customerservice/")
 public class CustomerServiceResource {
 
-    public CustomerServiceResource() {
-    }
+    public CustomerServiceResource() {}
 
     @GET
     @Path("/customers/{id}/")
