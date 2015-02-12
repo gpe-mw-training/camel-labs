@@ -61,7 +61,7 @@
                 <configuration>
                     <instructions>
                         <Import-Package>
-                            *,com.redhat.gpe.training.osgi.model
+                            *
                         </Import-Package>
                     </instructions>
                 </configuration>
