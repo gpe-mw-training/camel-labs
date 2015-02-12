@@ -115,7 +115,7 @@
 
     <build>
         <plugins>
-            <!-- generate dependencies versions used by PAX EXAM -->
+            <!-- generate dependencies versions used by PAX EXAM-->
             <plugin>
                 <groupId>org.apache.servicemix.tooling</groupId>
                 <artifactId>depends-maven-plugin</artifactId>
