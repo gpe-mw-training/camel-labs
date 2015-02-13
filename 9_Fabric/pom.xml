@@ -15,6 +15,7 @@
 
     <modules>
         <module>fabric-camel-twitter</module>
+        <!-- <module>fabric-camel-rest</module> -->
         <module>fabric-forecasting-application</module>
     </modules>
 </project>
