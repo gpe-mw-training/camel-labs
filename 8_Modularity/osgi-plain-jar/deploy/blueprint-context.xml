@@ -9,7 +9,7 @@
     <bean id="helloBean" class="com.redhat.gpe.training.bean.HelloBean"
           init-method="init"
           destroy-method="destroy">
-        <property name="message" value="Hello Students and Welcome to OSGI world"/>
+        <property name="message" value="Hello Students and welcome to OSGI world"/>
     </bean>
 
 </blueprint>
