@@ -9,7 +9,7 @@
 	<packaging>bundle</packaging>
 	<version>1.0</version>
 
-	<name>RedHat GPE Training :: Camel :: Lab 9 :: Fabric Forecasting Application</name>
+	<name>RedHat GPE Training :: Camel :: Lab :: 9 :: Fabric Forecasting Application</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
