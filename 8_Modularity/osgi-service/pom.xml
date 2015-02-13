@@ -21,6 +21,7 @@
         <!-- <fabric8.jolokiaUrl>http://demo-fuse.apps.ose.opentlc.com/jolokia</fabric8.jolokiaUrl> -->
         <!-- Local -->
         <fabric8.jolokiaUrl>http://localhost:8181/jolokia</fabric8.jolokiaUrl>
+        <fabric8.bundles></fabric8.bundles>
     </properties>
 
     <dependencies>
