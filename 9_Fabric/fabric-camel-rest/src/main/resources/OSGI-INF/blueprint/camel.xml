@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:camel="http://camel.apache.org/schema/blueprint"
+           xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+           xsi:schemaLocation="
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
+       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd">
+
+    <!-- http://localhost:9090 -->
+
+    <cxf:rsServer id="rsServer"
+                  address="/rest"
+                  serviceClass="com.redhat.gpe.training.camel.CustomerServiceResource"
+                  loggingFeatureEnabled="true">
+        <cxf:providers>
+            <bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider"/>
+        </cxf:providers>
+    </cxf:rsServer>
+
+    <bean id="customerServiceBean" class="com.redhat.gpe.training.camel.CustomerServiceBean"/>
+
+    <camelContext trace="false" id="camel-rest-3" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <route>
+            <from uri="cxfrs:bean:rsServer"/>
+            <choice>
+                <when>
+                    <simple>${header.operationName} == 'getCustomer'</simple>
+                    <bean ref="customerServiceBean" method="getCustomer"/>
+                </when>
+                <when>
+                    <simple>${header.operationName} == 'updateCustomer'</simple>
+                    <bean ref="customerServiceBean" method="updateCustomer"/>
+                </when>
+                <when>
+                    <simple>${header.operationName} == 'addCustomer'</simple>
+                    <bean ref="customerServiceBean" method="addCustomer"/>
+                </when>
+                <when>
+                    <simple>${header.operationName} == 'deleteCustomer'</simple>
+                    <bean ref="customerServiceBean" method="deleteCustomer"/>
+                </when>
+            </choice>
+        </route>
+    </camelContext>
+
+</blueprint>
