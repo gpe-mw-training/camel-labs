@@ -23,17 +23,16 @@
 
     <build>
         <plugins>
-<!--            <plugin>
+            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric8-maven-plugin</artifactId>
                 <version>1.1.0.CR5</version>
                 <configuration>
                     <profile>gpe-exercise-plainjar</profile>
                     <parentProfiles>default</parentProfiles>
-                    <bundles>wrap:mvn:com.redhat.gpe.training/osgi-plain-ja/1.0 blueprint:profile:blueprint.xml</bundles>
-                    <jolokiaUrl>http://demo-fuse.apps.23f0.ose.rhpds.opentlc.com/jolokia</jolokiaUrl>
+                    <bundles>wrap:mvn:com.redhat.gpe.training/osgi-plain-jar/1.0 blueprint:profile:blueprint.xml</bundles>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 </project>
