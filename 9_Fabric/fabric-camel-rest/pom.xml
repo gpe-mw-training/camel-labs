@@ -22,14 +22,17 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
+            <version>2.16-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-blueprint</artifactId>
+            <version>2.16-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-cxf</artifactId>
+            <version>2.16-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>asm</groupId>
@@ -48,6 +51,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-blueprint</artifactId>
+            <version>2.16-SNAPSHOT</version>
         </dependency>
 
         <!-- CXF -->
@@ -205,6 +209,7 @@
             <plugin>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-maven-plugin</artifactId>
+                <version>2.16-SNAPSHOT</version>
                 <configuration>
                     <useBlueprint>true</useBlueprint>
                 </configuration>
@@ -257,6 +262,19 @@
         </plugins>
 
     </build>
+    
+    <repositories>
+        <repository>
+            <id>Apache Snapshot</id>
+            <url>https://repository.apache.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
+   <pluginRepositories>
+       <pluginRepository>  
+           <id>Apache Snapshot</id>
+           <url>https://repository.apache.org/content/repositories/snapshots</url>
+       </pluginRepository>
+   </pluginRepositories>
 
 
 </project>
