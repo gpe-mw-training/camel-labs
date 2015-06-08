@@ -16,7 +16,7 @@
         <activemq.version>5.11.0.redhat-620121</activemq.version>
         <camel.version>2.15.1.redhat-620121</camel.version>
         <cxf.version>3.0.4.redhat-620121</cxf.version>
-        
+
         <h2.version>1.4.182</h2.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <mysql.version>5.1.34</mysql.version>
@@ -35,7 +35,7 @@
     </properties>
 
     <modules>
-    	<module>2_Core_Engine</module>
+        <module>2_Core_Engine</module>
         <module>3_Core_Features</module>
         <module>4_Camel_Project_Development</module>
         <module>5_Components</module>
@@ -79,16 +79,16 @@
             </dependency>
 
             <!-- CXF -->
-<!--            <dependency>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-api</artifactId>
-                <version>${cxf.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-rt-core</artifactId>
-                <version>${cxf.version}</version>
-            </dependency>-->
+            <!--            <dependency>
+                            <groupId>org.apache.cxf</groupId>
+                            <artifactId>cxf-api</artifactId>
+                            <version>${cxf.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.cxf</groupId>
+                            <artifactId>cxf-rt-core</artifactId>
+                            <version>${cxf.version}</version>
+                        </dependency>-->
 
             <!-- OSGI, Pax EXAM & Karaf-->
             <dependency>
@@ -185,6 +185,11 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                <plugin>
                     <groupId>org.apache.camel</groupId>
                     <artifactId>camel-maven-plugin</artifactId>
                     <version>${camel.version}</version>
@@ -271,9 +276,13 @@
             <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
         </pluginRepository>
         <pluginRepository>
-            <id>jboss-releases</id>
+            <id>jboss-fuse-releases</id>
             <name>JBoss.org Fuse Releases</name>
             <url>https://repository.jboss.org/nexus/content/repositories/fs-releases</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-fuse-ea</id>
+            <url>https://repository.jboss.org/nexus/content/groups/ea</url>
         </pluginRepository>
     </pluginRepositories>
 
