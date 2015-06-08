@@ -28,12 +28,12 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-blueprint</artifactId>
             <version>2.16-SNAPSHOT</version>
-            <exclusions>
+<!--            <exclusions>
                 <exclusion>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>org.apache.felix.fileinstall</artifactId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -58,6 +58,12 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-blueprint</artifactId>
             <version>2.16-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>org.apache.felix.fileinstall</artifactId>
+                </exclusion>
+            </exclusions>
             <scope>provided</scope>
         </dependency>
 
