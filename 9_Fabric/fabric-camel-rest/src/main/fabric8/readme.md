@@ -51,7 +51,7 @@ When the project is started locally using the Apache Camel Maven goal `mvn camel
  *  Put
 
  ```
- echo '{"Customer":{"id":124,"name":"Puline"}}' | http POST http://localhost:9090/rest/customerservice/customers
+ echo '{"Customer":{"id":124,"name":"Pauline"}}' | http POST http://localhost:9090/rest/customerservice/customers
  ```
 
  *  Delete
