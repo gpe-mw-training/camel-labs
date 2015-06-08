@@ -8,10 +8,10 @@
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
        http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd">
 
-    <!-- http://localhost:9090 -->
-
+    <!-- address="http://localhost:9090/rest" -->
+    <!-- address="/rest"-->
     <cxf:rsServer id="rsServer"
-                  address="/rest"
+                  address="http://localhost:9090/rest"
                   serviceClass="com.redhat.gpe.training.camel.CustomerServiceResource"
                   loggingFeatureEnabled="true">
         <cxf:providers>
