@@ -6,19 +6,19 @@ When the project is started locally using the Apache Camel Maven goal `mvn camel
 
 * Curl
 
-** Get
+  * Get
 
     curl http://localhost:9090/rest/customerservice/customers/123
 
-** Post
+  * Post
 
-    curl -i -H "Content-Type: application/json" -X POST -d '{"Customer":{"name":"Charles"}}' http://localhost:9090/rest/customerservice/customers
+    curl -i -H "Content-Type: application/json" -X POST -d '{"Customer":{"name":"Charles"}}'    http://localhost:9090/rest/customerservice/customers
 
-** Put
+  * Put
 
     curl -i -H "Content-Type: application/json" -X POST -d '{"Customer":{"id":124,name":"Pauline"}}' http://localhost:9090/rest/customerservice/customers
 
-** Delete
+  * Delete
 
     curl -X DEL http://localhost:9090/rest/customerservice/customers/123
 
@@ -27,20 +27,20 @@ When the project is started locally using the Apache Camel Maven goal `mvn camel
 HTTPie is a command line HTTP client, a user-friendly cURL replacement.
 http://httpie.org
 
-**  Get
+  *  Get
 
     http GET http://localhost:9090/rest/customerservice/customers/123
     http GET http://localhost:9090/rest/customerservice/customers/124
 
-**  Post
+ *  Post
 
     echo '{"Customer":{"name":"Charles"}}' | http POST http://localhost:9090/rest/customerservice/customers
 
-**  Put
+ *  Put
 
     echo '{"Customer":{"id":124,"name":"Puline"}}' | http POST http://localhost:9090/rest/customerservice/customers
 
-**  Delete
+ *  Delete
 
     http DELETE http://localhost:9090/rest/customerservice/customers/124
     
