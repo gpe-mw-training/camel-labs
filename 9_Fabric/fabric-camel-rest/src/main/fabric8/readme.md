@@ -59,6 +59,7 @@ When the project is started locally using the Apache Camel Maven goal `mvn camel
  ```
  http DELETE http://localhost:9090/rest/customerservice/customers/124
  ```
+ 
 
 
 
