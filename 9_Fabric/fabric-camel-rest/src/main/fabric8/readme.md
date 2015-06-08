@@ -20,7 +20,8 @@ When the project is started locally using the Apache Camel Maven goal `mvn camel
 
   * Put
 
- ```curl -i -H "Content-Type: application/json" -X POST -d '{"Customer":{"id":124,name":"Pauline"}}' http://localhost:9090/rest/customerservice/customers
+ ```
+ curl -i -H "Content-Type: application/json" -X POST -d '{"Customer":{"id":124,name":"Pauline"}}' http://localhost:9090/rest/customerservice/customers
  ```
 
   * Delete
@@ -43,9 +44,9 @@ When the project is started locally using the Apache Camel Maven goal `mvn camel
 
  *  Post
 
-```
-echo '{"Customer":{"name":"Charles"}}' | http POST http://localhost:9090/rest/customerservice/customers
-```
+ ```
+ echo '{"Customer":{"name":"Charles"}}' | http POST http://localhost:9090/rest/customerservice/customers
+ ```
 
  *  Put
 
