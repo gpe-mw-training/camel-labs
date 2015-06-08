@@ -1,5 +1,7 @@
 # Camel REST & CRUD Quickstart
 
+When the project is started locally using the Apache Camel Maven goal `mvn camel:run, you can access the REST services using the following curl/http requests
+
 ## Curl
 
 ### Get
@@ -39,6 +41,8 @@ http://httpie.org
 ### Delete
 
     http DELETE http://localhost:9090/rest/customerservice/customers/124
+    
+    
 
 
 
