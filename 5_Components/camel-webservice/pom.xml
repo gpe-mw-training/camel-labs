@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-5-webservice</artifactId>
+    <artifactId>camel-webservice</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 5 :: Webservice</name>
     <packaging>bundle</packaging>
 
@@ -122,27 +122,7 @@
             </plugin>
 
             <!-- CXF wsdl2java generator, will plugin to the compile goal -->
-            <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-codegen-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>generate-sources</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/CustomerService.wsdl</wsdl>
-                                </wsdlOption>
-                            </wsdlOptions>
-                        </configuration>
-                        <goals>
-                            <goal>wsdl2java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!-- ADD PLUGIN DEF HERE -->
 
         </plugins>
     </build>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-3-expressions</artifactId>
+    <artifactId>camel-expressions</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 3 :: Expressions</name>
 
     <dependencies>
@@ -61,5 +61,4 @@
         </plugins>
     </build>
 
-   
 </project>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-6-aggregator</artifactId>
+    <artifactId>camel-aggregator</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 6 :: Aggregator</name>
 
     <packaging>bundle</packaging>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-4-spring-web</artifactId>
+    <artifactId>camel-web</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 4 :: Spring Web</name>
     <packaging>war</packaging>
 

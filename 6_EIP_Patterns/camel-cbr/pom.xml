@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-6-cbr</artifactId>
+    <artifactId>camel-cbr</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 6 :: CBR</name>
     <packaging>bundle</packaging>
 

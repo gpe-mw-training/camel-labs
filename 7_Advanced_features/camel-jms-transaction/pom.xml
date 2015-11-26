@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-7-jms-transaction</artifactId>
+    <artifactId>camel-jms-transaction</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 7 :: JMS Tx Client</name>
     <packaging>bundle</packaging>
 
@@ -58,7 +58,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>1.6</version>
                 <executions>
                     <execution>
                         <goals>

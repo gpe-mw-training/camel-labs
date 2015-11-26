@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-4-spring-standalone</artifactId>
+    <artifactId>camel-spring-standalone</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 4 :: Spring Standalone</name>
 
     <dependencies>
@@ -46,13 +46,7 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-maven-plugin</artifactId>
-                <configuration>
-                    <applicationContextUri>META-INF/spring/*.xml</applicationContextUri>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
 
