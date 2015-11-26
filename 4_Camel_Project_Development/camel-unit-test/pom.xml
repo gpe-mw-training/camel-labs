@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-4-spring-unit-test</artifactId>
+    <artifactId>camel-test</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 4 :: Unit Test</name>
 
     <dependencies>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-3-typeconverter</artifactId>
+    <artifactId>camel-typeconverter</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 3 :: TypeConverter</name>
 
     <dependencies>
