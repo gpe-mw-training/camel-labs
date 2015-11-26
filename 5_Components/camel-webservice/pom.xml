@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-5-webservice</artifactId>
+    <artifactId>camel-webservice</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 5 :: Webservice</name>
     <packaging>bundle</packaging>
 

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-3-threads</artifactId>
+    <artifactId>camel-threads</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 3 :: Threads</name>
 
     <dependencies>

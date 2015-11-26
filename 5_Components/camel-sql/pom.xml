@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-5-sql</artifactId>
+    <artifactId>camel-sql</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 5 :: SQL</name>
 
     <dependencies>
