@@ -36,8 +36,8 @@ mvn docker:push
 # All
 
 ```
-source /Users/chmoulli/RedHat/GPE/GPE-Courses/fuse-integration-labs/set_kubernetes_env.sh
-/Users/chmoulli/RedHat/GPE/GPE-Courses/fuse-integration-labs/openshift_authentication.sh
+source ../set_kubernetes_env.sh
+../openshift_authentication.sh
 export KUBERNETES_NAMESPACE=gpe
 mvn -Pf8-local-deploy
 ```

@@ -26,28 +26,15 @@
         <karaf.version>2.3.0.redhat-610379</karaf.version>
         <junit-bundle.version>4.11_2</junit-bundle.version>
         <jetty.version>8.1.9.v20130131</jetty.version>
-
-        <!-- Docker Images & Kubernetes Json -->
-        <camel.version>2.16.1</camel.version>
-        <karaf.version>2.4.3</karaf.version>
         <karaf.plugin.version>4.0.3</karaf.plugin.version>
-
-        <docker.from>fabric8/s2i-karaf:1.2.5</docker.from>
-        <fabric8.dockerUser>fabric8/</fabric8.dockerUser>
-        <docker.image>${fabric8.dockerUser}quickstart-karaf-camellog:${project.version}</docker.image>
-        <docker.assemblyDescriptor>${basedir}/src/main/fabric8/assembly.xml</docker.assemblyDescriptor>
-        <docker.port.container.jolokia>8778</docker.port.container.jolokia>
-        <docker.port.container.http>8181</docker.port.container.http>
-
-        <fabric8.label.component>${project.artifactId}</fabric8.label.component>
-        <fabric8.label.container>karaf</fabric8.label.container>
-        <fabric8.label.group>quickstarts</fabric8.label.group>
 
         <!-- Maven Plugin -->
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
         <maven-docker-plugin.version>0.13.6</maven-docker-plugin.version>
         <maven-fabric-plugin.version>1.1.0.CR5</maven-fabric-plugin.version>
         <maven-fabric2-plugin.version>2.2.68</maven-fabric2-plugin.version>
+        <maven-karaf-plugin.version>4.0.3</maven-karaf-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
         <maven-jetty-plugin.version>8.1.14.v20131031</maven-jetty-plugin.version>
         <maven-surefire-plugin.version>2.18</maven-surefire-plugin.version>
     </properties>
@@ -216,11 +203,6 @@
                     <version>${activemq.version}</version>
                 </plugin>
                 <plugin>
-                    <groupId>io.fabric8</groupId>
-                    <artifactId>fabric8-maven-plugin</artifactId>
-                    <version>${maven-fabric-plugin.version}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.cxf</groupId>
                     <artifactId>cxf-codegen-plugin</artifactId>
                     <version>${cxf.version}</version>
@@ -239,6 +221,26 @@
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-scr-plugin</artifactId>
                     <version>1.20.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>fabric8-maven-plugin</artifactId>
+                    <version>${maven-fabric2-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${maven-install-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.karaf.tooling</groupId>
+                    <artifactId>karaf-maven-plugin</artifactId>
+                    <version>${karaf.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jolokia</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${maven-docker-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

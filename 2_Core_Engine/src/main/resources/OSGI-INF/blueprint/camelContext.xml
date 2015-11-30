@@ -10,7 +10,6 @@
   <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
     <route>
         <from uri="timer://demo?delay=5000" id="timer-of-the-demo">
-            <description/>
         </from>
         <setBody>
             <simple>Charles</simple>
