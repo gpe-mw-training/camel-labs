@@ -3,17 +3,46 @@
 - Compile the project to generate the kubernetes json file & the docker tar file
 
 ```
- mvn -Pf8-build
+mvn -Pf8-build
 ```
 
 
 - Setup the env DOCKER container variable using the script set_kubernetes_env.sh file
 
 ```
-./set_kubernetes_env.sh HOST_NAME/IP_ADDRESS
+source ./set_kubernetes_env.sh HOST_NAME/IP_ADDRESS
 ```
 
 NOTE: By default, the script will try to access this local IP address `172.28.128.4` 
+
+- Define the project/namespace
+
+```
+export KUBERNETES_NAMESPACE=gpe
+```
+
+- Connect to openshift to be authenticated
+
+```
+./openshift_authentication.sh HOST_NAME/IP_ADDRESS
+```
+
+- Deploy the project into the docker registry
+
+```
+mvn docker:push
+```
+
+# All
+
+```
+source /Users/chmoulli/RedHat/GPE/GPE-Courses/fuse-integration-labs/set_kubernetes_env.sh
+/Users/chmoulli/RedHat/GPE/GPE-Courses/fuse-integration-labs/openshift_authentication.sh
+export KUBERNETES_NAMESPACE=gpe
+mvn -Pf8-local-deploy
+```
+ 
+ 
 
 
 
