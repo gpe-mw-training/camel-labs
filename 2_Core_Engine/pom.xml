@@ -15,8 +15,8 @@
 
     <properties>
         <!-- Docker Images & Kubernetes Json -->
-        <camel.version>2.16.1</camel.version>
-        <karaf.version>2.4.3</karaf.version>
+        <camel.version>2.15.1.redhat-621071</camel.version>
+        <karaf.version>2.4.0.redhat-621071</karaf.version>
 
         <docker.from>fabric8/s2i-karaf:1.2.5</docker.from>
         <!-- Docker user = prefix of the docker image -->
@@ -34,6 +34,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-blueprint</artifactId>
+            <version>${camel.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -41,13 +42,6 @@
             <artifactId>slf4j-log4j12</artifactId>
             <scope>provided</scope>
         </dependency>
-
-        <!-- testing
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-test-blueprint</artifactId>
-        </dependency>
-        -->
 
         <dependency>
             <groupId>org.apache.camel</groupId>
