@@ -15,7 +15,7 @@
 
     <properties>
         <!-- Docker Images & Kubernetes Json -->
-        <docker.from>fabric8/s2i-karaf:1.2.5</docker.from>
+        <docker.from>fabric8/s2i-karaf:${fabric8-s2i.version}</docker.from>
 
         <!-- Docker user = prefix of the docker image -->
         <fabric8.dockerUser>redhat-gpe/</fabric8.dockerUser>

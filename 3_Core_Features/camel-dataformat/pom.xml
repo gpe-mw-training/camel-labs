@@ -12,6 +12,21 @@
     <artifactId>camel-dataformat</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 3 :: DataFormat</name>
 
+    <properties>
+        <!-- Docker Images & Kubernetes Json -->
+        <docker.from>fabric8/s2i-java:1.2.6</docker.from>
+
+        <!-- Docker user = prefix of the docker image -->
+        <fabric8.dockerUser>redhat-gpe/</fabric8.dockerUser>
+        <docker.image>${fabric8.dockerUser}${project.artifactId}:${project.version}</docker.image>
+        <docker.port.container.jolokia>8778</docker.port.container.jolokia>
+        <docker.port.container.http>8181</docker.port.container.http>
+
+        <fabric8.label.component>${project.artifactId}</fabric8.label.component>
+        <fabric8.label.container>course</fabric8.label.container>
+        <fabric8.label.group>redhat-gpe</fabric8.label.group>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -43,9 +58,74 @@
                 <artifactId>camel-maven-plugin</artifactId>
                 <configuration>
                     <!--  the spring context file must be separate from the OSGi bundle, so we provide one here -->
-                    <fileApplicationContextUri>src/test/resources/spring-camel-context.xml</fileApplicationContextUri>
+                    <fileApplicationContextUri>src/test/resources/spring-camel-context.xml
+                    </fileApplicationContextUri>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>${maven-fabric2-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>json</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>json</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>attach</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>hawt-app-maven-plugin</artifactId>
+                <version>${maven-fabric2-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>hawt-app</id>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <javaMainClass>org.apache.camel.spring.Main</javaMainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jolokia</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${maven-docker-plugin.version}</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${docker.image}</name>
+                            <build>
+                                <from>${docker.from}</from>
+                                <assembly>
+                                    <basedir>/deployments</basedir>
+                                    <descriptorRef>hawt-app</descriptorRef>
+                                </assembly>
+                                <env>
+                                    <JAVA_LIB_DIR>/deployments/lib</JAVA_LIB_DIR>
+                                    <JAVA_MAIN_CLASS>org.apache.camel.spring.Main</JAVA_MAIN_CLASS>
+                                </env>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 </project>

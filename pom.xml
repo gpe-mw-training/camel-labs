@@ -39,6 +39,7 @@
         <junit-bundle.version>4.11_2</junit-bundle.version>
 
         <karaf.plugin.version>4.0.3</karaf.plugin.version>
+        <fabric8-s2i.version>1.2.6</fabric8-s2i.version>
 
         <!-- Maven Plugin -->
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>

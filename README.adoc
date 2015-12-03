@@ -1,36 +1,36 @@
 # Container deployment
 
-- Compile the project to generate the kubernetes json file & the docker tar file
+- Be first authenticated with the Openshift Server. Run this script locatdat the root of the camel lab project
 
 ```
-mvn -Pf8-build
+./openshift_authentication.sh
 ```
 
-
-- Setup the env DOCKER container variable using the script set_kubernetes_env.sh file
+- Setup the env DOCKER & Kubernetes variables using the script set_kubernetes_env.sh file
 
 ```
 source ./set_kubernetes_env.sh HOST_NAME/IP_ADDRESS
 ```
 
-NOTE: By default, the script will try to access this local IP address `172.28.128.4` 
+NOTE: By default, the script will try to access this local IP address `172.28.128.4`
 
 - Define the project/namespace
 
 ```
 export KUBERNETES_NAMESPACE=gpe
+oc project gpe
 ```
 
-- Connect to openshift to be authenticated
+- Compile the project to generate the kubernetes json file & the docker tar file containing the image
 
 ```
-./openshift_authentication.sh HOST_NAME/IP_ADDRESS
+mvn -Pf8-build
 ```
 
-- Deploy the project into the docker registry
+- Deploy the project into the docker registry & create the Kubernetes pod
 
 ```
-mvn docker:push
+mvn -Pf8-local-deploy
 ```
 
 # All
@@ -41,6 +41,10 @@ source ../set_kubernetes_env.sh
 export KUBERNETES_NAMESPACE=gpe
 mvn -Pf8-local-deploy
 ```
+
+# Issue with NAT & Proxy
+
+VBoxManage modifyvm "openshift_default_1448894096144_87381" --natdnshostresolver1 on
  
  
 
