@@ -56,18 +56,18 @@
         <plugins>
             <!-- generate sources from XML schema -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.9.1</version>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>xjc</goal>
+                            <goal>generate</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
                     <schemaDirectory>src/main/resources/xsd</schemaDirectory>
-                    <verbose>false</verbose>
                 </configuration>
             </plugin>
 
