@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-jetty</artifactId>
+            <artifactId>camel-jetty8</artifactId>
         </dependency>
 
         <!-- Jetty -->
