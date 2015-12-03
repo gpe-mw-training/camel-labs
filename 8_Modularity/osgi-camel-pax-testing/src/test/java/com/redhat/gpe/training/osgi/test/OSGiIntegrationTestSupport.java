@@ -155,7 +155,7 @@ public class OSGiIntegrationTestSupport extends CamelTestSupport {
     public static Option getKarafDistributionOption() {
         return KarafDistributionOption.karafDistributionConfiguration()
                 .frameworkUrl(maven().groupId("org.apache.karaf")
-                        .artifactId("apache-karaf").type("tar.gz").versionAsInProject())
+                        .artifactId("apache-karaf").type("zip").versionAsInProject())
                 .karafVersion(getKarafVersion())
                 .name("Apache Karaf")
                 .useDeployFolder(false)
