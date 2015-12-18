@@ -26,13 +26,8 @@ public class MyRouteBuilder extends RouteBuilder {
           .to("direct:continue");
 
         from("direct:typeconverter")
-           /*
-            * We will use an unknown typeConverter strategy
-            * From Array.class to Vector.class
-            * Camel will raise an exception
-            */
-           .convertBodyTo(Vector.class)
-           .log("We will convert the Object to a Vector");
+           .convertBodyTo(Collection.class)
+           .log("We will convert the Object to a Collection");
 
         from("direct:continue")
            .log(">> We will register the strategy to convert an Array to a Vector")
@@ -40,7 +35,7 @@ public class MyRouteBuilder extends RouteBuilder {
                @Override
                public void process(Exchange exchange) throws Exception {
                    CamelContext context = exchange.getContext();
-                   context.getTypeConverterRegistry().addTypeConverter(Vector.class, MyArray.class, new ArrayConverter());
+                   context.getTypeConverterRegistry().addTypeConverter(Collection.class, MyArray.class, new ArrayConverter());
                }
            })
            /*
