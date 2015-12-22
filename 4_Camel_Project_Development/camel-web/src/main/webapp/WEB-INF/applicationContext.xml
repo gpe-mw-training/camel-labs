@@ -30,25 +30,5 @@
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent"
         p:brokerURL="vm://localhost?create=false&amp;waitForStart=10000" />
 
-    <camelContext xmlns="http://camel.apache.org/schema/spring">
-
-        <route>
-            <from uri="file:src/data?noop=true" />
-            <to uri="activemq:personnel.records" />
-        </route>
-
-        <route>
-            <from uri="activemq:personnel.records" />
-            <choice>
-                <when>
-                    <xpath>/person/city = 'London'</xpath>
-                    <to uri="file:target/messages/uk" />
-                </when>
-                <otherwise>
-                    <to uri="file:target/messages/others" />
-                </otherwise>
-            </choice>
-        </route>
-    </camelContext>
-
+    <camelContext xmlns="http://camel.apache.org/schema/spring" />
 </beans>
