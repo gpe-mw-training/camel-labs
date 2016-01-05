@@ -15,7 +15,7 @@
                 <log message=">> ID : ${body[ID]}, PROJECT : ${body[PROJECT]}, LICENSE : ${body[LICENSE]}"/>
             </split>
         </route>
-        <route id="insert-record">
+        <route id="insert-records">
             <from uri="file://src/main/data?noop=true"/>
             <convertBodyTo type="String"/>
             <split>
