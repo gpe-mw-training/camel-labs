@@ -11,7 +11,7 @@
         <route id="fetch-records">
         </route>
 
-        <route id="insert-record">
+        <route id="insert-records">
         </route>
     </camelContext>
 </beans>
