@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-lab-4-project</artifactId>
+    <artifactId>camel-lab-4</artifactId>
     <name>RedHat GPE Training :: Camel :: Lab :: 4 :: Project</name>
     <packaging>pom</packaging>
 
