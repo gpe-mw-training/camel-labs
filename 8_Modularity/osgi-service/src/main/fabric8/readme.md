@@ -1,1 +1,0 @@
-# RedHat GPE Training - Service Service
