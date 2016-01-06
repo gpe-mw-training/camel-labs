@@ -40,8 +40,6 @@
         <module>5_Components</module>
         <module>6_EIP_Patterns</module>
         <module>7_Advanced_features</module>
-        <module>8_Modularity</module>
-        <!-- <module>9_Fabric</module> -->
     </modules>
 
     <dependencyManagement>
