@@ -56,7 +56,7 @@
             </split>
         </route>
 
-        <route streamCache="true">
+        <route streamCache="true" id="http-marvel">
             <from uri="direct:call-marvel"/>
             <to uri="http://gateway.marvel.com/"/>
             <unmarshal ref="json-marvel"/>
