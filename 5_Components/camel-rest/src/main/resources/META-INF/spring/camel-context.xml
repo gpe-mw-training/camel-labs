@@ -60,7 +60,7 @@
             <from uri="direct:call-marvel"/>
             <to uri="http://gateway.marvel.com/"/>
             <unmarshal ref="json-marvel"/>
-            <log message="*** RECORD - ${header.CamelSplitIndex} ***"/>
+            <log message="* * * RECORD - ${header.CamelSplitIndex} * * *"/>
             <log message="ID : ${header.marvelID}"/>
             <log message="Name : ${body.data.results[0].name}"/>
             <log message="Description : ${body.data.results[0].description}"/>
