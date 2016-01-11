@@ -35,10 +35,10 @@ public class MyRouteBuilder extends RouteBuilder {
                @Override
                public void process(Exchange exchange) throws Exception {
                    CamelContext context = exchange.getContext();
-                   context.getTypeConverterRegistry().addTypeConverter(Collection.class, MyArray.class, new ArrayConverter());
+                   context.getTypeConverterRegistry().addTypeConverter(Vector.class, MyArray.class, new ArrayConverter());
                }
            })
-           .convertBodyTo(Collection.class)
+           .convertBodyTo(Vector.class)
            .log(">> Type looks good now")
            .process(new Processor() {
                @Override
