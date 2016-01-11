@@ -46,7 +46,7 @@
 
     <build>
         <plugins>
-
+<!-- include new plugin here -->
         </plugins>
     </build>
 
