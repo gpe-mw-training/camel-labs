@@ -7,18 +7,19 @@ import java.util.Random;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.apache.camel.Body;
+import org.apache.camel.Exchange;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+/*
 import com.redhat.gpe.training.Customer;
 import com.redhat.gpe.training.CustomerType;
 import com.redhat.gpe.training.GetAllCustomersResponse;
 import com.redhat.gpe.training.GetCustomerByName;
 import com.redhat.gpe.training.GetCustomerByNameResponse;
 import com.redhat.gpe.training.SaveCustomer;
-import org.apache.camel.Exchange;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+*/
 public class BeanService {
-
+/*
     private static Logger log = LoggerFactory.getLogger(BeanService.class);
     static List<Customer> customers = new ArrayList<Customer>();
     Random randomGenerator = new Random();
@@ -76,5 +77,5 @@ public class BeanService {
 
         return customer;
     }
-
+*/
 }
