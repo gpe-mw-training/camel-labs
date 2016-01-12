@@ -18,7 +18,8 @@ public class MyComponentConsumer extends ScheduledPollConsumer {
 
     @Override
     protected int poll() throws Exception {
-        /* Add exchange containing a body message */
+    	Exchange exchange = endpoint.createExchange();
+        /* Set exchange body with a message */
 
         try {
             // send message to next processor in the route
