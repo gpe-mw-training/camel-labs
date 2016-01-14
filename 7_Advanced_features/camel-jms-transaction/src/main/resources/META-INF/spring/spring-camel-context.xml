@@ -43,20 +43,23 @@
     <bean id="paymentBean" class="com.redhat.gpe.training.camel.PaymentBean"/>
 
     <!-- Local JMS Transaction Manager -->
-    <bean id="transactionManager"
+    
+  <!--  <bean id="transactionManager"
           class="org.springframework.jms.connection.JmsTransactionManager">
         <property name="connectionFactory" ref="jmsConnectionFactory"/>
-    </bean>
+    </bean> -->
 
-    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+    <!-- Local JMS Connection Factory -->
+ <!--    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL"
                   value="tcp://localhost:61616?jms.redeliveryPolicy.maximumRedeliveries=3&amp;jms.redeliveryPolicy.initialRedeliveryDelay=500"/>
-    </bean>
+    </bean> -->
 
-    <bean name="activemq" class="org.apache.camel.component.jms.JmsComponent">
+    <!-- Local ActiveMQ Broker -->
+   <!-- <bean name="activemq" class="org.apache.camel.component.jms.JmsComponent">
         <property name="connectionFactory" ref="jmsConnectionFactory"/>
         <property name="transactionManager" ref="transactionManager"/>
         <property name="transacted" value="true"/>
-    </bean>
+    </bean> -->
 
 </beans>
