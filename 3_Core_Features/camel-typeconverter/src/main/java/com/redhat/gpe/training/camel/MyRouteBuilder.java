@@ -20,7 +20,7 @@ public class MyRouteBuilder extends RouteBuilder {
     public void configure() throws Exception {
 
         onException(NoTypeConversionAvailableException.class)
-          .log(">> Exception should be throw as the typeconverter strategy is not defined from ArrayList to Vector.")
+          .log(">> Exception should be thrown as the typeconverter strategy from ArrayList to Vector is not defined.")
           .log(">> Error : ${exception}")
           .handled(true)
           .to("direct:continue");
