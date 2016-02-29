@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.jboss.fuse</groupId>
+        <artifactId>camel-rest-dsl-demo</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <artifactId>kibana</artifactId>
+    <version>1.0</version>
+
+    <name>FuseByExample :: REST DSL Demo :: Kibana 3</name>
+
+    <properties>
+        <jetty.port>9090</jetty.port>
+    </properties>
+
+    <packaging>war</packaging>
+
+    <build>
+        <plugins>
+            <!-- War Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>war</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <!-- this is relative to the pom.xml directory -->
+                            <directory>src/main/webapp</directory>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.0.M1</version>
+                <configuration>
+                    <webAppSourceDirectory>${project.basedir}/src/main/webapp</webAppSourceDirectory>
+                    <webApp>
+                        <contextPath>/kibana3</contextPath>
+                    </webApp>
+                    <httpConnector>
+                        <host>localhost</host>
+                        <port>${jetty.port}</port>
+                    </httpConnector>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
