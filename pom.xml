@@ -266,6 +266,11 @@
             <name>JBoss.org Fuse Releases</name>
             <url>https://repository.jboss.org/nexus/content/repositories/fs-releases</url>
         </pluginRepository>
+        <pluginRepository>
+          <id>redhat-techpreview-all-repository</id>
+          <name>Red Hat Tech Preview</name>
+          <url>http://maven.repository.redhat.com/techpreview/all</url>
+        </pluginRepository>
     </pluginRepositories>
 
 </project>
