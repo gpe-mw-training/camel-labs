@@ -11,7 +11,7 @@
     <name>RedHat GPE Training :: Camel Project Exercise</name>
 
     <properties>
-        <jboss.fuse.bom.version>6.2.1.redhat-092</jboss.fuse.bom.version>
+        <jboss.fuse.bom.version>6.2.1.redhat-084</jboss.fuse.bom.version>
 
         <activemq.version>5.11.0.redhat-621084</activemq.version>
         <camel.version>2.15.1.redhat-621084</camel.version>
@@ -40,7 +40,7 @@
         <module>5_Components</module>
         <module>6_EIP_Patterns</module>
         <module>7_Advanced_features</module>
-        <module>8_REST_DSL</module>  
+        <module>8_REST_DSL</module>
     </modules>
 
     <dependencyManagement>
