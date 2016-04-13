@@ -29,22 +29,6 @@ public class HttpBasicAuthTest extends BaseJettyTest {
     }
 
     private SecurityHandler getSecurityHandler() throws IOException {
-        /*Constraint constraint = new Constraint(Constraint.__BASIC_AUTH, "user");
-        constraint.setAuthenticate(true);
-
-        ConstraintMapping cm = new ConstraintMapping();
-        cm.setPathSpec("*//*");
-        cm.setConstraint(constraint);
-
-        ConstraintSecurityHandler sh = new ConstraintSecurityHandler();
-        sh.setAuthenticator(new BasicAuthenticator());
-        sh.setConstraintMappings(Arrays.asList(new ConstraintMapping[]{cm}));
-
-        HashLoginService loginService = new HashLoginService("MyRealm", "src/test/resources/myRealm.properties");
-        sh.setLoginService(loginService);
-        sh.setConstraintMappings(Arrays.asList(new ConstraintMapping[]{cm}));
-
-        return sh;*/
         ConstraintSecurityHandler sh = MySecurityHandler.generate();
         return sh;
     }
