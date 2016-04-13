@@ -25,7 +25,7 @@
         <pax-exam.version>3.5.0</pax-exam.version>
         <karaf.version>2.3.0.redhat-610379</karaf.version>
         <junit-bundle.version>4.11_2</junit-bundle.version>
-        <jetty.version>8.1.9.v20130131</jetty.version>
+        <jetty.version>9.2.9.v20150224</jetty.version>
 
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
         <maven-fabric-plugin.version>1.1.0.CR5</maven-fabric-plugin.version>
@@ -52,6 +52,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-parent</artifactId>
+                <version>${camel.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- Dependency not defined in the BOM -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -149,7 +157,7 @@
                 <version>${geronimo-servlet-spec.version}</version>
             </dependency>
 
-            <!-- Jetty -->
+            <!-- Jetty 9 -->
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-servlets</artifactId>
@@ -157,7 +165,37 @@
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-servlet</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-http</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-io</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-client</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-security</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-util</artifactId>
                 <version>${jetty.version}</version>
             </dependency>
         </dependencies>
