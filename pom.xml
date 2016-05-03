@@ -263,47 +263,39 @@
     </build>
 
     <repositories>
-        <repository>
-            <id>fusesource-public-repository</id>
-            <name>FuseSource Release Repository</name>
-            <url>https://repository.jboss.org/nexus/content/repositories/fs-public/</url>
-        </repository>
-        <repository>
-            <id>jboss-public-repository</id>
-            <name>JBoss.org Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-        </repository>
-        <repository>
-            <id>jboss-fuse-ea</id>
-            <url>https://repository.jboss.org/nexus/content/groups/ea</url>
-        </repository>
-        <repository>
-            <id>jboss-releases</id>
-            <name>JBoss.org Fuse Releases</name>
-            <url>https://repository.jboss.org/nexus/content/repositories/fs-releases/</url>
-        </repository>
-        <repository>
-            <id>Maven Central</id>
-            <url>http://repo1.maven.org/maven2/</url>
-        </repository>
-    </repositories>
+      <repository>
+          <id>rh-mvn-repo-earlyaccess</id>
+          <name>Red Hat Maven Repo Early Access</name>
+          <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+      </repository>
+      <repository>
+          <id>rh-mvn-repo</id>
+          <name>Red Hat Maven Repo</name>
+          <url>https://maven.repository.redhat.com/ga/</url>
+      </repository>
+      <repository>
+          <id>mvn-apache-repo</id>
+          <name>Maven Apache Repo</name>
+          <url>https://repo.maven.apache.org/maven2/org/apache/maven/plugins/</url>
+      </repository>
+  </repositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>fusesource-public-repository</id>
-            <name>FuseSource Release Repository</name>
-            <url>https://repository.jboss.org/nexus/content/repositories/fs-public/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss.org Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>jboss-releases</id>
-            <name>JBoss.org Fuse Releases</name>
-            <url>https://repository.jboss.org/nexus/content/repositories/fs-releases</url>
-        </pluginRepository>
+  <pluginRepositories>
+    <pluginRepository>
+        <id>rh-mvn-repo-earlyaccess</id>
+        <name>Red Hat Maven Repo Early Access</name>
+        <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+    </pluginRepository>
+    <pluginRepository>
+        <id>rh-mvn-repo</id>
+        <name>Red Hat Maven Repo</name>
+        <url>https://maven.repository.redhat.com/ga/</url>
+    </pluginRepository>
+    <pluginRepository>
+        <id>mvn-apache-repo</id>
+        <name>Maven Apache Repo</name>
+        <url>https://repo.maven.apache.org/maven2/org/apache/maven/plugins/</url>
+    </pluginRepository>
     </pluginRepositories>
 
 </project>
