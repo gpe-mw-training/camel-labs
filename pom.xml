@@ -13,7 +13,7 @@
     <properties>
         <jboss.fuse.bom.version>6.2.1.redhat-084</jboss.fuse.bom.version>
 
-        <camel.version>2.15.1.redhat-621084</camel.version> <!-- as per fuse on EAP distro, v 6.2.1 -->
+        <camel.version>2.15.1.redhat-621084</camel.version> <!-- as per fuse on EAP distro, v 6.2.1  -->
         <cxf.version>3.0.4.redhat-621084</cxf.version> <!-- as per fuse on EAP distro, v 6.2.1 -->
         <jetty.version>8.1.16.v20140903</jetty.version> <!-- as per fuse on EAP distro, v 6.2.1 -->
 
