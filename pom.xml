@@ -60,7 +60,7 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- Dependency not defined in the BOM -->
+            <!-- Dependency not defined in the BOM  -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
