@@ -36,11 +36,34 @@
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-        </dependency>
-        <dependency>
+            <artifactId>jetty-server</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty.orbit</groupId>
+                    <artifactId>javax.servlet</artifactId>
+                </exclusion>
+            </exclusions>
+         </dependency>
+         <dependency>
+           <groupId>org.eclipse.jetty</groupId>
+-          <artifactId>jetty-servlet</artifactId>
+         </dependency>
+         <dependency>
             <groupId>org.eclipse.jetty</groupId>
-        </dependency>
+            <artifactId>jetty-security</artifactId>
+         </dependency>
+         <dependency>
+             <groupId>org.eclipse.jetty</groupId>
+             <artifactId>jetty-servlets</artifactId>
+          </dependency>
+          <dependency>
+             <groupId>org.eclipse.jetty</groupId>
+             <artifactId>jetty-client</artifactId>
+          </dependency>
 
         <!-- logging -->
         <dependency>
