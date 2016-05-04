@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
     <groupId>com.redhat.gpe.training</groupId>
     <artifactId>camel</artifactId>
     <version>1.0</version>
@@ -14,9 +13,11 @@
     <properties>
         <jboss.fuse.bom.version>6.2.1.redhat-084</jboss.fuse.bom.version>
 
-        <activemq.version>5.11.0.redhat-621084</activemq.version>
         <camel.version>2.15.1.redhat-621084</camel.version>
-        <cxf.version>3.0.4.redhat-621084</cxf.version>
+        <cxf.version>3.1.5.redhat-630055</cxf.version>
+        <jetty.version>9.2.9.v20150224</jetty.version>
+
+        <activemq.version>5.11.0.redhat-621084</activemq.version>
         <h2.version>1.4.182</h2.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <mysql.version>5.1.34</mysql.version>
@@ -26,7 +27,6 @@
         <pax-exam.version>3.5.0</pax-exam.version>
         <karaf.version>2.3.0.redhat-610379</karaf.version>
         <junit-bundle.version>4.11_2</junit-bundle.version>
-        <jetty.version>8.1.9.v20130131</jetty.version>
 
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
         <maven-fabric-plugin.version>1.1.0.CR5</maven-fabric-plugin.version>
@@ -227,39 +227,28 @@
 
     <repositories>
       <repository>
-          <id>rh-mvn-repo-earlyaccess</id>
-          <name>Red Hat Maven Repo Early Access</name>
-          <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
-      </repository>
-      <repository>
-          <id>rh-mvn-repo</id>
-          <name>Red Hat Maven Repo</name>
-          <url>https://maven.repository.redhat.com/ga/</url>
-      </repository>
-      <repository>
-          <id>mvn-apache-repo</id>
-          <name>Maven Apache Repo</name>
-          <url>https://repo.maven.apache.org/maven2/org/apache/maven/plugins/</url>
+            <id>JBoss Fuse Public</id>
+            <url>http://repository.jboss.org/nexus/content/groups/fs-public</url>
+        </repository>
+        <repository>
+            <id>JBoss Public</id>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
       </repository>
   </repositories>
 
   <pluginRepositories>
     <pluginRepository>
-        <id>rh-mvn-repo-earlyaccess</id>
-        <name>Red Hat Maven Repo Early Access</name>
-        <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+        <id>JBoss Fuse Public</id>
+        <url>http://repository.jboss.org/nexus/content/groups/fs-public</url>
     </pluginRepository>
     <pluginRepository>
-        <id>rh-mvn-repo</id>
-        <name>Red Hat Maven Repo</name>
-        <url>https://maven.repository.redhat.com/ga/</url>
+        <id>JBoss Public</id>
+        <url>https://repository.jboss.org/nexus/content/groups/public/</url>
     </pluginRepository>
     <pluginRepository>
-        <id>mvn-apache-repo</id>
-        <name>Maven Apache Repo</name>
-        <url>https://repo.maven.apache.org/maven2/org/apache/maven/plugins/</url>
+          <id>repo-jboss-org</id>
+          <url>https://repository.jboss.org/nexus/content/groups/ea</url>
     </pluginRepository>
   </pluginRepositories>
 
 </project>
-
