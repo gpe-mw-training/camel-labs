@@ -15,7 +15,7 @@
 
         <camel.version>2.15.1.redhat-621084</camel.version> <!-- as per fuse on EAP distro, v 6.2.1  -->
         <cxf.version>3.0.4.redhat-621084</cxf.version> <!-- as per fuse on EAP distro, v 6.2.1 -->
-        <jetty.version>8.1.9.v20130131</jetty.version> <!-- as per fuse on karaf, v 6.2.1 -->
+        <jetty.version>8.1.17.v2015041</jetty.version> <!-- as per fuse on karaf, v 6.2.1 -->
 
         <activemq.version>5.11.0.redhat-621084</activemq.version>
         <h2.version>1.4.182</h2.version>
