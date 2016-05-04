@@ -15,7 +15,7 @@
 
         <camel.version>2.15.1.redhat-621084</camel.version> <!-- as per fuse on EAP distro, v 6.2.1  -->
         <cxf.version>3.0.4.redhat-621084</cxf.version> <!-- as per fuse on EAP distro, v 6.2.1 -->
-        <jetty.version>8.1.16.v20140903</jetty.version> <!-- as per fuse on EAP distro, v 6.2.1 -->
+        <jetty.version>9.2.9.v20150224</jetty.version> <!-- as per karaf 4 -->
 
         <activemq.version>5.11.0.redhat-621084</activemq.version>
         <h2.version>1.4.182</h2.version>
@@ -154,30 +154,37 @@
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-server</artifactId>
+                <version>${jetty.version}</version>
             </dependency>
             <dependency>
               <groupId>org.eclipse.jetty</groupId>
               <artifactId>jetty-security</artifactId>
+              <version>${jetty.version}</version>
            </dependency>
            <dependency>
               <groupId>org.eclipse.jetty</groupId>
               <artifactId>jetty-servlets</artifactId>
+              <version>${jetty.version}</version>
           </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-client</artifactId>
+                <version>${jetty.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-http</artifactId>
+                <version>${jetty.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-io</artifactId>
+                <version>${jetty.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-util</artifactId>
+                <version>${jetty.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
