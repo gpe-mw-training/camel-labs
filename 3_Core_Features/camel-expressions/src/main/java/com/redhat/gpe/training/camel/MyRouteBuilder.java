@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class MyRouteBuilder extends RouteBuilder {
 
-    private static Logger logger = LoggerFactory.getLogger(MyRouteBuilder.class);
+//    private static Logger logger = LoggerFactory.getLogger(MyRouteBuilder.class);
     public Calculation calculation;
 
     public MyRouteBuilder() {
