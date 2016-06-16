@@ -8,7 +8,7 @@
     <artifactId>camel-rest-dsl-demo</artifactId>
     <version>1.0</version>
 
-    <name>FuseByExample :: REST DSL Demo :: Project</name>
+    <name>RedHat GPE Training :: Camel :: Lab :: 8 :: Project</name>
 
     <packaging>pom</packaging>
 
@@ -36,7 +36,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -93,7 +93,7 @@
             <artifactId>org.osgi.core</artifactId>
         </dependency>
     </dependencies>
-    
+
     <modules>
         <module>routing</module>
         <module>kibana</module>
@@ -122,5 +122,5 @@
             <url>https://repository.jboss.org/nexus/content/groups/fs-public/</url>
         </pluginRepository>
     </pluginRepositories>
-    
+
 </project>
