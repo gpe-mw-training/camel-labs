@@ -25,7 +25,8 @@
         <pax-exam.version>3.5.0</pax-exam.version>
         <karaf.version>2.3.0.redhat-610379</karaf.version>
         <junit-bundle.version>4.11_2</junit-bundle.version>
-        <jetty.version>9.2.9.v20150224</jetty.version>
+        <!--<jetty.version>9.2.9.v20150224</jetty.version>-->
+        <jetty.version>8.1.17.v20150415</jetty.version>
 
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
         <maven-fabric-plugin.version>1.1.0.CR5</maven-fabric-plugin.version>
