@@ -12,7 +12,7 @@
     <artifactId>swagger</artifactId>
     <packaging>war</packaging>
 
-    <name>FuseByExample :: REST DSL Demo :: Swagger</name>
+    <name>RedHat GPE Training :: REST DSL Demo :: Swagger</name>
     <properties>
         <swagger-ui-version>2.1.2</swagger-ui-version>
         <jetty-version>9.2.3.v20140905</jetty-version>
