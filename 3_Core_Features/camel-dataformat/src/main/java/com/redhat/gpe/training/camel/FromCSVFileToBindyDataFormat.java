@@ -17,7 +17,7 @@ public class FromCSVFileToBindyDataFormat extends RouteBuilder {
 
     public void configure() throws Exception {
 
-        BindyCsvDataFormat df = new BindyCsvDataFormat(Student.class);
+        BindyCsvDataFormat df = new BindyCsvDataFormat("com.redhat.gpe.training.camel.model");
 
         from(sourceUri).routeId("dataformat")
           .split(body(String.class).tokenize("\n"))
