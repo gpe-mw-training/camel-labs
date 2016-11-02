@@ -15,16 +15,16 @@ public class JdbcMessageIdRepository implements IdempotentRepository<String> {
     public void setDataSource( DataSource pDataSource ) {
 		this.jdbcTemplate = new JdbcTemplate( pDataSource );
 	}
-
+    
     @Override
     public boolean add( String pMessageId ) {
         LOG.debug("Entered add(), with pMessageId = " + pMessageId);
-
+    	
     	// check we already have it because eager option can have been turned on
         if (contains(pMessageId)) {
             return false;
         }
-
+        
         jdbcTemplate.update( "INSERT INTO fuse_demo.ProcessedPayments ( paymentIdentifier ) VALUES (?)", new Object[] { pMessageId } );
 
 
@@ -57,14 +57,10 @@ public class JdbcMessageIdRepository implements IdempotentRepository<String> {
     @Override
     public void start() throws Exception {
 
-    }
+}
 
     @Override
     public void stop() throws Exception {
 
-    }
-
-    @Override
-    public void clear() {
     }
 }
