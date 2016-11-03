@@ -12,7 +12,7 @@
             <description/>
         </from>
         <setBody>
-            <simple>Charles</simple>
+            <simple>Hong</simple>
         </setBody>
         <bean ref="helloBean" method="sayHello"/>
         <log message="${body}"/>

@@ -6,7 +6,7 @@
     <tns:Currency>EUR</tns:Currency>
 
     <tns:Payment>
-        <tns:from>charles-EUR</tns:from>
+        <tns:from>chad-EUR</tns:from>
         <tns:to>jeff</tns:to>
         <tns:amount>1000000.0</tns:amount>
     </tns:Payment>

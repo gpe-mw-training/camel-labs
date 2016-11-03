@@ -1,5 +1,5 @@
 <tns:Payment xmlns:tns="http://training.gpe.redhat.com/payment">
-        <tns:from>charles-EUR</tns:from>
+        <tns:from>chad-EUR</tns:from>
         <tns:to>jeff</tns:to>
         <tns:amount>1000000.0</tns:amount>
     </tns:Payment><tns:Payment xmlns:tns="http://training.gpe.redhat.com/payment">
@@ -11,7 +11,7 @@
         <tns:to>jeff</tns:to>
         <tns:amount>1000000.0</tns:amount>
     </tns:Payment><tns:Payment xmlns:tns="http://training.gpe.redhat.com/payment">
-        <tns:from>jingjing-USD</tns:from>
+        <tns:from>bernard-USD</tns:from>
         <tns:to>jeff</tns:to>
         <tns:amount>10.0</tns:amount>
     </tns:Payment>

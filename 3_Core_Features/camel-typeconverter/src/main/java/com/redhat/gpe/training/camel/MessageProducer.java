@@ -18,7 +18,7 @@ public class MessageProducer {
 
         // Create an array
         MyArray myArray = new MyArray();
-        myArray.add(0, "Charles");
+        myArray.add(0, "Hong");
         myArray.add(1, "Jeff");
         myArray.add(1, "Chad");
 
