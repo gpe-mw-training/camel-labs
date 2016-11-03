@@ -27,7 +27,7 @@ public class SearchArticleToElasticRoute extends OnExceptionElasticSearch {
                     .when().simple("${body} == null")
                         .setBody().simple("No article has been retrieved from the ES DB for this id ${header.id}.")
                         .setHeader(Exchange.CONTENT_TYPE).constant("text/plain")
-                .endChoice();                
+                .endChoice();
 
 
         from("direct:searchByUser").id("searchbyuser-direct-route")
@@ -43,12 +43,12 @@ public class SearchArticleToElasticRoute extends OnExceptionElasticSearch {
 
         from("direct:searchByUser2").id("searchbyuser2-direct-route")
                 .log("Search Blogs Service called !")
-                .setHeader(Exchange.HTTP_QUERY, constant("q=user:cmoulliard&pretty=true"))
+                .setHeader(Exchange.HTTP_QUERY, constant("q=user:hong&pretty=true"))
                 .setHeader(Exchange.HTTP_PATH, constant("/blog/post/_search"))
                 .to("http4:{{address}}:{{port}}/?bridgeEndpoint=true")
                 .beanRef("elasticSearchService", "getBlogs2");
-        
-        /* 
+
+        /*
          *  Code works with Camel 2.16 as SEARCH operation wasn't implemented for 2.15
          *
         from("direct:search")

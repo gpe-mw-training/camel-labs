@@ -33,13 +33,13 @@ echo ">>> GET Blog article : 1"
 #http --verify=no GET $URL/search/id/1 "Authorization: Bearer $access_token"
 curl -k $URL/search/id/1 -H "Authorization:Bearer $access_token"
 
-echo ">>> GET Blog articles of Charles Moulliard"
-#http --verify=no GET $URL/search/user/cmoulliard "Authorization: Bearer $access_token"
-curl -k $URL/search/user/cmoulliard -H "Authorization:Bearer $access_token"
+echo ">>> GET Blog articles of Hong"
+#http --verify=no GET $URL/search/user/hong "Authorization: Bearer $access_token"
+curl -k $URL/search/user/hong -H "Authorization:Bearer $access_token"
 
 echo ">>> PUT Blog article n° 10"
-# echo '{ "user": "cmoulliard", "postDate": "2015-09-15T10:10", "body": "Integration is hard - 10", "title": "On distributed search" }' | http --verify=no PUT $URL/10 "Authorization: Bearer $access_token"
-echo '{ "user": "cmoulliard", "postDate": "2015-09-15T10:10", "body": "Integration is hard - 10", "title": "On distributed search" }' curl -k -X PUT -d @- $URL/10 -H "Authorization:Bearer $access_token"
+# echo '{ "user": "hong", "postDate": "2015-09-15T10:10", "body": "Integration is hard - 10", "title": "On distributed search" }' | http --verify=no PUT $URL/10 "Authorization: Bearer $access_token"
+echo '{ "user": "hong", "postDate": "2015-09-15T10:10", "body": "Integration is hard - 10", "title": "On distributed search" }' curl -k -X PUT -d @- $URL/10 -H "Authorization:Bearer $access_token"
 
 echo ">>> DELETE Blog Article n° 10"
 # http --verify=no DELETE $URL/10 "Authorization: Bearer $access_token"
