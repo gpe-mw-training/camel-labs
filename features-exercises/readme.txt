@@ -38,3 +38,6 @@ it):
 Check your list again and you see:
 
 [installed  ] [0.0.0               ] camel-exercise-cbr                   repo-0
+
+
+
