@@ -26,8 +26,9 @@ public class MyRouteBuilder extends RouteBuilder {
           .to("direct:continue");
           
          from("direct:typeconverter")
-           .convertBodyTo(Collection.class)
-           .log("We will convert the Object to a Collection");
+           .log("We will convert the Object to a Vector")
+           .convertBodyTo(Vector.class);
+           
 
         from("direct:continue")
            .log(">> We will register the strategy to convert an Array to a Vector")
