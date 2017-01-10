@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.redhat.gpe.training</groupId>
+    <artifactId>camel</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>RedHat GPE Training :: Camel Project Exercise</name>
+
+    <properties>
+        <jboss.fuse.bom.version>6.1.0.redhat-379</jboss.fuse.bom.version>
+
+        <activemq-version>5.9.0.redhat-610379</activemq-version>
+        <camel-version>2.12.0.redhat-610379</camel-version>
+        <h2.version>1.3.162</h2.version>
+        <spring.version>3.2.8.RELEASE</spring.version>
+        <slf4j.version>1.6.6</slf4j.version>
+
+        <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
+        <maven-fabric-plugin.version>1.1.0.CR5</maven-fabric-plugin.version>
+        <maven-jetty-plugin.version>8.1.14.v20131031</maven-jetty-plugin.version>
+    </properties>
+
+    <modules>
+        <!-- Exercise : Camel Dataformat with Bindy & CSV -->
+        <module>camel-exercise-dataformat</module>
+
+        <!-- Exercise : Camel Exceptions (DLQ, onException) -->
+        <module>camel-exercise-exception</module>
+
+        <!-- Exercise : Camel Type Converter -->
+        <module>camel-exercise-typeconverter</module>
+
+        <!-- Exercise : Java Main & Camel Main + Java DSL -->
+        <module>camel-exercise-standalone</module>
+
+        <!-- Exercise : Camel Spring Main + Spring  DSL -->
+        <module>camel-exercise-spring-standalone</module>
+
+        <!-- Exercise : Camel Expression language (simple, xpath, ...) & bean -->
+        <module>camel-exercise-expressions</module>
+
+        <!-- Exercise : Camel Unit Test -->
+        <module>camel-exercise-unit-test</module>
+
+
+        <!-- Exercise : Content Based Router -->
+        <module>camel-exercise-cbr</module>
+
+        <module>camel-exercise-web</module>
+
+        <module>camel-exercise-webservice</module>
+
+        <module>camel-exercise-aggregator</module>
+
+        <module>camel-exercise-splitter</module>
+
+        <module>camel-exercise-sql</module>
+
+        <module>camel-exercise-features</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.fuse.bom</groupId>
+                <artifactId>jboss-fuse-parent</artifactId>
+                <version>${jboss.fuse.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss.org Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>jboss-releases</id>
+            <name>JBoss.org Fuse Releases</name>
+            <url>http://repository.jboss.org/nexus/content/repositories/fs-releases</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss.org Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-releases</id>
+            <name>JBoss.org Fuse Releases</name>
+            <url>http://repository.jboss.org/nexus/content/repositories/fs-releases</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.5.1</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.camel</groupId>
+                    <artifactId>camel-maven-plugin</artifactId>
+                    <version>${camel-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.mortbay.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>${maven-jetty-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.activemq.tooling</groupId>
+                    <artifactId>activemq-maven-plugin</artifactId>
+                    <version>${activemq-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>fabric8-maven-plugin</artifactId>
+                    <version>${maven-fabric-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

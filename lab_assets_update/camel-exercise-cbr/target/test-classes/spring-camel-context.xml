@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+  		http://www.springframework.org/schema/beans/spring-beans.xsd
+  	    http://camel.apache.org/schema/spring
+		http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <camelContext trace="true" xmlns="http://camel.apache.org/schema/spring">
+
+        <packageScan>
+            <package>com.redhat.gpe.training.camel</package>
+        </packageScan>
+
+        <endpoint id="sourceDirectoryXml" uri="file:./target/test-classes/camel/in/xml"/>
+        <endpoint id="sourceDirectoryCsv" uri="file:./target/test-classes/camel/in/csv"/>
+
+        <endpoint id="euroSinkUriXml" uri="file:./target/test-classes/camel/out/xml/eur/?fileExist=Append&amp;fileName=euro-${date:now:yyyyMMdd}.xml"/>
+        <endpoint id="usdSinkUriXml" uri="file:./target/test-classes/camel/out/xml/usd/?fileExist=Append&amp;fileName=usd-${date:now:yyyyMMdd}.xml"/>
+        <endpoint id="otherSinkUriXml" uri="file:./target/test-classes/camel/out/xml/other/?fileExist=Append&amp;fileName=other-${date:now:yyyyMMdd}.xml"/>
+
+        <endpoint id="euroSinkUriCsv" uri="file:./target/test-classes/camel/out/csv/eur/?fileExist=Append&amp;fileName=euro-${date:now:yyyyMMdd}.xml"/>
+        <endpoint id="usdSinkUriCsv" uri="file:./target/test-classes/camel/out/csv/usd/?fileExist=Append&amp;fileName=usd-${date:now:yyyyMMdd}.xml"/>
+        <endpoint id="otherSinkUriCsv" uri="file:./target/test-classes/camel/out/csv/other/?fileExist=Append&amp;fileName=other-${date:now:yyyyMMdd}.xml"/>
+
+    </camelContext>
+
+</beans>

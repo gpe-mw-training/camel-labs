@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>camel</artifactId>
+    <groupId>com.redhat.gpe.training</groupId>
+    <version>1.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>camel-exercise-splitter</artifactId>
+  <name>RedHat GPE Training :: Camel :: Exercise :: Splitter</name>
+  <packaging>bundle</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-spring</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-camel</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- build the OSGi bundle -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <manifestLocation>./target/META-INF</manifestLocation>
+            <Export-Package>com.redhat.gpe.training.camel*</Export-Package>
+            <!-- we must set the version for org.slf4j explicitly, to match that used in ServiceMix -->
+            <Import-Package>
+              org.slf4j;version=${slf4j.version},
+              *
+            </Import-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+      <!-- enable maven command 'mvn camel:run' -->
+      <plugin>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-maven-plugin</artifactId>
+        <configuration>
+          <!--  the spring context file must be separate from the OSGi bundle, so we provide one here -->
+          <fileApplicationContextUri>src/test/resources/spring-camel-context.xml</fileApplicationContextUri>
+        </configuration>
+      </plugin>
+        <plugin>
+            <groupId>org.apache.activemq.tooling</groupId>
+            <artifactId>activemq-maven-plugin</artifactId>
+            <configuration>
+                <configUri>xbean:file:./src/test/resources/conf/activemq.xml</configUri>
+                <fork>false</fork>
+                <project>${project}</project>
+                <systemProperties>
+                    <property>
+                        <name>org.apache.activemq.default.directory.prefix</name>
+                        <value>./target/</value>
+                    </property>
+                </systemProperties>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>${project.groupId}</groupId>
+                    <artifactId>${project.artifactId}</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+  </build>
+
+</project>

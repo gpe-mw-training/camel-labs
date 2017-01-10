@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:ctx="http://www.springframework.org/schema/context"
+       xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+  		  http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+  		  http://www.springframework.org/schema/context/spring-context.xsd
+  		http://camel.apache.org/schema/spring
+		  http://camel.apache.org/schema/spring/camel-spring.xsd
+		http://www.springframework.org/schema/osgi-compendium
+          http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
+
+    <!-- OSGI Config Admin Property -->
+    <osgix:cm-properties id="myConfig" persistent-id="com.redhat.gpe.training.camel">
+        <prop key="sourceDirectoryXmlUri">file:camel-exercise-cbr/src/test/resources/camel/in/xml</prop>
+        <prop key="sourceDirectoryCsvUri">file:camel-exercise-cbr/src/test/resources/camel/in/csv</prop>
+        <prop key="euroSinkUriXmlUri">file:camel-exercise-cbr/src/test/resources/camel/out/xml/eur/?fileExist=Append&amp;fileName=euro-${date:now:yyyyMMdd}.xml</prop>
+        <prop key="usdSinkUriXmlUri">file:camel-exercise-cbr/src/test/resources/camel/out/xml/usd/?fileExist=Append&amp;fileName=usd-${date:now:yyyyMMdd}.xml</prop>
+        <prop key="otherSinkUriXmlUri">file:camel-exercise-cbr/src/test/resources/camel/out/xml/other/?fileExist=Append&amp;fileName=other-${date:now:yyyyMMdd}.xml</prop>
+        <prop key="euroSinkUriCsvUri">file:camel-exercise-cbr/src/test/resources/camel/out/csv/eur/?fileExist=Append&amp;fileName=euro-${date:now:yyyyMMdd}.xml</prop>
+        <prop key="usdSinkUriCsvUri">file:camel-exercise-cbr/src/test/resources/camel/out/csv/usd/?fileExist=Append&amp;fileName=usd-${date:now:yyyyMMdd}.xml</prop>
+        <prop key="otherSinkUriCsvUri">file:camel-exercise-cbr/src/test/resources/camel/out/csv/other/?fileExist=Append&amp;fileName=other-${date:now:yyyyMMdd}.xml</prop>
+    </osgix:cm-properties>
+
+    <!-- Spring Property placeholder -->
+    <ctx:property-placeholder properties-ref="myConfig"/>
+
+    <bean id="myRoute" class="com.redhat.gpe.training.camel.RouteByCurrencyRouter"/>
+
+    <camelContext trace="true" xmlns="http://camel.apache.org/schema/spring">
+
+        <packageScan>
+            <package>com.redhat.gpe.training.camel</package>
+        </packageScan>
+
+        <endpoint id="sourceDirectoryXml" uri="${sourceDirectoryXmlUri}"/>
+        <endpoint id="sourceDirectoryCsv" uri="${sourceDirectoryCsvUri}"/>
+
+        <endpoint id="euroSinkXml" uri="${euroSinkXmlUri}"/>
+        <endpoint id="usdSinkXml" uri="${usdSinkXmlUri}"/>
+        <endpoint id="otherSinkXml" uri="${otherSinkXmlUri}"/>
+
+        <endpoint id="euroSinkCsv" uri="${euroSinkCsvUri}"/>
+        <endpoint id="usdSinkCsv" uri="${usdSinkCsvUri}"/>
+        <endpoint id="otherSinkCsv" uri="${otherSinkCsvUri}"/>
+
+    </camelContext>
+
+
+</beans>

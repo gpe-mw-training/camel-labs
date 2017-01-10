@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  	    http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+  	   ">
+
+    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+
+    <bean name="activemq" class="org.apache.camel.component.jms.JmsComponent">
+        <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    </bean>
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+        <routeBuilder ref="singlePaymentSplitter"/>
+
+        <endpoint id="sourceFileEndpoint" uri="file:./target/test-classes/camel/in"/>
+        <endpoint id="sourceJmsEndpoint"  uri="activemq:queue:Payments.XML"/>
+        <endpoint id="targetJmsEndpoint"  uri="activemq:queue:IndividualPayments.XML"/>
+    </camelContext>
+
+    <bean id="singlePaymentSplitter" class="com.redhat.gpe.training.camel.SplitIntoSinglePaymentsRouter"/>
+
+</beans>

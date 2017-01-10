@@ -1,0 +1,51 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+           xsi:schemaLocation="
+           http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <!-- OSGI Config Admin property -->
+    <cm:property-placeholder id="myConfig" persistent-id="com.redhat.gpe.training.camel">
+<!--        <cm:default-properties>
+            <property name="sourceDirectoryXmlUri" value="file:camel-exercise-cbr/src/test/resources/camel/in/xml"/>
+            <property name="sourceDirectoryCsvUri" value="file:camel-exercise-cbr/src/test/resources/camel/in/csv"/>
+            <property name="euroSinkXmlUri"
+                      value="file:camel-exercise-cbr/src/test/resources/camel/out/xml/eur/?fileExist=Append&amp;fileName=euro-${date:now:yyyyMMdd}.xml"/>
+            <property name="usdSinkXmlUri"
+                      value="file:camel-exercise-cbr/src/test/resources/camel/out/xml/usd/?fileExist=Append&amp;fileName=usd-${date:now:yyyyMMdd}.xml"/>
+            <property name="otherSinkXmlUri"
+                      value="file:camel-exercise-cbr/src/test/resources/camel/out/xml/other/?fileExist=Append&amp;fileName=other-${date:now:yyyyMMdd}.xml"/>
+            <property name="euroSinCsvUri"
+                      value="file:camel-exercise-cbr/src/test/resources/camel/out/csv/eur/?fileExist=Append&amp;fileName=euro-${date:now:yyyyMMdd}.xml"/>
+            <property name="usdSinkCsvUri"
+                      value="file:camel-exercise-cbr/src/test/resources/camel/out/csv/usd/?fileExist=Append&amp;fileName=usd-${date:now:yyyyMMdd}.xml"/>
+            <property name="otherSinkCsvUri"
+                      value="file:camel-exercise-cbr/src/test/resources/camel/out/csv/other/?fileExist=Append&amp;fileName=other-${date:now:yyyyMMdd}.xml"/>
+        </cm:default-properties>-->
+    </cm:property-placeholder>
+
+    <bean id="myRoute" class="com.redhat.gpe.training.camel.RouteByCurrencyRouter"/>
+
+    <camelContext trace="true" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <packageScan>
+            <package>com.redhat.gpe.training.camel</package>
+        </packageScan>
+
+        <jmxAgent id="agent" disabled="false" registerAlways="true"/>
+
+        <endpoint id="sourceDirectoryXml" uri="{{sourceDirectoryXmlUri}}"/>
+        <endpoint id="sourceDirectoryCsv" uri="{{sourceDirectoryCsvUri}}"/>
+
+        <endpoint id="euroSinkXml" uri="{{euroSinkXmlUri}}"/>
+        <endpoint id="usdSinkXml" uri="{{usdSinkXmlUri}}"/>
+        <endpoint id="otherSinkXml" uri="{{otherSinkXmlUri}}"/>
+
+        <endpoint id="euroSinkCsv" uri="{{euroSinkCsvUri}}"/>
+        <endpoint id="usdSinkCsv" uri="{{usdSinkCsvUri}}"/>
+        <endpoint id="otherSinkCsv" uri="{{otherSinkCsvUri}}"/>
+
+    </camelContext>
+
+
+</blueprint>

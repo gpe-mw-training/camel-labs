@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CustomerService"
+                  targetNamespace="http://training.gpe.redhat.com/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://training.gpe.redhat.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://training.gpe.redhat.com/"
+                   attributeFormDefault="unqualified"
+                   elementFormDefault="unqualified"
+                   targetNamespace="http://training.gpe.redhat.com/">
+
+            <!-- Entity definition -->
+            <xs:complexType name="customer">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="name" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="address"
+                                nillable="true" type="xs:string"/>
+                    <xs:element name="numOrders" type="xs:int"/>
+                    <xs:element name="revenue" type="xs:double"/>
+                    <xs:element minOccurs="0" name="test" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="birthDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="type" type="tns:customerType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="customerType">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="PRIVATE"/>
+                    <xs:enumeration value="BUSINESS"/>
+                </xs:restriction>
+            </xs:simpleType>
+
+            <!-- Methods -->
+            <xs:element name="getAllCustomers"/>
+            <xs:element name="getAllCustomersResponse" type="tns:getAllCustomersResponse"/>
+            <xs:complexType name="getAllCustomersResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customer"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:element name="NoSuchCustomer" type="tns:NoSuchCustomer"/>
+            <xs:complexType name="NoSuchCustomer">
+                <xs:sequence>
+                    <xs:element name="customerId" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+
+    <wsdl:message name="getAllCustomers"/>
+    <wsdl:message name="getAllCustomersResponse">
+        <wsdl:part name="parameters" element="tns:getAllCustomersResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="NoSuchCustomerException">
+        <wsdl:part name="NoSuchCustomerException" element="tns:NoSuchCustomer"/>
+    </wsdl:message>
+
+    <wsdl:portType name="CustomerService">
+
+        <wsdl:operation name="getAllCustomers">
+            <wsdl:input message="tns:getAllCustomers"/>
+            <wsdl:output message="tns:getAllCustomersResponse"/>
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="CustomerServiceServiceSoapBinding"
+                  type="tns:CustomerService">
+
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <wsdl:operation name="getAllCustomers">
+            <soap:operation soapAction="http://training.gpe.redhat.com/getAllCustomers"/>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+    <wsdl:service name="CustomerService">
+        <wsdl:port name="CustomerServicePort" binding="tns:CustomerServiceServiceSoapBinding">
+            <soap:address location="http://localhost:9090/CustomerServicePort"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_lab_3_core_features">Lab 3 : Core Features</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">Goals</div><ul>
+<li>
+<p>
+Extend your skills based on what has been learned with module <em>Core engine</em> (DSL, CamelContext, Route, Message)
+</p>
+</li>
+<li>
+<p>
+The students should be able to play with different object types within a Route and convert them like also the DataFormat (Bindy, &#8230;)
+</p>
+</li>
+<li>
+<p>
+Have a more in depth knowledge about Exceptions (local, global)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_typeconverter">TypeConverter</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The main goal of this exercise is to demonstrate how Apache Camel works with the TypeConverter strategy and how you could add a new converter to be able to
+convert a Vector class into an ArrayList class. Such TypeConverter does not exist by default.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Launch JBoss Developer Studio (JBDS).
+</p>
+</li>
+<li>
+<p>
+Select <code>File → Import</code> from the menu.
+</p>
+</li>
+<li>
+<p>
+Expand folder <code>Maven -> Existing Maven Projects</code>. Click <code>Next</code>.
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/import_wizard.png" alt="Import Wizard" height=" 480" width="450" />
+</div>
+</div>
+</li>
+<li>
+<p>
+Click <code>Browse...</code>. Choose the directory <code>~/lab_assets_update</code> containing a pom.xml (Maven project) file.
+</p>
+</li>  
+<li>
+<p>
+Ensure the project <code>camel-exercise-typeconverter</code> is selected (checkboxed), then click <code>Finish</code>. 
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/import_lab3.png" alt="Import Wizard" height=" 520" width="500" />
+</div>
+</div>
+</li> 
+<li>
+<p>
+Expand the project <code>camel-exercise-typeconverter</code>
+</p>
+</li>
+<li>
+<p>
+Review the code assets (including the pom.xml file)
+</p>
+</li>
+<li>
+<p>
+Specifically the <code>MyRouteBuilder.class</code> containing 2 Routes exposed using the <code>direct</code> component.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>The route <code>direct://typeconverter</code> will be used to consume an Exchange containing an ArrayList of Strings: "Charles", "Chad, "Jeff". But when the type converter processor trys to convert the Body of the Exchange Object from an ArrayList (which is a List of Strings) to a Vector, the error <code>org.apache.camel.InvalidPayloadException : No body available of type: java.util.Vector but has value: [Charles, Chad, Jeff] of type: com.redhat.gpe.training.camel.bean.MyArray</code> will be thrown.
+</p><p>This is because no conversion strategy exists for the MyArray type and as a result the exception is caught and the route <code>direct://continue</code> is called.</p></div>
+<div class="paragraph"><p>This second route <code>direct://continue</code> utilizes the type conversion feature in Apache Camel, through this code snippet: 
+<code>context.getTypeConverterRegistry().addTypeConverter(Vector.class, MyArray.class, new ArrayConverter())</code> </p><p>The code converts the Exchange body  (which is the ArrayList) into a Vector and the information within the ArrayList will be displayed in the console log.</p></div>
+<div class="paragraph"><p>Now, run the project in JBDS.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+In the <code>Project Explorer</code> view, expand the <code>src/main/resources/META-INF/spring</code> directory of the <code>camel-exercise-typeconverter</code>  project
+</p>
+</li>
+<li>
+<p>
+Select <code>Run As &#8594; Camel Local Context</code> after right-clicking on the file <code>spring-camel-context.xml</code>
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>The CamelContext is instantiated by Spring, the Routes registered and started and a Camel Exchange created and send to the <code>direct:typeconverter</code> endpoint as we have also
+defined a bean called <code>MessageProducer</code> including a <code>ProducerTemplate</code> able to call our endpoint.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/lab3_console.png" alt="image/lab3/lab3_console.png" />
+</div>
+</div>
+<div class="paragraph"><p>Review the code in this example and</p></div>
+<div class="olist arabic"><div class="title">Change Type Converter</div><ol class="arabic" start="1">
+<li>
+<p>
+In MyRouteBuilder.java, change the code for <code>from("direct:typeconverter")</code> to the following: </p><p><code>        from("direct:typeconverter")
+    // We will use a Type where there is no typeConverter strategy</p><p>
+    // From MyArray to Collection</p><p>
+           .convertBodyTo(Collection.class)
+    .log("We will convert the Object to a Collection");</code>
+</p>
+</li>
+<li>
+<p>
+Run the project using <code>Run as &#8594; Camel Local Context</code>
+</p>
+</li>
+<li>
+<p>
+Check the console
+</p>
+</li>
+<li>
+<p>
+Stop the CamelContext
+</p>
+</li>
+<li>
+<p>
+Close the project
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dataformat">DataFormat</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Now that we have experimented with the TypeConverter feature, we will have a look to a more complex transformation process which is based on the DataFormat feature. The goal of this exercise
+is to use the Bindy DataFormat which is able to map Java Objects with CSV records and marshall/unmarshall the body content of an Apache Camel Exchange.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Expand the project <code>camel-exercise-dataformat</code>
+</p>
+</li>
+<li>
+<p>
+Review the code assets, specifically the <code>Student.java</code> file containing Bindy Annotations (eg: @DataField(.....))
+</p>
+</li>
+<li>
+<p>
+Launch the <code>CamelContext</code> by right-clicking on <code>src/test/resources/spring-camel-context.xml</code>, and selecting <code>Run As &#8594; Camel Local Context</code>
+</p>
+</li>
+<li>
+<p>
+Check the log within the console
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/dataformat_console.png" alt="image/lab3/dataformat_console.png" />
+</div>
+</div>
+</li>
+</ol></div>
+<div class="paragraph"><p>As you can see the file <code>test/resources/camel/csv/students.txt</code> has been consumed, the CSV records of the file split into individual Strings and each String is transformed into a <code>HashMap&lt;String, Object&gt;</code> by the Bindy Dataformat unmarshaller (where the String of the HashMap is the Model class name and the Object processed by the Bindy component).</p></div>
+<div class="paragraph"><p>Next the BeanProcessor MyBean is invoked, the content enriched and a Student object returned. The Student object will be transformed into a String during the marshalling process.</p></div>
+<div class="olist arabic"><div class="title">Add a new field for the model</div><ol class="arabic" start="1">
+<li>
+<p>
+Add the following Date field (including Getter and Settter methods) to <code>src/main/java/....camel/model/Student.java</code>.
+</p>
+<p><code>private Date creationDate;</code> 
+</p>
+</li>
+<li><p>Right-click on the Java editor showing the source of Student.java, and select <code>Source -> Generate Getters and Setters</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/generate_getset_methods.png" alt="Generate Methods From Variable" height=" 520" width="780"/>
+</div>
+</div>
+</li>
+<li><p>Check the checkbox next to creationDate, and click <code>OK</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/creationdate_check.png" alt="Select Creation Date" height=" 580" width="480"/>
+</div>
+</div>
+</li>
+<li>
+<p>In Student.java, make necessary changes to the Bindy annotations, such that they resemble the following:</p><p>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/bindy.png" alt="Write Annotations" height=" 150" width="750"/>
+</div>
+</div>
+</p><p>Key change includes creating a Bindy annotation with the pattern ("dd-MM-yyyy")</p>
+</li>
+<li>
+<p>
+    In <code>src/test/resources/camel/csv/students.txt</code>, append additional date and status fields to the end of every record. Use the values shown in this diagram:
+</p>
+</li>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/students.png" alt="Add Date Field" height=" 100" width="420"/>
+</div>
+</div>
+<li>
+<p>
+Launch the <code>CamelContext</code> by right-clicking on <code>src/test/resources/spring-camel-context.xml</code>, and selecting <code>Run As &#8594; Camel Local Context</code>
+</p>
+</li>
+<li>
+<p>
+Check the log within the console
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/dataformat_console2.png" alt="image/lab3/dataformat_console2.png" />
+</div>
+</div>
+</li>
+<li>
+<p>
+Close the project
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_expressions">Expressions</h2>
+<div class="sectionbody">
+    <div class="paragraph"><p>The next exercise will demonstrate how you can use some of the different languages supported like <code>constant</code>, <code>simple</code> and <code>ognl</code> languages within an Apache Camel project. The three languages will be used to set the value of the Body, 2 headers identified with the value "value1" and "value2" and the result "addition". </p>
+<p>The exercise involves a bean called "Calculation" which contains the fields "value1" and "value2" plus of course the method "addition" that we call
+to get the result. <code>simple</code> and <code>ognl</code> languages offer the possibility to access the setter fields or methods of an object.</p></div>
+<div class="paragraph"><p>To proceed with the exercise, follow the steps described here after</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Expand the project <code>camel-exercise-expressions</code>
+</p>
+</li>
+<li>
+<p>
+Review the code and specifically the DSL <code>.setBody(), .setHeader()</code> and the expression languages used
+</p>
+</li>
+<li>
+<p>
+To launch the project, select <code>Run as &#8594; Camel Local Context</code>
+</p>
+</li>
+<li>
+<p>
+Every 10s, you will see that Apache Camel will log the result of the addition <code>&gt;&gt; 10 + 20 = 30</code>
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="image/lab3/expression_console.png" alt="image/lab3/expression_console.png" />
+</div>
+</div>
+</li>
+<li>
+<p>
+Close the project
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exceptions">Exceptions</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This exercise shows how Exceptions and ErrorHandler can augment the management of messages within a Camel Route. It contains different Apache Camel Routes
+which are used to generate different exception types and to show how they are intercepted by <code>onException</code> or managed by one of the Apache Camel ErrorHandler (DefaultErrorHandler or DeadLetterChannel).</p></div>
+<div class="paragraph"><p>The scenario works as such
+* Different files will be consumed by the <code>from("file")</code> endpoint
+* If the XML file contain a payment in <code>EUR</code>, then a MyFunctional Exception is raised, which is intercepted by the onException() interceptor, the exception is handled
+  and will not be redelivered. So the exception appears only one time in the log of the console.
+* If the file contains a payment in <code>US</code> Dollar an Exception is raised (and not anymore a MyFunctional exception) which is not intercepted by onException and so the DeadLetterChannel
+  will try to redeliver 2 times the last camel processor where the error took place before to send the result to a camel route logging the info.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Expand the project <code>camel-exercise-exception</code>
+</p>
+</li>
+<li>
+<p>
+Review the code
+</p>
+</li>
+<li>
+<p>
+To launch the project, select <code>Run as &#8594; Camel Local Context</code>
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Remarks :
+* The MyBean pojo is used to generate the different Exception types (MyFunctional or a simple Exception) and to increase an internal counter needed to measure how much the DLD Channel has called the redelivery option.
+* The log output generated within the console of JBDS represents all the steps described within the scenario</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>org.apache.camel.spring.Main.main() INFO [org.apache.camel.spring.SpringCamelContext] - Route: cbr started and consuming from: Endpoint[file://./target/test-classes/camel/in/xml]
+org.apache.camel.spring.Main.main() INFO [org.apache.camel.spring.SpringCamelContext] - Route: direct-error-handler-with-exception started and consuming from: Endpoint[direct://errorHandlerWithException]
+org.apache.camel.spring.Main.main() INFO [org.apache.camel.spring.SpringCamelContext] - Route: direct-error-handler started and consuming from: Endpoint[direct://errorHandler]
+org.apache.camel.spring.Main.main() INFO [org.apache.camel.spring.SpringCamelContext] - Route: DLQ started and consuming from: Endpoint[direct://directDLQError]
+org.apache.camel.spring.Main.main() INFO [org.apache.camel.spring.SpringCamelContext] - Total 4 routes, of which 4 is started.
+org.apache.camel.spring.Main.main() INFO [org.apache.camel.spring.SpringCamelContext] - Apache Camel 2.12.0.redhat-610379 (CamelContext: camel-1) started in 0.236 seconds
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [cbr] - Message to be handled: EUPayments.xml, body: &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;tns:Payments xmlns:tns="http://www.fusesource.com/training/payment"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.fusesource.com/training/payment xsd/Payment.xsd "&gt;
+
+    &lt;tns:Currency&gt;EUR&lt;/tns:Currency&gt;
+
+    &lt;tns:Payment&gt;
+        &lt;tns:from&gt;ade&lt;/tns:from&gt;
+        &lt;tns:to&gt;jack&lt;/tns:to&gt;
+        &lt;tns:amount&gt;1000000.0&lt;/tns:amount&gt;
+    &lt;/tns:Payment&gt;
+    &lt;tns:Payment&gt;
+        &lt;tns:from&gt;jack&lt;/tns:from&gt;
+        &lt;tns:to&gt;jill&lt;/tns:to&gt;
+        &lt;tns:amount&gt;20.0&lt;/tns:amount&gt;
+    &lt;/tns:Payment&gt;
+    &lt;tns:Payment&gt;
+        &lt;tns:from&gt;ade&lt;/tns:from&gt;
+        &lt;tns:to&gt;jill&lt;/tns:to&gt;
+        &lt;tns:amount&gt;42.0&lt;/tns:amount&gt;
+    &lt;/tns:Payment&gt;
+
+&lt;/tns:Payments&gt;
+
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [org.apache.camel.builder.xml.XPathBuilder] - Created default XPathFactory com.sun.org.apache.xpath.internal.jaxp.XPathFactoryImpl@66ffaea7
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [cbr] - This is an Euro XML Payment: EUPayments.xml
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [direct-error-handler-with-exception] - Message will be processed only 1 time.
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [com.redhat.gpe.training.camel.MyBean] - &gt;&gt;&gt;&gt; Exception created for : EUR, counter = 1
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [direct-error-handler-with-exception] - %%% MyFunctional Exception handled.
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [cbr] - Message to be handled: USPayments.xml, body: &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;tns:Payments xmlns:tns="http://www.fusesource.com/training/payment"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.fusesource.com/training/payment ../xsd/Payment.xsd "&gt;
+
+    &lt;tns:Currency&gt;USD&lt;/tns:Currency&gt;
+
+    &lt;tns:Payment&gt;
+        &lt;tns:from&gt;paul&lt;/tns:from&gt;
+        &lt;tns:to&gt;ade&lt;/tns:to&gt;
+        &lt;tns:amount&gt;1000000.0&lt;/tns:amount&gt;
+    &lt;/tns:Payment&gt;
+    &lt;tns:Payment&gt;
+        &lt;tns:from&gt;daan&lt;/tns:from&gt;
+        &lt;tns:to&gt;jack&lt;/tns:to&gt;
+        &lt;tns:amount&gt;78.0&lt;/tns:amount&gt;
+    &lt;/tns:Payment&gt;
+    &lt;tns:Payment&gt;
+        &lt;tns:from&gt;pat&lt;/tns:from&gt;
+        &lt;tns:to&gt;jill&lt;/tns:to&gt;
+        &lt;tns:amount&gt;13.0&lt;/tns:amount&gt;
+    &lt;/tns:Payment&gt;
+
+&lt;/tns:Payments&gt;
+
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [cbr] - This is an USD XML Payment: USPayments.xml
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [direct-error-handler] - Message will be processed 2 times.
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [com.redhat.gpe.training.camel.MyBean] - &gt;&gt;&gt;&gt; Exception created for : USD, counter = 1
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [com.redhat.gpe.training.camel.MyBean] - &gt;&gt;&gt;&gt; Exception created for : USD, counter = 2
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [com.redhat.gpe.training.camel.MyBean] - &gt;&gt;&gt;&gt; Exception created for : USD, counter = 3
+Camel (camel-1) thread #0 - file://./target/test-classes/camel/in/xml INFO [DLQ] - &gt;&gt;&gt; Info send to DLQ</code></pre>
+</div></div>
+<div class="paragraph"><p>Follow theses steps:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Review the code of the project <code>camel-exercise-exception</code> and specifically the ErrorHandlers (eg: DLQ, direct-error-handler-with-exception and direct-error-handler) and how we generate exceptions within MyBean
+</p>
+</li>
+<li>
+<p>
+In the project <code>camel-exercise-exception</code>, expand the <code>src/main/resources/META-INF/spring</code> directory using the <code>Project Explorer</code>
+</p>
+</li>
+<li>
+<p>
+Select <code>Run As -&#8594; Camel Local Context</code> by right-clicking on the file <code>spring-camel-context.xml</code>
+</p>
+</li>
+<li>
+<p>
+When the 2 files have been consumed, review the information logged in the console
+</p>
+</li>
+<li>
+<p>
+Stop the CamelContext.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>You have now completed the lab.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2014-11-17 23:42:38 EST
+</div>
+</div>
+</body>
+</html>
