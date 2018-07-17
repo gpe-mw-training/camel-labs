@@ -8,7 +8,7 @@
   	      http://camel.apache.org/schema/spring/camel-spring.xsd">
 
   <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <package>com.redhat.gpe.training.camel.route</package>
+    <package>com.redhat.gpte.training.camel.route</package>
 
     <endpoint id="sourceEndpoint" uri="file://src/main/data/in?noop=true"/>
     <endpoint id="destinationEndpoint" uri="file://src/main/data/out"/>

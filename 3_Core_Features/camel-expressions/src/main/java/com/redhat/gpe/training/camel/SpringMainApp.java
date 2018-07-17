@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.camel;
+package com.redhat.gpte.training.camel;
 
 import org.apache.camel.spring.Main;
 import org.slf4j.Logger;

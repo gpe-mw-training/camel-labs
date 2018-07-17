@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.camel.bean;
+package com.redhat.gpte.training.camel.bean;
 
 import java.util.ArrayList;
 

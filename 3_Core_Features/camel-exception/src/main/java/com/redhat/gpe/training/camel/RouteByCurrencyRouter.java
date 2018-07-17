@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.camel;
+package com.redhat.gpte.training.camel;
 
 import org.apache.camel.Endpoint;
 import org.apache.camel.EndpointInject;
@@ -30,6 +30,8 @@ public class RouteByCurrencyRouter extends RouteBuilder {
 
     public void configure() throws Exception {
 
+        // TODO Add Try/catch/Block
+
         onException(MyFunctionalException.class).routeId("myfunctional-exception")
                 .maximumRedeliveries(0)
                 .handled(true)
@@ -40,8 +42,8 @@ public class RouteByCurrencyRouter extends RouteBuilder {
         .log(LoggingLevel.INFO, "Message to be handled: ${file:onlyname}, body: ${body}")
             .choice()
                 .when(
-                    xpath("/pay:Payments/pay:Currency = 'EUR'")
-                            .namespace("pay", "http://www.fusesource.com/training/payment"))
+                        xpath("/pay:Payments/pay:Currency = 'EUR'")
+                                .namespace("pay", "http://www.fusesource.com/training/payment"))
                     .log(LoggingLevel.INFO, "This is an Euro XML Payment: ${file:onlyname}")
                     .setHeader("Payment").simple("EUR")
                     .to(directErrorHandlerWithException)

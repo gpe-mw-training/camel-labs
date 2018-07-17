@@ -1,4 +1,4 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tra="http://training.gpe.redhat.com/">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tra="http://training.gpte.redhat.com/">
     <soapenv:Header/>
     <soapenv:Body>
         <tra:getCustomerByName>

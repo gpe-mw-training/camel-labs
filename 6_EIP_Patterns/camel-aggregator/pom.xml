@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>camel-lab-6</artifactId>
-        <groupId>com.redhat.gpe.training</groupId>
+        <groupId>com.redhat.gpte.training</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>camel-aggregator</artifactId>
-    <name>RedHat GPE Training :: Camel :: Lab :: 6 :: Aggregator</name>
+    <name>RedHat GPTE Training :: Camel :: Lab :: 6 :: Aggregator</name>
 
     <packaging>bundle</packaging>
 
@@ -39,7 +39,7 @@
                 <configuration>
                     <manifestLocation>./target/META-INF</manifestLocation>
                     <instructions>
-                        <Export-Package>com.redhat.gpe.training.camel</Export-Package>
+                        <Export-Package>com.redhat.gpte.training.camel</Export-Package>
                         <!-- we must set the version for org.slf4j explicitly, to match that used in JBoss Fuse -->
                         <Import-Package>
                             org.slf4j;version=${slf4j.version},

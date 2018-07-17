@@ -9,8 +9,21 @@
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
         <propertyPlaceholder id="endpoint-properties" location="classpath:cbr.properties" />
-        <!-- Package to be scanned -->
 
-        <!-- Endpoints Definition -->
+        <package>com.redhat.gpte.training.camel</package>
+
+        <endpoint id="sourceDirectoryXml" uri="{{sourceDirectoryXmlUri}}"/>
+        <endpoint id="sourceDirectoryCsv" uri="{{sourceDirectoryCsvUri}}"/>
+
+        <endpoint id="euroSinkXml" uri="{{euroSinkXmlUri}}"/>
+        <endpoint id="usdSinkXml" uri="{{usdSinkXmlUri}}"/>
+        <endpoint id="otherSinkXml" uri="{{otherSinkXmlUri}}"/>
+
+        <endpoint id="euroSinkCsv" uri="{{euroSinkCsvUri}}"/>
+        <endpoint id="usdSinkCsv" uri="{{usdSinkCsvUri}}"/>
+        <endpoint id="otherSinkCsv" uri="{{otherSinkCsvUri}}"/>
+
     </camelContext>
+
+
 </beans>

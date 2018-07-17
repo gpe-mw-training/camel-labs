@@ -12,7 +12,7 @@
     <artifactId>deployment</artifactId>
     <version>1.0</version>
 
-    <name>RedHat GPE Training :: REST DSL Demo :: Deployment scripts</name>
+    <name>RedHat GPTE Training :: REST DSL Demo :: Deployment scripts</name>
 
     <build>
         <defaultGoal>install</defaultGoal>
