@@ -6,8 +6,8 @@
        http://camel.apache.org/schema/spring
        http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-    <bean id="myRouteBuilder" class="com.redhat.gpe.training.camel.MyRouteBuilder"/>
-    <bean id="messageProducer" class="com.redhat.gpe.training.camel.MessageProducer">
+    <bean id="myRouteBuilder" class="com.redhat.gpte.training.camel.MyRouteBuilder"/>
+    <bean id="messageProducer" class="com.redhat.gpte.training.camel.MessageProducer">
         <property name="context" ref="my-context"/>
     </bean>
 

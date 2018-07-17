@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.redhat.gpe.training</groupId>
+        <groupId>com.redhat.gpte.training</groupId>
         <artifactId>camel</artifactId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>camel-lab-2</artifactId>
-    <name>RedHat GPE Training :: Camel :: Lab :: 2 :: Simple</name>
+    <name>RedHat GPTE Training :: Camel :: Lab :: 2 :: Simple</name>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -30,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
+            <artifactId>slf4j-log4j12</artifactId>         
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -53,7 +53,7 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Private-Package>com.redhat.gpe.training.camel</Private-Package>
+                        <Private-Package>com.redhat.gpte.training.camel</Private-Package>
                         <Import-Package>*</Import-Package>
                     </instructions>
                 </configuration>

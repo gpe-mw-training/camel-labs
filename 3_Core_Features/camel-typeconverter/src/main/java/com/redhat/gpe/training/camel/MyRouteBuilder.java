@@ -1,7 +1,7 @@
-package com.redhat.gpe.training.camel;
+package com.redhat.gpte.training.camel;
 
-import com.redhat.gpe.training.camel.bean.MyArray;
-import com.redhat.gpe.training.camel.converter.ArrayConverter;
+import com.redhat.gpte.training.camel.bean.MyArray;
+import com.redhat.gpte.training.camel.converter.ArrayConverter;
 import org.apache.camel.*;
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;
@@ -24,18 +24,10 @@ public class MyRouteBuilder extends RouteBuilder {
           .log(">> Error : ${exception}")
           .handled(true)
           .to("direct:continue");
-
-        from("direct:typeconverter")
-           /*
-            * We will use an unknown typeConverter strategy
-            * From Array.class to Vector.class
-            * Camel will raise an exception
-            */
-           .convertBodyTo(Vector.class)
-           .log("We will convert the Object to a Vector");
-            
-        // .convertBodyTo(Collection.class)
-        // .log("We will convert the Object to a Collection");
+          
+         from("direct:typeconverter")
+           .convertBodyTo(Collection.class)
+           .log("We will convert the Object to a Collection");
 
         from("direct:continue")
            .log(">> We will register the strategy to convert an Array to a Vector")

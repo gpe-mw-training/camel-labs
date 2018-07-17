@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.camel;
+package com.redhat.gpte.training.camel;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.main.Main;
@@ -42,7 +42,7 @@ public class MainAppSyncMultiThreads {
             ThreadPoolProfile pool = new ThreadPoolProfile("my-pool");
             pool.setKeepAliveTime(20L);
             pool.setMaxPoolSize(5);
-            pool.setPoolSize(2);
+            pool.setPoolSize(1);
             pool.setDefaultProfile(true);
 
             // Register it

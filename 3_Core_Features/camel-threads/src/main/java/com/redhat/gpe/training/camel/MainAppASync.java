@@ -1,8 +1,7 @@
-package com.redhat.gpe.training.camel;
+package com.redhat.gpte.training.camel;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.main.Main;
-import org.apache.camel.spi.ThreadPoolProfile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

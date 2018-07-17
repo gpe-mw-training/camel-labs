@@ -1,4 +1,4 @@
-package com.redhat.gpe.training.camel;
+package com.redhat.gpte.training.camel;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.main.Main;

@@ -1,6 +1,6 @@
-package com.redhat.gpe.training.camel;
+package com.redhat.gpte.training.camel;
 
-import com.redhat.gpe.training.camel.bean.MyArray;
+import com.redhat.gpte.training.camel.bean.MyArray;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tns:Payments xmlns:tns="http://training.gpe.redhat.com/payment"
+<tns:Payments xmlns:tns="http://training.gpte.redhat.com/payment"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="training.gpe.redhat.com/payment">
+              xsi:schemaLocation="training.gpte.redhat.com/payment">
 
     <tns:Currency>EUR</tns:Currency>
 

@@ -9,9 +9,20 @@
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
         <route id="fetch-records">
+            <from uri="sql:select * from projects order by id?dataSource=#h2-datasource&amp;consumer.delay=5000"/>
+            <split>
+                <simple>body</simple>
+                <log message=">> ID : ${body[ID]}, PROJECT : ${body[PROJECT]}, LICENSE : ${body[LICENSE]}"/>
+            </split>
         </route>
-
         <route id="insert-records">
+            <from uri="file://src/main/data?noop=true"/>
+            <convertBodyTo type="String"/>
+            <split>
+                <tokenize token="\n"/>
+                <log message=">> Record : ${body}"/>
+                <to uri="sql:insert into projects (id, project, license) values (#, #, #)?separator=;"/>
+            </split>
         </route>
     </camelContext>
 </beans>
