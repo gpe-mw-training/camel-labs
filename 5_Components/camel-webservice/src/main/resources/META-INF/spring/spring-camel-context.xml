@@ -12,7 +12,7 @@
 
     <cxf:cxfEndpoint/>
 
-    <bean id="beanService" class="com.redhat.gpe.training.camel.BeanService" init-method="generateCustomer"/>
+    <bean id="beanService" class="com.redhat.gpte.training.camel.BeanService" init-method="generateCustomer"/>
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring"/>
 

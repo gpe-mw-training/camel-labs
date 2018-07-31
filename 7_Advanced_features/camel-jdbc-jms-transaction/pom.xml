@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>camel-lab-7</artifactId>
-        <groupId>com.redhat.gpe.training</groupId>
+        <groupId>com.redhat.gpte.training</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>camel-jdbc-jms-transaction</artifactId>
-    <name>RedHat GPE Training :: Camel :: Lab :: 7 :: JDBC JMS Transacted Route</name>
+    <name>RedHat GPTE Training :: Camel :: Lab :: 7 :: JDBC JMS Transacted Route</name>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -301,7 +301,7 @@
                 <configuration>
                     <instructions>
                         <Export-Package>
-                            com.redhat.gpe.training*
+                            com.redhat.gpte.training*
                         </Export-Package>
                         <!-- we must set the version for org.slf4j explicitly, to match that used in JBoss Fuse -->
                         <Import-Package>

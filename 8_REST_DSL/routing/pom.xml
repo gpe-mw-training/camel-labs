@@ -12,13 +12,13 @@
     <artifactId>routing</artifactId>
     <version>1.0</version>
 
-    <name>RedHat GPE Training :: REST DSL Demo :: Routing</name>
+    <name>RedHat GPTE Training :: REST DSL Demo :: Routing</name>
 
     <packaging>bundle</packaging>
 
     <properties>
         <!-- fabric8 deploy profile configuration -->
-        <fabric8.profile>gpe-fuse</fabric8.profile>
+        <fabric8.profile>gpte-fuse</fabric8.profile>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
         <fabric8.bundles>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json/20140107_1
         </fabric8.bundles>
@@ -66,7 +66,7 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
-        
+
         <!-- MVel -->
         <dependency>
             <groupId>org.mvel</groupId>
@@ -168,7 +168,7 @@
                     <useBlueprint>true</useBlueprint>
                 </configuration>
             </plugin>
-            
+
             <!-- Fabric8 Plugin deploying the profile into a JBoss Fuse Fabric Server -->
             <plugin>
                 <groupId>io.fabric8</groupId>

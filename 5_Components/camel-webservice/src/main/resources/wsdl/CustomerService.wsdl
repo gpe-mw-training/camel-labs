@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions name="CustomerService"
-                  targetNamespace="http://training.gpe.redhat.com/"
+                  targetNamespace="http://training.gpte.redhat.com/"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:tns="http://training.gpe.redhat.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="http://training.gpte.redhat.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                   xmlns:tns="http://training.gpe.redhat.com/"
+                   xmlns:tns="http://training.gpte.redhat.com/"
                    attributeFormDefault="unqualified"
                    elementFormDefault="unqualified"
-                   targetNamespace="http://training.gpe.redhat.com/">
+                   targetNamespace="http://training.gpte.redhat.com/">
 
             <!-- Entity definition -->
             <xs:complexType name="customer">
@@ -118,7 +118,7 @@
                       transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="getCustomerByName">
             <soap:operation
-                    soapAction="http://training.gpe.redhat.com/getCustomerByName"/>
+                    soapAction="http://training.gpte.redhat.com/getCustomerByName"/>
             <wsdl:input name="getCustomerByName">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -131,14 +131,14 @@
         </wsdl:operation>
 
         <wsdl:operation name="getAllCustomers">
-            <soap:operation soapAction="http://training.gpe.redhat.com/getAllCustomers"/>
+            <soap:operation soapAction="http://training.gpte.redhat.com/getAllCustomers"/>
             <wsdl:output>
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
 
         <wsdl:operation name="saveCustomer">
-            <soap:operation soapAction="http://training.gpe.redhat.com/saveCustomer"/>
+            <soap:operation soapAction="http://training.gpte.redhat.com/saveCustomer"/>
             <wsdl:input name="saveCustomerRequest">
                 <soap:body use="literal"/>
             </wsdl:input>

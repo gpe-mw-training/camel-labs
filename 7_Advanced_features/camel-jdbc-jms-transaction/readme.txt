@@ -101,7 +101,7 @@ then please enter this in the Karaf Console:
     osgi:install mvn:org.springframework/spring-jdbc/2.5.5
     osgi:install wrap:mvn:postgresql/postgresql/9.1-901-1.jdbc4
     osgi:install wrap:mvn:com.h2database/h2/1.4.182
-    osgi:install -s mvn:com.redhat.gpe.training/camel-exercise-jdbc-jms-transaction/1.0
+    osgi:install -s mvn:com.redhat.gpte.training/camel-exercise-jdbc-jms-transaction/1.0
 
 (Alternatively you can install the feature using 'features:install camel-exercise-jdbc-jms-transaction' see step 3)
 

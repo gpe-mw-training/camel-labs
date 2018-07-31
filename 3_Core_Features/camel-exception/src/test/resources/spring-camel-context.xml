@@ -7,13 +7,13 @@
   	    http://camel.apache.org/schema/spring
 		http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-    <bean id="myBeanError" class="com.redhat.gpe.training.camel.MyBean"/>
-    <bean id="myBeanErrorException" class="com.redhat.gpe.training.camel.MyBean"/>
+    <bean id="myBeanError" class="com.redhat.gpte.training.camel.MyBean"/>
+    <bean id="myBeanErrorException" class="com.redhat.gpte.training.camel.MyBean"/>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
 
         <packageScan>
-            <package>com.redhat.gpe.training.camel</package>
+            <package>com.redhat.gpte.training.camel</package>
         </packageScan>
 
         <endpoint id="sourceDirectoryXml"              uri="file:./target/test-classes/camel/in/xml"/>

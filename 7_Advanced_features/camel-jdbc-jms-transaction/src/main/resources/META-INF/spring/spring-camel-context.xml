@@ -46,11 +46,11 @@
         </route>
     </camelContext>
 
-<!--    <bean id="currencyWithTxChecker" class="com.redhat.gpe.training.camel.h2.PaymentCurrencyWithTxRouter">
+<!--    <bean id="currencyWithTxChecker" class="com.redhat.gpte.training.camel.h2.PaymentCurrencyWithTxRouter">
         <property name="dataSource" ref="dataSource"/>
     </bean>-->
 
-    <bean id="paymentBean" class="com.redhat.gpe.training.camel.PaymentBean">
+    <bean id="paymentBean" class="com.redhat.gpte.training.camel.PaymentBean">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -122,7 +122,7 @@
         <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
     </bean>
 
-    <bean id="processedMessagesRepository" class="com.redhat.gpe.training.camel.h2.JdbcMessageIdRepository">
+    <bean id="processedMessagesRepository" class="com.redhat.gpte.training.camel.h2.JdbcMessageIdRepository">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

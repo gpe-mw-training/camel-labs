@@ -9,7 +9,7 @@
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
         <packageScan>
-            <package>com.redhat.gpe.training.camel</package>
+            <package>com.redhat.gpte.training.camel</package>
         </packageScan>
     </camelContext>
 

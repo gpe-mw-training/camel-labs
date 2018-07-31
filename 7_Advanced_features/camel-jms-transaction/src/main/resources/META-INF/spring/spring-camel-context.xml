@@ -40,7 +40,7 @@
 
     </camelContext>
 
-    <bean id="paymentBean" class="com.redhat.gpe.training.camel.PaymentBean"/>
+    <bean id="paymentBean" class="com.redhat.gpte.training.camel.PaymentBean"/>
 
     <!-- Local JMS Transaction Manager -->
     

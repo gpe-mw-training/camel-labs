@@ -7,12 +7,12 @@
   		http://camel.apache.org/schema/spring
 		http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-    <bean id="myBean" class="com.redhat.gpe.training.camel.MyBean"/>
+    <bean id="myBean" class="com.redhat.gpte.training.camel.MyBean"/>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
 
         <packageScan>
-            <package>com.redhat.gpe.training.camel</package>
+            <package>com.redhat.gpte.training.camel</package>
         </packageScan>
 
         <endpoint id="csvDirectory" uri="file:/camel-exercise/exception/in/xml"/>

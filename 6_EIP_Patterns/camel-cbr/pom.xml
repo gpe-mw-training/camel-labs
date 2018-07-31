@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>camel-lab-6</artifactId>
-        <groupId>com.redhat.gpe.training</groupId>
+        <groupId>com.redhat.gpte.training</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>camel-cbr</artifactId>
-    <name>RedHat GPE Training :: Camel :: Lab :: 6 :: CBR</name>
+    <name>RedHat GPTE Training :: Camel :: Lab :: 6 :: CBR</name>
     <packaging>bundle</packaging>
 
     <properties>
-        <fabric8.profile>gpe-camel-exercise-cbr</fabric8.profile>
+        <fabric8.profile>gpte-camel-exercise-cbr</fabric8.profile>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
         <fabric8.features>camel</fabric8.features>
     </properties>

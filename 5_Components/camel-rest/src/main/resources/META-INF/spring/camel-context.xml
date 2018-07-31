@@ -12,7 +12,7 @@
 
     <context:property-placeholder location="classpath:marvel.properties"/>
 
-    <bean id="marvelUtil" class="com.redhat.gpe.training.camel.MarvelUtil">
+    <bean id="marvelUtil" class="com.redhat.gpte.training.camel.MarvelUtil">
         <property name="apiKey" value="${apiKey}"/>
         <property name="privateKey" value="${privateKey}"/>
     </bean>
