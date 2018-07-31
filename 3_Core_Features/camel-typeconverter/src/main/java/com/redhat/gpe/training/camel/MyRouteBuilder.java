@@ -1,16 +1,18 @@
 package com.redhat.gpe.training.camel;
 
-import com.redhat.gpe.training.camel.bean.MyArray;
-import com.redhat.gpe.training.camel.converter.ArrayConverter;
-import org.apache.camel.*;
+import java.util.List;
+import java.util.Vector;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.NoTypeConversionAvailableException;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Vector;
+import com.redhat.gpe.training.camel.bean.MyArray;
+import com.redhat.gpe.training.camel.converter.ArrayConverter;
 
 public class MyRouteBuilder extends RouteBuilder {
 
@@ -26,8 +28,9 @@ public class MyRouteBuilder extends RouteBuilder {
           .to("direct:continue");
           
          from("direct:typeconverter")
-           .convertBodyTo(Collection.class)
-           .log("We will convert the Object to a Collection");
+           .log("We will convert the Object to a Vector")
+           .convertBodyTo(Vector.class);
+           
 
         from("direct:continue")
            .log(">> We will register the strategy to convert an Array to a Vector")
