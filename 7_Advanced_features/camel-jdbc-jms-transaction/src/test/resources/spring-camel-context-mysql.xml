@@ -29,7 +29,7 @@
         </route>
     </camelContext>
 
-    <bean id="currencyWithTxChecker" class="com.redhat.gpe.training.camel.mysql.PaymentCurrencyWithTxRouter">
+    <bean id="currencyWithTxChecker" class="com.redhat.gpte.training.camel.mysql.PaymentCurrencyWithTxRouter">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -65,7 +65,7 @@
         <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
     </bean>
 
-    <bean id="processedMessagesRepository" class="com.redhat.gpe.training.camel.mysql.JdbcMessageIdRepository">
+    <bean id="processedMessagesRepository" class="com.redhat.gpte.training.camel.mysql.JdbcMessageIdRepository">
         <property name="dataSource" ref="datasource"/>
     </bean>
 

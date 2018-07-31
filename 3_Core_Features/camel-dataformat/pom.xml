@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>camel-lab-3</artifactId>
-        <groupId>com.redhat.gpe.training</groupId>
+        <groupId>com.redhat.gpte.training</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>camel-dataformat</artifactId>
-    <name>RedHat GPE Training :: Camel :: Lab :: 3 :: DataFormat</name>
+    <name>RedHat GPTE Training :: Camel :: Lab :: 3 :: DataFormat</name>
 
     <dependencies>
         <dependency>

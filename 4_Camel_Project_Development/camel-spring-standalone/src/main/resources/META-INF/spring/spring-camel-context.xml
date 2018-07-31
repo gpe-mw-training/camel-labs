@@ -6,7 +6,7 @@
        http://camel.apache.org/schema/spring
          http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-    <bean id="myBean" class="com.redhat.gpe.training.camel.bean.MyBean"/>
+    <bean id="myBean" class="com.redhat.gpte.training.camel.bean.MyBean"/>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
         <route>

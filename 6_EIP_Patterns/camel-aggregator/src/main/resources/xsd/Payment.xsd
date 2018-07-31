@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="xmlns:tns=http://training.gpe.redhat.com/payment" elementFormDefault="qualified"
-        xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://training.gpe.redhat.com/payment">
+<schema targetNamespace="xmlns:tns=http://training.gpte.redhat.com/payment" elementFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://training.gpte.redhat.com/payment">
 
     <element name="Payment">
     	<complexType>

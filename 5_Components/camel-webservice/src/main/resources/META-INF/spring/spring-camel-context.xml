@@ -12,15 +12,15 @@
 
     <cxf:cxfEndpoint id="WS"
                      address="http://0.0.0.0:9090/training/WebService"
-                     serviceClass="com.redhat.gpe.training.CustomerService">
+                     serviceClass="com.redhat.gpte.training.CustomerService">
     </cxf:cxfEndpoint>
 
-    <bean id="beanService" class="com.redhat.gpe.training.camel.BeanService" init-method="generateCustomer"/>
+    <bean id="beanService" class="com.redhat.gpte.training.camel.BeanService" init-method="generateCustomer"/>
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
 
         <dataFormats>
-            <soapjaxb contextPath="com.redhat.gpe.training" id="soapFormat"/>
+            <soapjaxb contextPath="com.redhat.gpte.training" id="soapFormat"/>
         </dataFormats>
 
         <route id="cxf-to-queue">

@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
-       xmlns:camel="http://camel.apache.org/schema/blueprint"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
-
-  <bean id="helloBean" class="com.redhat.gpe.training.camel.HelloBean"/>
-
-  <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
-    <route>
-        <from uri="timer://demo?delay=5000" id="timer-of-the-demo">
-            <description/>
-        </from>
-        <setBody>
-            <simple>Hong</simple>
-        </setBody>
-        <bean ref="helloBean" method="sayHello"/>
-        <log message="${body}"/>
-    </route>
-</camelContext>
-
+    xmlns:camel="http://camel.apache.org/schema/blueprint"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+    <bean class="com.redhat.gpte.training.camel.HelloBean" id="helloBean"/>
+    <camelContext id="camelContext-cb0581c2-0f6b-40dc-8d4f-33a2c715b9e5"
+        trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+        <route id="_route1">
+            <from id="timer-of-the-demo" uri="timer://demo?delay=5000"/>
+            <setBody id="_setBody1">
+                <simple>Red Hat Partner</simple>
+            </setBody>
+            <bean id="_bean1" method="sayHello" ref="helloBean"/>
+            <log id="_log1" message="${body}"/>
+        </route>
+    </camelContext>
 </blueprint>

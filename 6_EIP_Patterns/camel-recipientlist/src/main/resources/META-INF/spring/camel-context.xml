@@ -8,7 +8,7 @@
   	      http://camel.apache.org/schema/spring/camel-spring.xsd">
 
     <camelContext id="mycontext" xmlns="http://camel.apache.org/schema/spring">
-        <package>com.redhat.gpe.training.camel</package>
+        <package>com.redhat.gpte.training.camel</package>
     </camelContext>
 
 </beans>

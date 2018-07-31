@@ -29,7 +29,7 @@
         </route>
     </camelContext>
 
-    <bean id="currencyWithTxChecker" class="com.redhat.gpe.training.camel.postgresql.PaymentCurrencyWithTxRouter">
+    <bean id="currencyWithTxChecker" class="com.redhat.gpte.training.camel.postgresql.PaymentCurrencyWithTxRouter">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -70,7 +70,7 @@
         <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
     </bean>
 
-    <bean id="processedMessagesRepository" class="com.redhat.gpe.training.camel.postgresql.JdbcMessageIdRepository">
+    <bean id="processedMessagesRepository" class="com.redhat.gpte.training.camel.postgresql.JdbcMessageIdRepository">
         <property name="dataSource" ref="postgres-ds"/>
     </bean>
 

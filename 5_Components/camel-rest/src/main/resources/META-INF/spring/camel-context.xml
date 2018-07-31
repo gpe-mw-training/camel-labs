@@ -12,7 +12,7 @@
 
     <context:property-placeholder location="classpath:marvel.properties"/>
 
-    <bean id="marvelUtil" class="com.redhat.gpe.training.camel.MarvelUtil">
+    <bean id="marvelUtil" class="com.redhat.gpte.training.camel.MarvelUtil">
         <property name="apiKey" value="${apiKey}"/>
         <property name="privateKey" value="${privateKey}"/>
     </bean>
@@ -21,7 +21,7 @@
         <propertyPlaceholder id="marvel" location="classpath:marvel.properties"/>
 
         <dataFormats>
-            <json id="json-marvel" library="Jackson" unmarshalTypeName="com.redhat.gpe.training.camel.model.Record"/>
+            <json id="json-marvel" library="Jackson" unmarshalTypeName="com.redhat.gpte.training.camel.model.Record"/>
         </dataFormats>
 
         <route id="call-marvel">

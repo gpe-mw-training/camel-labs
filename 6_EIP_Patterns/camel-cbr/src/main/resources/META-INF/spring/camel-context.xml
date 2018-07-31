@@ -10,7 +10,7 @@
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
         <propertyPlaceholder id="endpoint-properties" location="classpath:cbr.properties" />
 
-        <package>com.redhat.gpe.training.camel</package>
+        <package>com.redhat.gpte.training.camel</package>
 
         <endpoint id="sourceDirectoryXml" uri="{{sourceDirectoryXmlUri}}"/>
         <endpoint id="sourceDirectoryCsv" uri="{{sourceDirectoryCsvUri}}"/>

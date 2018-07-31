@@ -1,4 +1,4 @@
-# GPE JBoss Fuse Lab
+# GPTE JBoss Fuse Lab
 
 This JBoss Fuse lab will demonstrate how the new Apache Camel REST DSL syntax can be used to expose REST Services that we will use to add, search or delete
 articles for a blog into a nosql Elasticsearch database. The use case has been enriched to expose a file endpoint, as you can see within the following picture, which

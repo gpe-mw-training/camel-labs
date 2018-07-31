@@ -3,7 +3,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0
 http://karaf.apache.org/xmlns/features/v1.0.0 "
-          name="redhat-gpe-jboss-fuse-camel-training">
+          name="redhat-gpte-jboss-fuse-camel-training">
 
     <!-- import other features files -->
     <!--    <repository>mvn:org.apache.servicemix/apache-servicemix/${servicemix.version}/xml/features</repository>-->
