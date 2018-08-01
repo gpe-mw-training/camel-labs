@@ -11,10 +11,7 @@ public class MyBean {
 
     private static final Logger logger = LoggerFactory.getLogger(MyBean.class);
 
-    public Student process(@Body List<?> list) throws Exception {
-        HashMap<String, Object> map = (HashMap<String, Object>) list.get(0);
-        String modelKey = Student.class.getName();
-        Student student = (Student) map.get(modelKey);
+    public Student process(Student student) throws Exception {
 
         student.setStatus(Status.getRandomStatus().toString());
         student.setRoom("jboss-fuse-0123");

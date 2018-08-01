@@ -1,6 +1,7 @@
 package com.redhat.gpte.training.camel;
 
 import com.redhat.gpte.training.camel.model.Student;
+import com.redhat.gpte.training.camel.MyBean;
 import org.apache.camel.Endpoint;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
@@ -29,7 +30,6 @@ public class FromCSVFileToBindyDataFormat extends RouteBuilder {
           .beanRef("myBean")
           .marshal(df)
           .log(">> Student Registered : ${body}");
-
     }
 
 }
