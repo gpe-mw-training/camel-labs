@@ -16,7 +16,7 @@
     <modules>
         <module>camel-spring-standalone</module>
         <module>camel-standalone</module>
-        <module>camel-unit-test</module>
+        <module>camel-test</module>
         <module>camel-web</module>
     </modules>
 </project>
