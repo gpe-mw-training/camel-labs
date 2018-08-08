@@ -28,6 +28,18 @@
             <artifactId>camel-jaxb</artifactId>
         </dependency>
 
+        <!-- JAXB -->
+        <dependency>
+          <groupId>com.sun.xml.bind</groupId>
+          <artifactId>jaxb-core</artifactId>
+          <version>2.2.11</version>
+        </dependency>
+        <dependency>
+          <groupId>com.sun.xml.bind</groupId>
+          <artifactId>jaxb-impl</artifactId>
+          <version>2.2.11</version>
+        </dependency>
+
         <!-- Activemq -->
         <dependency>
             <groupId>org.apache.activemq</groupId>

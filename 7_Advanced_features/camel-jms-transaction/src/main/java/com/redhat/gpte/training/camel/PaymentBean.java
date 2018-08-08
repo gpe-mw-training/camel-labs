@@ -1,9 +1,11 @@
 package com.redhat.gpte.training.camel;
 
-import com.redhat.training.payment.Payments;
 import org.apache.camel.Body;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.redhat.training.payment.Payments;
+
 
 public class PaymentBean {
 

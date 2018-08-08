@@ -1,62 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
-
-    <camelContext xmlns="http://camel.apache.org/schema/spring">
-
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd             http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <camelContext id="camelContext-9f8a857d-ae37-41f2-bfee-f025c50ca5ad" xmlns="http://camel.apache.org/schema/spring">
         <endpoint id="endpointQueueIncomingPayments" uri="activemq:queue:incomingPayments"/>
         <endpoint id="endpointQueueOutgoingPayments" uri="activemq:queue:outgoingPayments"/>
         <endpoint id="endpointfileIn" uri="file:src/main/data/in?noop=true"/>
         <endpoint id="endpointfileOut" uri="file:src/main/data/out"/>
-
         <dataFormats>
-            <jaxb id="jaxb" contextPath="com.redhat.training.payment" prettyPrint="true"/>
+            <jaxb contextPath="com.redhat.training.payment" id="jaxb" prettyPrint="true"/>
         </dataFormats>
-
         <!-- 1. Seeds the queue with data. -->
-        <route>
-            <from ref="endpointfileIn"/>
-            <to ref="endpointQueueIncomingPayments"/>
+        <route id="_route1">
+            <from id="_from1" ref="endpointfileIn"/>
+            <to id="_to1" ref="endpointQueueIncomingPayments"/>
         </route>
-
         <!-- 2. PaymentCurrencyRouter -->
-        <route>
-            <from ref="endpointQueueIncomingPayments"/>
-            <convertBodyTo type="String"/>
-            <unmarshal ref="jaxb"/>
-            <bean ref="paymentBean" method="validate"/>
-            <marshal ref="jaxb"/>
-            <to uri="endpointQueueOutgoingPayments"/>
+        <route id="_route2">
+            <from id="_from2" ref="endpointQueueIncomingPayments"/>
+            <convertBodyTo id="_convertBodyTo1" type="String"/>
+            <unmarshal id="_unmarshal1" ref="jaxb"/>
+            <bean id="_bean1" method="validate" ref="paymentBean"/>
+            <marshal id="_marshal1" ref="jaxb"/>
+            <to id="_to2" uri="endpointQueueOutgoingPayments"/>
         </route>
-
         <!-- 3. Consume messages from queues -->
-        <route>
-            <from ref="endpointQueueOutgoingPayments"/>
-            <to ref="endpointfileOut"/>
+        <route id="_route3">
+            <from id="_from3" ref="endpointQueueOutgoingPayments"/>
+            <to id="_to3" ref="endpointfileOut"/>
         </route>
-
     </camelContext>
-
-    <bean id="paymentBean" class="com.redhat.gpte.training.camel.PaymentBean"/>
-
+    <bean class="com.redhat.gpte.training.camel.PaymentBean" id="paymentBean"/>
     <!-- Local JMS Transaction Manager -->
-    <bean id="transactionManager"
-          class="org.springframework.jms.connection.JmsTransactionManager">
+    <bean
+        class="org.springframework.jms.connection.JmsTransactionManager" id="transactionManager">
         <property name="connectionFactory" ref="jmsConnectionFactory"/>
     </bean>
-
-    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-        <property name="brokerURL"
-                  value="tcp://localhost:61616?jms.redeliveryPolicy.maximumRedeliveries=3&amp;jms.redeliveryPolicy.initialRedeliveryDelay=500"/>
+    <bean class="org.apache.activemq.ActiveMQConnectionFactory" id="jmsConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616?jms.redeliveryPolicy.maximumRedeliveries=3&amp;jms.redeliveryPolicy.initialRedeliveryDelay=500"/>
     </bean>
-
-    <bean name="activemq" class="org.apache.camel.component.jms.JmsComponent">
+    <bean class="org.apache.camel.component.jms.JmsComponent"
+        id="bean-856a0784-354c-484f-bd8b-62210e084c2a" name="activemq">
         <property name="connectionFactory" ref="jmsConnectionFactory"/>
         <property name="transactionManager" ref="transactionManager"/>
         <property name="transacted" value="true"/>
     </bean>
-
 </beans>

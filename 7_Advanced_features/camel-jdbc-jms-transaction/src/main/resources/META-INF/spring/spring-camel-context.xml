@@ -1,75 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-  	    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-	    http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
-	   ">
-
-    <camelContext xmlns="http://camel.apache.org/schema/spring">
-
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd      http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd     ">
+    <camelContext id="camelContext-2edc5dec-19f9-471e-aec8-71f7fe439b72" xmlns="http://camel.apache.org/schema/spring">
         <endpoint id="endpointQueueIncomingTxPayments" uri="activemq:queue:incomingTxPayments"/>
         <endpoint id="endpointQueueOutgoingTxPayments" uri="activemq:queue:outgoingTxPayments"/>
         <endpoint id="endpointfileIn" uri="file:src/main/data/in?noop=true"/>
         <endpoint id="endpointfileOut" uri="file:src/main/data/out"/>
-
         <dataFormats>
-            <jaxb id="jaxb" contextPath="com.redhat.training.payment" prettyPrint="true"/>
+            <jaxb contextPath="com.redhat.training.payment" id="jaxb" prettyPrint="true"/>
         </dataFormats>
-
         <!-- 1. Seeds the queue with data. -->
-        <route>
-            <from ref="endpointfileIn"/>
-            <to ref="endpointQueueIncomingTxPayments"/>
+        <route id="_route4">
+            <from id="_from1" ref="endpointfileIn"/>
+            <to id="_to1" ref="endpointQueueIncomingTxPayments"/>
         </route>
-
         <!-- 2  PaymentCurrencyWithTxRouter -->
-        <route>
-            <from ref="endpointQueueIncomingTxPayments"/>
-            <transacted ref="POLICY_PROPAGATION_REQUIRED"/>
-            <log message="Received Message ${body}"/>
-            <idempotentConsumer messageIdRepositoryRef="processedMessagesRepository">
+        <route id="_route5">
+            <from id="_from2" ref="endpointQueueIncomingTxPayments"/>
+            <transacted id="_transacted1" ref="POLICY_PROPAGATION_REQUIRED"/>
+            <log id="_log1" message="Received Message ${body}"/>
+            <idempotentConsumer id="_idempotentConsumer1" messageIdRepositoryRef="processedMessagesRepository">
                 <header>CamelFileNameOnly</header>
-                <unmarshal ref="jaxb"/>
-                <bean ref="paymentBean" method="insert"/>
-                <marshal ref="jaxb"/>
-                <log message="Save Message ${body}"/>
-                <to uri="endpointQueueOutgoingTxPayments"/>
+                <unmarshal id="_unmarshal1" ref="jaxb"/>
+                <bean id="_bean1" method="insert" ref="paymentBean"/>
+                <marshal id="_marshal1" ref="jaxb"/>
+                <log id="_log2" message="Save Message ${body}"/>
+                <to id="_to2" uri="endpointQueueOutgoingTxPayments"/>
             </idempotentConsumer>
         </route>
-
         <!-- 3 -->
-        <route>
-            <from uri="activemq:queue:outgoingTxPayments"/>
-            <convertBodyTo type="java.lang.String"/>
-            <to ref="endpointfileOut"/>
+        <route id="_route6">
+            <from id="_from3" uri="activemq:queue:outgoingTxPayments"/>
+            <convertBodyTo id="_convertBodyTo1" type="java.lang.String"/>
+            <to id="_to3" ref="endpointfileOut"/>
         </route>
     </camelContext>
-
-<!--    <bean id="currencyWithTxChecker" class="com.redhat.gpte.training.camel.h2.PaymentCurrencyWithTxRouter">
+    <!--    <bean id="currencyWithTxChecker" class="com.redhat.gpte.training.camel.h2.PaymentCurrencyWithTxRouter">
         <property name="dataSource" ref="dataSource"/>
     </bean>-->
-
-    <bean id="paymentBean" class="com.redhat.gpte.training.camel.PaymentBean">
+    <bean class="com.redhat.gpte.training.camel.PaymentBean" id="paymentBean">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
-    <bean id="jmsTransactionManager"
-          class="org.springframework.jms.connection.JmsTransactionManager">
+    <bean
+        class="org.springframework.jms.connection.JmsTransactionManager" id="jmsTransactionManager">
         <property name="connectionFactory" ref="jmsConnectionFactory"/>
     </bean>
-
-    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-        <property name="brokerURL"
-                  value="tcp://localhost:61616?jms.redeliveryPolicy.maximumRedeliveries=3&amp;jms.redeliveryPolicy.initialRedeliveryDelay=500"/>
+    <bean class="org.apache.activemq.ActiveMQConnectionFactory" id="jmsConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616?jms.redeliveryPolicy.maximumRedeliveries=3&amp;jms.redeliveryPolicy.initialRedeliveryDelay=500"/>
     </bean>
-
-    <bean name="activemq" class="org.apache.camel.component.jms.JmsComponent">
+    <bean class="org.apache.camel.component.jms.JmsComponent"
+        id="bean-996f2d59-b063-4a44-b1dc-c631cfafdd44" name="activemq">
         <property name="connectionFactory" ref="jmsConnectionFactory"/>
         <property name="transactionManager" ref="jmsTransactionManager"/>
         <property name="transacted" value="true"/>
     </bean>
-
     <!--  PostgreSQL
     <bean id="postgres-ds" class="org.postgresql.ds.PGPoolingDataSource">
         <property name="serverName" value="localhost"/>
@@ -82,7 +66,6 @@
         <property name="maxConnections" value="10"/>
       </bean>
     -->
-
     <!-- MySQL
         <bean id="datasource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -95,8 +78,8 @@
         <property name="minIdle" value="2"/>
     </bean>
     -->
-
-    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+    <bean class="org.apache.tomcat.jdbc.pool.DataSource"
+        destroy-method="close" id="dataSource">
         <property name="driverClassName" value="org.h2.Driver"/>
         <property name="url" value="jdbc:h2:tcp://localhost:9123/jbossfuse-demo"/>
         <property name="username" value="sa"/>
@@ -106,24 +89,22 @@
         <property name="maxIdle" value="5"/>
         <property name="minIdle" value="2"/>
     </bean>
-
-    <bean name="jdbcTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <bean
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+        id="bean-4065c455-52a3-47dd-8f87-b3543fcd9ace" name="jdbcTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
-<!--    <bean id="POLICY_PROPAGATION_REQUIRED"
+    <!--    <bean id="POLICY_PROPAGATION_REQUIRED"
           class="org.springframework.transaction.support.TransactionTemplate">
         <property name="transactionManager" ref="jdbcTransactionManager"/>
         <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
     </bean>-->
-
-    <bean id="POLICY_PROPAGATION_REQUIRED" class="org.apache.camel.spring.spi.SpringTransactionPolicy">
+    <bean class="org.apache.camel.spring.spi.SpringTransactionPolicy" id="POLICY_PROPAGATION_REQUIRED">
         <property name="transactionManager" ref="jdbcTransactionManager"/>
         <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
     </bean>
-
-    <bean id="processedMessagesRepository" class="com.redhat.gpte.training.camel.h2.JdbcMessageIdRepository">
+    <bean
+        class="com.redhat.gpte.training.camel.h2.JdbcMessageIdRepository" id="processedMessagesRepository">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
 </beans>
