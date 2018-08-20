@@ -26,11 +26,11 @@ public class MyRouteBuilder extends RouteBuilder {
           .to("direct:continue");
 
         from("direct:typeconverter")
-           /*
-            * We will use an unknown typeConverter strategy
-            * From Array.class to Vector.class
-            * Camel will raise an exception
-            */
+        /*
+         * We will use an unknown typeConverter strategy
+         * From ArrayConverter.toVector(java.util.ArrayList) to ArrayConverter
+         * Camel will raise a warning that deafult TypeConverter was overridden
+         */
           // .convertBodyTo(Vector.class)
            //.log("We will convert the Object to a Vector")
 
