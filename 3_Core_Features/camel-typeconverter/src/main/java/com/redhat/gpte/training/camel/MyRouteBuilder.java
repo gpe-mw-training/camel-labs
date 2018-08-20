@@ -31,22 +31,26 @@ public class MyRouteBuilder extends RouteBuilder {
             * From Array.class to Vector.class
             * Camel will raise an exception
             */
-           .convertBodyTo(Vector.class)
-           .log("We will convert the Object to a Vector");
-            
-        // .convertBodyTo(Collection.class)
-        // .log("We will convert the Object to a Collection");
+          // .convertBodyTo(Vector.class)
+           //.log("We will convert the Object to a Vector")
+
+         .convertBodyTo(Collection.class)
+         .log("We will convert the Object to a Collection")
+         .to("direct:continue");
 
         from("direct:continue")
-           .log(">> We will register the strategy to convert an Array to a Vector")
+           // .log(">> We will register the strategy to convert an Array to a Vector")
+           .log(">> We will register the strategy to convert an Array to a Collection")
            .process(new Processor() {
                @Override
                public void process(Exchange exchange) throws Exception {
                    CamelContext context = exchange.getContext();
-                   context.getTypeConverterRegistry().addTypeConverter(Vector.class, MyArray.class, new ArrayConverter());
+                  // context.getTypeConverterRegistry().addTypeConverter(Vector.class, MyArray.class, new ArrayConverter());
+                   context.getTypeConverterRegistry().addTypeConverter(Collection.class, MyArray.class, new ArrayConverter());
                }
            })
-           .convertBodyTo(Vector.class)
+           // .convertBodyTo(Vector.class)
+           .convertBodyTo(Collection.class)
            .log(">> Type looks good now")
            .process(new Processor() {
                @Override
@@ -57,7 +61,5 @@ public class MyRouteBuilder extends RouteBuilder {
                    }
                }
            });
-
     }
-
 }
