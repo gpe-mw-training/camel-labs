@@ -14,6 +14,7 @@
 
     <bean id="beanService" class="com.redhat.gpte.training.camel.BeanService" init-method="generateCustomer"/>
 
-    <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring"/>
+    <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
+    </camelContext>
 
 </beans>
