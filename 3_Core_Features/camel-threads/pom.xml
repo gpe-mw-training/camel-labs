@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-typeconverter</artifactId>
+    <artifactId>camel-threads</artifactId>
     <name>RedHat GPTE Training :: Camel :: Lab :: 3 :: TypeConverter</name>
 
     <dependencies>
