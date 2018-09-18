@@ -33,11 +33,6 @@ http://karaf.apache.org/xmlns/features/v1.0.0 "
         <bundle>mvn:${pom.groupId}/camel-exercise-typeconverter/${pom.version}</bundle>
     </feature>
 
-    <feature name="camel-exercise-typeconverter">
-        <feature version="${camel-version}">camel</feature>
-        <bundle>mvn:${pom.groupId}/camel-exercise-typeconverter/${pom.version}</bundle>
-    </feature>
-
     <feature name="camel-exercise-dataformat">
         <feature version="${camel-version}">camel</feature>
         <feature version="${camel-version}">camel-bindy</feature>
