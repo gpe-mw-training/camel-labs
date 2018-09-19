@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.jboss.fuse</groupId>
-        <artifactId>camel-rest-dsl-demo</artifactId>
+        <artifactId>camel-lab-8</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>kibana</artifactId>
+    <artifactId>lab-restdsl-kibana</artifactId>
     <version>1.0</version>
 
-    <name>RedHat GPTE Training :: REST DSL Demo :: Kibana 3</name>
+    <name>RedHat GPTE Training :: Camel :: Lab :: 8 :: Kibana</name>
 
     <properties>
         <jetty.port>9090</jetty.port>

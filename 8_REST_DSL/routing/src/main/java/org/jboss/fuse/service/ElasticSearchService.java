@@ -11,9 +11,12 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.support.PlainActionFuture;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.ImmutableSettings;
+import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.elasticsearch.common.transport.TransportAddress;
+//import org.elasticsearch.common.settings.ImmutableSettings;
+import org.elasticsearch.common.network.InetAddresses;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
+//import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -22,10 +25,12 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.InetAddress;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.net.UnknownHostException;
 
 public class ElasticSearchService {
 
@@ -33,13 +38,16 @@ public class ElasticSearchService {
     Client client;
     
     public void init() {
-        Settings settings = ImmutableSettings.settingsBuilder()
-                .classLoader(Settings.class.getClassLoader())
+        try{
+        Settings settings = Settings.builder()
                 .put("cluster.name", "insight")
                 .put("client.transport.sniff", false)
                 .build();
-        client = new TransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress("localhost",9300));
+        client = new PreBuiltTransportClient(Settings.EMPTY)
+                .addTransportAddress(new TransportAddress(InetAddress.getByName("localhost"), 9300));
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
     }
     
     public void shutdown() {
@@ -101,7 +109,7 @@ public class ElasticSearchService {
             LOG.info("No result found for the search request");
         } else {
             SearchHits searchHits = response.getHits();
-            SearchHit[] hits = searchHits.hits();
+            SearchHit[] hits = searchHits.getHits();
             for(SearchHit searchHit : hits) {
                 LOG.info("Result : " + searchHit.getSourceAsString());
                 Blog blog = new ObjectMapper().readValue( searchHit.getSourceAsString(), Blog.class);

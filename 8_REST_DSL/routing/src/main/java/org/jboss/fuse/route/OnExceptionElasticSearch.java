@@ -1,6 +1,7 @@
 package org.jboss.fuse.route;
 
 import org.jboss.fuse.service.ElasticSearchService;
+import org.apache.camel.component.elasticsearch.ElasticsearchConstants;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;
@@ -21,7 +22,7 @@ public abstract class OnExceptionElasticSearch extends RouteBuilder {
                 .log(">> Exception message : ${exception.message}")
              .log(">> Stack trace : ${exception.stacktrace}");
         
-        onException(org.elasticsearch.indices.IndexMissingException.class)
+        onException(org.elasticsearch.indices.TypeMissingException.class)
              .handled(true)
              .setBody().constant("The [blog] index is missing into the Elasticsearch Database")
              .setHeader(Exchange.CONTENT_TYPE).constant("text/plain")
