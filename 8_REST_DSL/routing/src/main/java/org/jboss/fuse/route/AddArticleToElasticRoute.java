@@ -5,7 +5,6 @@ import org.jboss.fuse.model.Blog;
 import org.jboss.fuse.service.ElasticSearchService;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.component.elasticsearch.ElasticsearchConfiguration;
-import org.apache.camel.component.elasticsearch.ElasticsearchConstants;
 import org.apache.camel.component.jackson.JacksonDataFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +22,9 @@ public class AddArticleToElasticRoute extends OnExceptionElasticSearch {
         from("direct:add").id("add-direct-route")
                 .log(LoggingLevel.INFO,"Add new Blog entry service called !")
                 
-                .setHeader(ElasticsearchConstants.PARAM_INDEX_NAME).simple("{{indexname}}")
-                .setHeader(ElasticsearchConstants.PARAM_INDEX_TYPE).simple("{{indextype}}")
-                .setHeader(ElasticsearchConstants.PARAM_OPERATION).constant(ElasticsearchConstants.OPERATION_INDEX)
+                .setHeader(ElasticsearchConfiguration.PARAM_INDEX_NAME).simple("{{indexname}}")
+                .setHeader(ElasticsearchConfiguration.PARAM_INDEX_TYPE).simple("{{indextype}}")
+                .setHeader(ElasticsearchConfiguration.PARAM_OPERATION).constant(ElasticsearchConfiguration.OPERATION_INDEX)
                 // Transform Java Blog Object to JSON String. IT will be used as Source Body content to insert the record in ElasticSearch
                 .setHeader(ID).simple("${body.id}")
                 .marshal(jacksondf)
