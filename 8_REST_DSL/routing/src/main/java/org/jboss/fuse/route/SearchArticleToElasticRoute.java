@@ -3,7 +3,6 @@ package org.jboss.fuse.route;
 import org.jboss.fuse.service.ElasticSearchService;
 import org.apache.camel.Exchange;
 import org.apache.camel.component.elasticsearch.ElasticsearchConfiguration;
-import org.apache.camel.component.elasticsearch.ElasticsearchConstants; 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,10 +15,12 @@ public class SearchArticleToElasticRoute extends OnExceptionElasticSearch {
 
         from("direct:searchById").id("searchbyid-direct-route")
                 .log("Search article by ID Service called !")
-                .setHeader(ElasticsearchConstants.PARAM_INDEX_NAME).simple("{{indexname}}")
-                .setHeader(ElasticsearchConstants.PARAM_INDEX_TYPE).simple("{{indextype}}")
-                .setHeader(ElasticsearchConstants.PARAM_OPERATION).constant(ElasticsearchConstants.OPERATION_GET_BY_ID)
+                .setHeader(ElasticsearchConfiguration.PARAM_INDEX_NAME).simple("{{indexname}}")
+                .setHeader(ElasticsearchConfiguration.PARAM_INDEX_TYPE).simple("{{indextype}}")
+                .setHeader(ElasticsearchConfiguration.PARAM_OPERATION).constant(ElasticsearchConfiguration.OPERATION_GET_BY_ID)
+
                 .setBody().simple("${header.id}")
+
                 .to("elasticsearch://{{clustername}}?ip={{address}}")
                 .beanRef("elasticSearchService", "getBlog")
                 .choice()
@@ -31,8 +32,8 @@ public class SearchArticleToElasticRoute extends OnExceptionElasticSearch {
 
         from("direct:searchByUser").id("searchbyuser-direct-route")
                 .log("Search articles by user Service called !")
-                .setHeader(ElasticsearchConstants.PARAM_INDEX_NAME).simple("{{indexname}}")
-                .setHeader(ElasticsearchConstants.PARAM_INDEX_TYPE).simple("{{indextype}}")
+                .setHeader(ElasticsearchConfiguration.PARAM_INDEX_NAME).simple("{{indexname}}")
+                .setHeader(ElasticsearchConfiguration.PARAM_INDEX_TYPE).simple("{{indextype}}")
                 .beanRef("elasticSearchService", "getBlogs")
                 .choice()
                     .when().simple("${body.isEmpty} == 'true'")
