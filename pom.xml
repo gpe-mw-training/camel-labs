@@ -107,7 +107,7 @@
                 <version>${camel.version}</version>
             </dependency>
 
-            <!-- OSGI, Pax EXAM & Karaf-->
+            <!-- OSGI, Pax EXAM & Karaf -->
             <dependency>
                 <groupId>org.ops4j.pax.exam</groupId>
                 <artifactId>pax-exam</artifactId>
