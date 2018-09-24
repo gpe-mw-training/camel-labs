@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>camel-rest-dsl-demo</artifactId>
-        <groupId>org.jboss.fuse</groupId>
+        <artifactId>camel-lab-8</artifactId>
+        <groupId>com.redhat.gpte</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -18,7 +18,7 @@
         <jetty-version>9.2.3.v20140905</jetty-version>
         <jetty.port>8000</jetty.port>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
@@ -75,7 +75,7 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
         </dependency>
-        
+
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
