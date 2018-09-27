@@ -21,6 +21,7 @@
     <properties>
         <camel.version>2.15.1.redhat-620133</camel.version>
         <camel-run.version>2.16.0</camel-run.version>
+        <elasticsearch>6.4.0</elasticsearch>
         <fabric8-bom.version>6.2.0.redhat-133</fabric8-bom.version>
         <fabric8-maven-plugin>1.2.0.redhat-133</fabric8-maven-plugin>
     </properties>

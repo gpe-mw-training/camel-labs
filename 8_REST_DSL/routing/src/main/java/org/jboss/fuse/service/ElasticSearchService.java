@@ -11,12 +11,12 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.support.PlainActionFuture;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -30,16 +30,15 @@ import java.util.List;
 public class ElasticSearchService {
 
     final static Logger LOG = LoggerFactory.getLogger(ElasticSearchService.class);
-    Client client;
+    TransportClient client;
     
     public void init() {
-        Settings settings = ImmutableSettings.settingsBuilder()
-                .classLoader(Settings.class.getClassLoader())
+    		Settings settings = Settings.builder()
                 .put("cluster.name", "insight")
                 .put("client.transport.sniff", false)
                 .build();
-        client = new TransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress("0.0.0.0",9191));
+        client = new PreBuiltTransportClient(settings);
+        client.addTransportAddress(new TransportAddress(TransportAddress.META_ADDRESS,9191));
     }
     
     public void shutdown() {
@@ -101,7 +100,7 @@ public class ElasticSearchService {
             LOG.info("No result found for the search request");
         } else {
             SearchHits searchHits = response.getHits();
-            SearchHit[] hits = searchHits.hits();
+            SearchHit[] hits = searchHits.getHits();
             for(SearchHit searchHit : hits) {
                 LOG.info("Result : " + searchHit.getSourceAsString());
                 Blog blog = new ObjectMapper().readValue( searchHit.getSourceAsString(), Blog.class);

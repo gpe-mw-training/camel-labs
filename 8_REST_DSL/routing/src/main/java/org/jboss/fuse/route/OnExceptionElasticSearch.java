@@ -21,7 +21,7 @@ public abstract class OnExceptionElasticSearch extends RouteBuilder {
                 .log(">> Exception message : ${exception.message}")
              .log(">> Stack trace : ${exception.stacktrace}");
         
-        onException(org.elasticsearch.indices.IndexMissingException.class)
+        onException(org.elasticsearch.index.IndexNotFoundException.class)
              .handled(true)
              .setBody().constant("The [blog] index is missing into the Elasticsearch Database")
              .setHeader(Exchange.CONTENT_TYPE).constant("text/plain")
