@@ -28,7 +28,7 @@
 
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
         <maven-fabric-plugin.version>3.5.33.fuse-710007</maven-fabric-plugin.version>
-        <maven-jetty-plugin.version>8.1.14.v20131031</maven-jetty-plugin.version>
+        <maven-jetty-plugin.version>9.4.15.v20190215</maven-jetty-plugin.version>
         <maven-surefire-plugin.version>2.18</maven-surefire-plugin.version>
     </properties>
 
@@ -242,7 +242,7 @@
                     <version>${maven-bundle-plugin.version}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.mortbay.jetty</groupId>
+                    <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
                     <version>${maven-jetty-plugin.version}</version>
                 </plugin>
