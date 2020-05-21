@@ -318,8 +318,10 @@
             </snapshots>
         </repository>
         <repository>
+            <!-- <id>maven-central</id> -->
+            <!-- <url>http://repo.maven.apache.org/maven2/</url> -->
             <id>maven-central</id>
-            <url>http://central.maven.org/maven2/</url>
+            <url>http://repo.maven.apache.org/maven2/</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
@@ -418,7 +420,7 @@
         </pluginRepository>
         <pluginRepository>
             <id>maven-central</id>
-            <url>http://central.maven.org/maven2/</url>
+            <url>http://repo.maven.apache.org/maven2/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>

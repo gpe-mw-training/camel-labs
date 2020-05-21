@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+      <camelContext id="cbr-example-context" xmlns="http://camel.apache.org/schema/spring">
+
+        <route id="_route2">
+            <from id="_from1" uri="file:src/data?noop=true"/>
+            <choice id="_choice1">
+                <when id="_when1">
+                    <xpath>/person/city = 'London'</xpath>
+                    <log id="_log1" message=">> Message : ${body}"/>
+                    <to id="_to2" uri="file:target/messages/uk"/>
+                </when>
+                <otherwise id="_otherwise1">
+                    <log id="_log2" message=">> Message : ${body}"/>
+                    <to id="_to3" uri="file:target/messages/others"/>
+                </otherwise>
+            </choice>
+        </route>
+
+	<route id="cbr-route" trace="true">
+	  <from id="_from1" uri="undertow:http://localhost:7766/foo/bar"/>
+	  <setBody id="_setBody1">
+	    <simple>Hello ${body}</simple>
+	  </setBody>
+	  <!-- <log id="_log5" message="Headers ${in.headers}"/> -->
+	  <!-- <log id="_log5" message="Done processing ${body}"/> -->
+	</route>
+	
+      </camelContext>
+
+  <bean class="org.apache.camel.component.undertow.UndertowComponent" id="undertow">
+    <property name="hostOptions" ref="undertowHostOptions"/>
+  </bean>
+  <bean
+      class="org.apache.camel.component.undertow.UndertowHostOptions" id="undertowHostOptions">
+    <property name="http2Enabled" value="true"/>
+  </bean>
+</beans>
+
