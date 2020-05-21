@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>camel-lab-4</artifactId>
+        <groupId>com.redhat.gpte.training</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>camel-spring-undertow</artifactId>
+    <name>RedHat GPTE Training :: Camel :: Lab :: 4 :: Spring Undertow</name>
+
+    <properties>
+        <xbean-spring-version>3.5</xbean-spring-version>
+        <activemq.data>./target/activemq/data</activemq.data>
+    </properties>
+
+    <dependencies>
+        <!-- Camel -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring</artifactId>
+        </dependency>
+	<dependency>
+	  <groupId>org.apache.camel</groupId>
+	  <artifactId>camel-undertow</artifactId>
+	  <version>${camel.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.camel</groupId>
+	  <artifactId>camel-http-common</artifactId>
+	  <version>${camel.version}</version>
+	</dependency>
+	<dependency>
+          <groupId>org.apache.camel</groupId>
+          <artifactId>camel-xstream</artifactId>
+          <version>${camel.version}</version>
+        </dependency>
+	<!-- API, java.xml.bind module -->
+	<dependency>
+	  <groupId>jakarta.xml.bind</groupId>
+	  <artifactId>jakarta.xml.bind-api</artifactId>
+	  <version>2.3.2</version>
+	</dependency>
+
+	<!-- Runtime, com.sun.xml.bind module -->
+	<dependency>
+	  <groupId>org.glassfish.jaxb</groupId>
+	  <artifactId>jaxb-runtime</artifactId>
+	  <version>2.3.2</version>
+	</dependency>
+
+
+        <!-- Dependencies for using ActiveMQ -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-camel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-kahadb-store</artifactId>
+        </dependency>
+	
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <!-- logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-maven-plugin</artifactId>
+		<configuration>
+		  <fileApplicationContextUri>src/main/resources/META-INF/spring/camel-context.xml</fileApplicationContextUri>
+		</configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

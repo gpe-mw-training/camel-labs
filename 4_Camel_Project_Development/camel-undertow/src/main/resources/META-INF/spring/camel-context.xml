@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+      <camelContext id="cbr-example-context" xmlns="http://camel.apache.org/schema/spring">
+
+
+	<route id="cbr-route" trace="true">
+
+	</route>
+	
+      </camelContext>
+
+  <bean class="org.apache.camel.component.undertow.UndertowComponent" id="undertow">
+    <property name="hostOptions" ref="undertowHostOptions"/>
+  </bean>
+  <bean
+      class="org.apache.camel.component.undertow.UndertowHostOptions" id="undertowHostOptions">
+    <property name="http2Enabled" value="true"/>
+  </bean>
+</beans>
+
