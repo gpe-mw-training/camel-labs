@@ -29,6 +29,19 @@
             <artifactId>spring-context</artifactId>
         </dependency>
 
+	<!-- Dependencies for JAXB and activation datasource added explicity for Java 9+ -->
+	<dependency>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+          <version>2.3.0</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>javax.activation</groupId>
+          <artifactId>activation</artifactId>
+          <version>1.1.1</version>
+        </dependency>
+	
         <!-- logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
