@@ -22,7 +22,7 @@
         <slf4j.version>1.7.22.redhat-1</slf4j.version>
         <geronimo-servlet-spec.version>1.0</geronimo-servlet-spec.version>
         <pax-exam.version>3.5.0</pax-exam.version>
-        <karaf.version>4.2.0.fuse-710008</karaf.version>
+        <karaf.version>4.2.3</karaf.version>
         <junit-bundle.version>4.11_2</junit-bundle.version>
         <jetty.version>9.4.3.v20170317-redhat-1</jetty.version>
 
