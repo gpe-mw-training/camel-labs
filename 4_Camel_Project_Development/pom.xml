@@ -18,5 +18,6 @@
         <module>camel-standalone</module>
         <module>camel-test</module>
         <module>camel-web</module>
+        <module>camel-undertow</module>
     </modules>
 </project>
