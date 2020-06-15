@@ -18,7 +18,7 @@
         <h2.version>1.4.182</h2.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <mysql.version>5.1.34</mysql.version>
-        <spring.version>5.0.8.RELEASE</spring.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
         <slf4j.version>1.7.22.redhat-1</slf4j.version>
         <geronimo-servlet-spec.version>1.0</geronimo-servlet-spec.version>
         <pax-exam.version>3.5.0</pax-exam.version>
