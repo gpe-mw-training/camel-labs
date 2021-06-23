@@ -15,7 +15,7 @@
     <name>RedHat GPTE Training :: Camel :: Lab :: 8 :: Swagger</name>
     <properties>
         <swagger-ui-version>2.1.2</swagger-ui-version>
-        <jetty-version>9.2.3.v20140905</jetty-version>
+        <jetty-version>9.4.41.v20210516</jetty-version>
         <jetty.port>8000</jetty.port>
     </properties>
 
